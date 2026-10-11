@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="SLB-IMS integrates institutional admissions, academic records, student finances and student loan sponsorship records in one coordinated management system.">
+
+    <meta name="theme-color" content="#101c35">
+
+    <title>SLB-IMS | Institutional Student Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page-background" aria-hidden="true">
+        <div class="background-orb orb-one"></div>
+        <div class="background-orb orb-two"></div>
+        <div class="background-orb orb-three"></div>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a class="brand" href="index.html" aria-label="SLB-IMS Home">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <path d="M24 4L5 14L24 24L43 14L24 4Z"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linejoin="round"/>
+                        <path d="M12 18V29C12 33 17.4 37 24 37C30.6 37 36 33 36 29V18"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linecap="round"/>
+                        <path d="M43 14V28"
+                              stroke="currentColor"
+                              stroke-width="2.5"
+                              stroke-linecap="round"/>
+                        <circle cx="43" cy="31" r="2.5"
+                                fill="currentColor"/>
+                    </svg>
+                </span>
+
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>INSTITUTIONAL MANAGEMENT</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation"
+                 id="main-navigation"
+                 aria-label="Main navigation">
+
+                <a class="nav-link active" href="index.html">Home</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="academic-menu">
+                        Academics
+                        <span class="chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu" id="academic-menu">
+                        <a href="admissions.html">Admissions</a>
+                        <a href="registration.html">Student Registration</a>
+                        <a href="academics.html">Academic Management</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="finance-menu">
+                        Finance
+                        <span class="chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu" id="finance-menu">
+                        <a href="finance.html">Student Finance</a>
+                        <a href="loan-integration.html">Loan Integration</a>
+                        <a href="reconciliation.html">Financial Reconciliation</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="reports.html">Reports</a>
+
+                <a class="nav-link" href="student-portal.html">
+                    Student Portal
+                </a>
+
+                <a class="nav-cta" href="login.html">
+                    Sign In
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ==================== HERO ==================== -->
+
+        <section class="hero-section">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="status-dot"></span>
+                        INTEGRATED INSTITUTIONAL MANAGEMENT
+                    </div>
+
+                    <h1>
+                        One Student.
+                        <span class="gradient-text">One Record.</span>
+                        <br>
+                        A Connected
+                        <span class="gold-text">Future.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Manage admissions, academic progress and student
+                        finances in one coordinated system. Connect loan-board
+                        sponsorship and disbursement records with institutional
+                        accounts to support accurate, transparent fee management.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary button-large"
+                           href="login.html">
+                            Access the System
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a class="button button-outline button-large"
+                           href="#system-overview">
+                            Explore the System
+                        </a>
+                    </div>
+
+                    <div class="hero-note">
+                        <span class="note-icon" aria-hidden="true">✦</span>
+                        <span>
+                            Institutional control. Coordinated records.
+                            Accountable financial management.
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- SYSTEM OVERVIEW VISUAL -->
+
+                <div class="hero-visual" aria-label="Illustration of integrated student management">
+
+                    <div class="visual-glow"></div>
+
+                    <div class="welcome-card">
+
+                        <div class="welcome-card-header">
+                            <div>
+                                <span class="card-overline">
+                                    SYSTEM OVERVIEW
+                                </span>
+                                <h2>Student Management</h2>
+                            </div>
+
+                            <span class="live-indicator">
+                                <span></span> CONNECTED
+                            </span>
+                        </div>
+
+                        <div class="illustration">
+                            <div class="illustration-circle circle-outer"></div>
+                            <div class="illustration-circle circle-middle"></div>
+                            <div class="illustration-circle circle-inner"></div>
+
+                            <div class="student-figure">
+                                <div class="student-head">
+                                    <div class="student-hair"></div>
+                                </div>
+
+                                <div class="student-body"></div>
+                                <div class="student-arm"></div>
+                                <div class="student-book"></div>
+                            </div>
+
+                            <div class="graduation-cap">
+                                <span></span>
+                            </div>
+
+                            <div class="floating-symbol symbol-academic">
+                                <span aria-hidden="true">✦</span>
+                            </div>
+
+                            <div class="floating-symbol symbol-finance">
+                                <span aria-hidden="true">₮</span>
+                            </div>
+
+                            <div class="floating-symbol symbol-record">
+                                <span aria-hidden="true">✓</span>
+                            </div>
+                        </div>
+
+                        <div class="welcome-card-footer">
+                            <div>
+                                <span class="footer-label">ACADEMIC RECORDS</span>
+                                <strong>Institution-managed</strong>
+                            </div>
+
+                            <div>
+                                <span class="footer-label">LOAN RECORDS</span>
+                                <strong>Integrated &amp; reconciled</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-card floating-card-top">
+                        <span class="floating-card-icon academic-icon"
+                              aria-hidden="true">⌂</span>
+                        <div>
+                            <strong>Academic Records</strong>
+                            <small>Admissions to graduation</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card floating-card-bottom">
+                        <span class="floating-card-icon finance-icon"
+                              aria-hidden="true">↔</span>
+                        <div>
+                            <strong>Loan Reconciliation</strong>
+                            <small>Track coverage and disbursements</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CORE MODULES ==================== -->
+
+        <section class="quick-access-section" id="system-overview">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-kicker">ONE CONNECTED PLATFORM</span>
+
+                    <h2>
+                        Every essential record.
+                        <span class="gradient-text">Working together.</span>
+                    </h2>
+
+                    <p>
+                        Separate institutional responsibilities are connected
+                        through consistent student records, financial data
+                        and controlled information sharing.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon icon-admissions"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <rect x="9" y="7" width="30" height="35"
+                                      rx="5"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                                <path d="M17 17H31M17 24H31M17 31H26"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                                <circle cx="34" cy="34" r="7"
+                                        fill="#172A46"
+                                        stroke="currentColor"
+                                        stroke-width="2"/>
+                                <path d="M31 34L33 36L37 32"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <h3>Admissions &amp; Registration</h3>
+
+                        <p>
+                            Manage applications, admission decisions,
+                            student identities and semester registration.
+                        </p>
+
+                        <a class="card-link" href="admissions.html">
+                            Explore admissions <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon icon-academics"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M4 18L24 7L44 18L24 29L4 18Z"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linejoin="round"/>
+                                <path d="M12 23V34C19 41 29 41 36 34V23"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                                <path d="M44 18V31"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <h3>Academic Management</h3>
+
+                        <p>
+                            Organize programmes, courses, semester enrolment,
+                            academic progress and results.
+                        </p>
+
+                        <a class="card-link" href="academics.html">
+                            Explore academics <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon icon-finance"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <rect x="5" y="11" width="38" height="27"
+                                      rx="5"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                                <path d="M5 19H43"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                                <path d="M12 29H22"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                                <circle cx="34" cy="29" r="3"
+                                        stroke="currentColor"
+                                        stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <h3>Student Finance</h3>
+
+                        <p>
+                            Maintain charges, invoices, receipts, fee
+                            statements and outstanding balances.
+                        </p>
+
+                        <a class="card-link" href="finance.html">
+                            Explore student finance <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon icon-loan"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M24 5L6 15H42L24 5Z"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linejoin="round"/>
+                                <path d="M10 18V34M19 18V34M29 18V34M38 18V34"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                                <path d="M5 38H43M8 34H40"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <h3>Loan Board Integration</h3>
+
+                        <p>
+                            Track sponsorship decisions, approved allocations,
+                            disbursements and verified receipts.
+                        </p>
+
+                        <a class="card-link" href="loan-integration.html">
+                            Explore loan integration <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon icon-reconciliation"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M8 15H34L29 10M34 15L29 20"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M40 33H14L19 28M14 33L19 38"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                                <path d="M38 22V15M10 26V33"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <h3>Financial Reconciliation</h3>
+
+                        <p>
+                            Compare charges, loan coverage and received
+                            payments before determining student balances.
+                        </p>
+
+                        <a class="card-link" href="reconciliation.html">
+                            Explore reconciliation <span>→</span>
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon icon-reports"
+                             aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M8 40V8M8 40H42"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"/>
+                                <rect x="14" y="25" width="6" height="11"
+                                      rx="1"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                                <rect x="25" y="17" width="6" height="19"
+                                      rx="1"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                                <rect x="36" y="10" width="6" height="26"
+                                      rx="1"
+                                      stroke="currentColor"
+                                      stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <h3>Reports &amp; Analytics</h3>
+
+                        <p>
+                            Produce academic, admissions, financial and
+                            loan-reconciliation reports.
+                        </p>
+
+                        <a class="card-link" href="reports.html">
+                            Explore reports <span>→</span>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== INTEGRATION PRINCIPLE ==================== -->
+
+        <section class="information-section">
+            <div class="container">
+
+                <div class="information-panel">
+
+                    <div class="information-content">
+                        <span class="section-kicker">
+                            FINANCIAL ACCURACY BY DESIGN
+                        </span>
+
+                        <h2>
+                            Sponsorship records should inform
+                            <span class="gold-text">student balances.</span>
+                        </h2>
+
+                        <p>
+                            A loan approval is not the same as a completed
+                            payment. SLB-IMS is designed around the distinction
+                            between approved funding, disbursement, funds
+                            received and the student's actual remaining
+                            obligations.
+                        </p>
+
+                        <a class="button button-primary"
+                           href="reconciliation.html">
+                            Understand Reconciliation
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+
+                    <div class="information-visual">
+                        <div class="flow-card">
+                            <span class="flow-number">01</span>
+                            <div>
+                                <strong>Institutional Charges</strong>
+                                <small>Official fees and contributions</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-connector">
+                            <span></span>
+                        </div>
+
+                        <div class="flow-card">
+                            <span class="flow-number gold-number">02</span>
+                            <div>
+                                <strong>Verified Loan Records</strong>
+                                <small>Funding, allocation and disbursement</small>
+                            </div>
+                        </div>
+
+                        <div class="flow-connector">
+                            <span></span>
+                        </div>
+
+                        <div class="flow-card flow-card-result">
+                            <span class="flow-number teal-number">03</span>
+                            <div>
+                                <strong>Reconciled Student Account</strong>
+                                <small>Traceable balance and exceptions</small>
+                            </div>
+                            <span class="result-check" aria-hidden="true">✓</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HOW IT WORKS ==================== -->
+
+        <section class="how-it-works-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-kicker">A CONNECTED WORKFLOW</span>
+
+                    <h2>From admission to accurate records.</h2>
+
+                    <p>
+                        Each stage builds on the same verified student identity
+                        while preserving the responsibilities of each office.
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+
+                    <article class="step-card">
+                        <span class="step-number">01</span>
+                        <h3>Register the Student</h3>
+                        <p>
+                            Establish the student's institutional identity,
+                            programme and registration details.
+                        </p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">02</span>
+                        <h3>Maintain Academic Records</h3>
+                        <p>
+                            Record enrolment, semester progress and
+                            institutionally maintained academic information.
+                        </p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">03</span>
+                        <h3>Connect Loan Information</h3>
+                        <p>
+                            Associate authorized sponsorship and disbursement
+                            records with the correct student account.
+                        </p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">04</span>
+                        <h3>Reconcile and Report</h3>
+                        <p>
+                            Identify discrepancies, verify payments and
+                            calculate balances before applying financial holds.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ACCESS SECTION ==================== -->
+
+        <section class="access-section">
+            <div class="container">
+
+                <div class="access-panel">
+                    <div>
+                        <span class="section-kicker">YOUR INSTITUTION. ONE PLATFORM.</span>
+
+                        <h2>Access the right records with the right permissions.</h2>
+
+                        <p>
+                            A shared platform does not mean unrestricted access.
+                            Student, academic, finance and administrative users
+                            should see only the records permitted by their roles.
+                        </p>
+                    </div>
+
+                    <a class="button button-primary button-large"
+                       href="login.html">
+                        Continue to Sign In
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand-column">
+                    <a class="brand" href="index.html">
+                        <span class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M24 4L5 14L24 24L43 14L24 4Z"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linejoin="round"/>
+                                <path d="M12 18V29C12 33 17.4 37 24 37C30.6 37 36 33 36 29V18"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linecap="round"/>
+                                <path d="M43 14V28"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </span>
+
+                        <span class="brand-text">
+                            <strong>SLB-IMS</strong>
+                            <small>INSTITUTIONAL MANAGEMENT</small>
+                        </span>
+                    </a>
+
+                    <p>
+                        Coordinating student, academic and financial records
+                        through accountable institutional management and
+                        authorized loan-board integration.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Institution</h3>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="registration.html">Registration</a>
+                    <a href="academics.html">Academic Management</a>
+                    <a href="student-portal.html">Student Portal</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Finance</h3>
+                    <a href="finance.html">Student Finance</a>
+                    <a href="loan-integration.html">Loan Integration</a>
+                    <a href="reconciliation.html">Reconciliation</a>
+                    <a href="reports.html">Reports</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>System</h3>
+                    <a href="login.html">Sign In</a>
+                    <a href="administration.html">Administration</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span id="current-year">2026</span>
+                    SLB-IMS. Institutional student management.
+                </p>
+
+                <p>
+                    A coordinated system for accountable records.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c1529">
+
+    <title>Reports | SLB-IMS</title>
+    <meta name="description"
+          content="SLB-IMS institutional reporting dashboard for admissions, academics, student finance, loan funding and reconciliation.">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reports.css">
+
+    <script src="script.js" defer></script>
+    <script src="reports.js" defer></script>
+</head>
+
+<body class="reports-page">
+
+<header class="site-header">
+    <div class="container header-content">
+
+        <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+                <strong>SLB-IMS</strong>
+                <small>Student Management System</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="registration.html" class="nav-link">Registration</a>
+            <a href="academics.html" class="nav-link">Academics</a>
+            <a href="finance.html" class="nav-link">Finance</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle"
+                        type="button"
+                        aria-expanded="false">
+                    Integration <span class="chevron">⌄</span>
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="loan-integration.html" class="nav-link">
+                        Loan Integration
+                    </a>
+                    <a href="reconciliation.html" class="nav-link">
+                        Reconciliation
+                    </a>
+                </div>
+            </div>
+
+            <a href="reports.html"
+               class="nav-link active"
+               aria-current="page">
+                Reports
+            </a>
+
+            <a href="student-portal.html" class="nav-link">
+                Student Portal
+            </a>
+
+            <a href="login.html" class="button button-primary nav-cta">
+                Sign In
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <!-- REPORTS HERO -->
+    <section class="reports-hero">
+        <div class="container">
+
+            <div class="reports-hero-content">
+                <div class="reports-hero-copy">
+
+                    <span class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Institutional intelligence
+                    </span>
+
+                    <h1>
+                        From student records to
+                        <span class="text-gradient">clear decisions.</span>
+                    </h1>
+
+                    <p>
+                        Generate structured views of admissions, academic
+                        programmes, student accounts, loan-board funding
+                        and financial reconciliation from one reporting
+                        workspace.
+                    </p>
+
+                    <div class="reports-hero-actions">
+                        <a href="#report-catalogue"
+                           class="button button-primary">
+                            Explore reports
+                        </a>
+
+                        <a href="#reporting-principles"
+                           class="button button-secondary">
+                            Reporting principles
+                        </a>
+                    </div>
+
+                    <div class="reports-hero-note">
+                        <span class="status-indicator"></span>
+                        Demonstration environment — sample data only
+                    </div>
+
+                </div>
+
+                <div class="reports-hero-visual" aria-hidden="true">
+                    <div class="report-orbit orbit-one"></div>
+                    <div class="report-orbit orbit-two"></div>
+
+                    <div class="report-visual-card">
+                        <div class="report-visual-top">
+                            <span class="report-visual-icon">▤</span>
+                            <span class="report-visual-label">
+                                REPORT OVERVIEW
+                            </span>
+                            <span class="report-visual-status">SAMPLE</span>
+                        </div>
+
+                        <div class="report-visual-heading">
+                            Institutional snapshot
+                        </div>
+
+                        <div class="report-visual-metric">
+                            <div>
+                                <span class="metric-caption">
+                                    Student records
+                                </span>
+                                <strong>04</strong>
+                            </div>
+
+                            <div class="metric-mini-chart">
+                                <span style="height: 35%"></span>
+                                <span style="height: 58%"></span>
+                                <span style="height: 46%"></span>
+                                <span style="height: 76%"></span>
+                                <span style="height: 63%"></span>
+                                <span style="height: 92%"></span>
+                            </div>
+                        </div>
+
+                        <div class="report-visual-divider"></div>
+
+                        <div class="report-visual-row">
+                            <span>
+                                <i class="legend-dot legend-blue"></i>
+                                Institutional records
+                            </span>
+                            <strong>Managed</strong>
+                        </div>
+
+                        <div class="report-visual-row">
+                            <span>
+                                <i class="legend-dot legend-gold"></i>
+                                Funding records
+                            </span>
+                            <strong>Reviewed</strong>
+                        </div>
+
+                        <div class="report-visual-row">
+                            <span>
+                                <i class="legend-dot legend-teal"></i>
+                                Reconciliation
+                            </span>
+                            <strong>Tracked</strong>
+                        </div>
+                    </div>
+
+                    <div class="report-floating-note report-floating-top">
+                        <span class="floating-note-icon">↗</span>
+                        <div>
+                            <strong>One workspace</strong>
+                            <small>Multiple report categories</small>
+                        </div>
+                    </div>
+
+                    <div class="report-floating-note report-floating-bottom">
+                        <span class="floating-note-icon gold-icon">✓</span>
+                        <div>
+                            <strong>Evidence-led</strong>
+                            <small>Traceable sample records</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OVERVIEW STATISTICS -->
+    <section class="reports-overview section-spacing">
+        <div class="container">
+
+            <div class="section-heading reports-section-heading">
+                <div>
+                    <span class="section-eyebrow">Overview</span>
+                    <h2>Reporting at a glance</h2>
+                    <p>
+                        Illustrative indicators calculated from the
+                        demonstration records available in this prototype.
+                    </p>
+                </div>
+
+                <span class="demo-badge">
+                    <span class="status-indicator"></span>
+                    Sample dataset
+                </span>
+            </div>
+
+            <div class="reports-stat-grid">
+
+                <article class="report-stat-card">
+                    <div class="report-stat-top">
+                        <span class="report-stat-icon blue-stat-icon">♙</span>
+                        <span class="report-stat-label">Student records</span>
+                    </div>
+
+                    <strong class="report-stat-value"
+                            id="report-total-students">04</strong>
+
+                    <p>Illustrative student directory records</p>
+
+                    <div class="report-stat-footer">
+                        <span>Admissions and registration</span>
+                        <span class="stat-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="report-stat-card">
+                    <div class="report-stat-top">
+                        <span class="report-stat-icon gold-stat-icon">◇</span>
+                        <span class="report-stat-label">Academic programmes</span>
+                    </div>
+
+                    <strong class="report-stat-value"
+                            id="report-total-programmes">04</strong>
+
+                    <p>Programmes represented in sample records</p>
+
+                    <div class="report-stat-footer">
+                        <span>Academic administration</span>
+                        <span class="stat-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="report-stat-card">
+                    <div class="report-stat-top">
+                        <span class="report-stat-icon teal-stat-icon">₮</span>
+                        <span class="report-stat-label">Assessed fees</span>
+                    </div>
+
+                    <strong class="report-stat-value report-money-value"
+                            id="report-total-fees">TZS 6,150,000</strong>
+
+                    <p>Total assessed fees in the finance sample</p>
+
+                    <div class="report-stat-footer">
+                        <span>Institutional financial records</span>
+                        <span class="stat-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="report-stat-card">
+                    <div class="report-stat-top">
+                        <span class="report-stat-icon purple-stat-icon">⌁</span>
+                        <span class="report-stat-label">
+                            Reconciliation alerts
+                        </span>
+                    </div>
+
+                    <strong class="report-stat-value"
+                            id="report-reconciliation-alerts">03</strong>
+
+                    <p>Sample records requiring review or follow-up</p>
+
+                    <div class="report-stat-footer">
+                        <span>Funding and payment verification</span>
+                        <span class="stat-arrow">↗</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REPORT CATALOGUE -->
+    <section class="report-catalogue-section section-spacing"
+             id="report-catalogue">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">Report centre</span>
+                    <h2>Choose a reporting category</h2>
+                    <p>
+                        Select a report to preview its sample data.
+                        Available reports are designed around the
+                        institution's administrative responsibilities
+                        and its coordination with the loan board.
+                    </p>
+                </div>
+            </div>
+
+            <div class="report-toolbar">
+
+                <div class="report-search-wrap">
+                    <label for="report-search">Search reports</label>
+
+                    <div class="report-search-control">
+                        <span aria-hidden="true">⌕</span>
+                        <input
+                            type="search"
+                            id="report-search"
+                            placeholder="Search by report name or purpose..."
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="report-filter-wrap">
+                    <label for="report-category-filter">
+                        Report category
+                    </label>
+
+                    <select id="report-category-filter">
+                        <option value="all">All categories</option>
+                        <option value="admissions">Admissions</option>
+                        <option value="academics">Academics</option>
+                        <option value="finance">Finance</option>
+                        <option value="funding">Loan funding</option>
+                        <option value="reconciliation">Reconciliation</option>
+                    </select>
+                </div>
+
+                <button type="button"
+                        id="reset-report-filters"
+                        class="button button-secondary report-reset-button">
+                    Reset filters
+                </button>
+
+            </div>
+
+            <div class="report-results-heading">
+                <p id="report-result-count" aria-live="polite">
+                    6 reports available — prototype catalogue
+                </p>
+                <span>Choose a report to open its preview</span>
+            </div>
+
+            <div class="report-card-grid" id="report-catalogue">
+
+                <!-- REPORT 1 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="admissions"
+                         data-search="admissions registration student directory enrolment status student records">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-blue">♙</span>
+                        <span class="report-category-tag">Admissions</span>
+                    </div>
+
+                    <h3>Student Directory</h3>
+
+                    <p>
+                        Review sample student identifiers, programmes,
+                        academic years and institutional registration
+                        statuses.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Student records</span>
+                        <span>Table preview</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="student-directory">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+                <!-- REPORT 2 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="academics"
+                         data-search="academic programmes departments programme catalogue study duration">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-gold">◇</span>
+                        <span class="report-category-tag">Academics</span>
+                    </div>
+
+                    <h3>Academic Programmes</h3>
+
+                    <p>
+                        Examine the programmes represented in the
+                        prototype, including programme codes,
+                        departments and study duration.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Academic records</span>
+                        <span>Catalogue preview</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="academic-programmes">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+                <!-- REPORT 3 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="finance"
+                         data-search="finance fee assessment payments received student balance outstanding charges">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-teal">₮</span>
+                        <span class="report-category-tag">Finance</span>
+                    </div>
+
+                    <h3>Institutional Fee Summary</h3>
+
+                    <p>
+                        Compare assessed institutional fees, verified
+                        receipts and outstanding balances using sample
+                        student-account records.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Financial records</span>
+                        <span>TZS amounts</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="finance-summary">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+                <!-- REPORT 4 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="funding"
+                         data-search="loan board sponsorship funding approved amount disbursement transfer received">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-purple">⇄</span>
+                        <span class="report-category-tag">Loan funding</span>
+                    </div>
+
+                    <h3>Loan Funding Status</h3>
+
+                    <p>
+                        Distinguish sponsorship approval, reported
+                        disbursement and funds confirmed as received
+                        by the institution.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Funding records</span>
+                        <span>Verification aware</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="loan-funding">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+                <!-- REPORT 5 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="reconciliation"
+                         data-search="reconciliation exceptions mismatch receipt verification payment posting discrepancy">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-warning">⌁</span>
+                        <span class="report-category-tag">Reconciliation</span>
+                    </div>
+
+                    <h3>Reconciliation Exceptions</h3>
+
+                    <p>
+                        Identify sample differences between loan-board
+                        disbursement records, institutional receipts
+                        and posted student-account payments.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Exception monitoring</span>
+                        <span>Review required</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="reconciliation-exceptions">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+                <!-- REPORT 6 -->
+                <article class="report-card"
+                         data-report-card
+                         data-category="admissions"
+                         data-search="registration status registered pending suspended admission records">
+
+                    <div class="report-card-top">
+                        <span class="report-card-icon report-icon-blue">▤</span>
+                        <span class="report-category-tag">Admissions</span>
+                    </div>
+
+                    <h3>Registration Summary</h3>
+
+                    <p>
+                        Review the distribution of sample registration
+                        statuses and identify records requiring
+                        institutional follow-up.
+                    </p>
+
+                    <div class="report-card-meta">
+                        <span>● Registration lifecycle</span>
+                        <span>Status overview</span>
+                    </div>
+
+                    <button type="button"
+                            class="button button-secondary report-open-button"
+                            data-report="admissions-summary">
+                        Preview report <span aria-hidden="true">→</span>
+                    </button>
+                </article>
+
+            </div>
+
+            <div id="report-empty-state"
+                 class="report-empty-state"
+                 hidden>
+                <span class="empty-state-icon">⌕</span>
+                <h3>No matching reports</h3>
+                <p>
+                    Try another search term or select a different category.
+                </p>
+                <button type="button"
+                        class="button button-secondary"
+                        id="report-empty-reset">
+                    Clear filters
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- REPORT PREVIEW -->
+    <section class="report-preview-section section-spacing"
+             id="report-preview-panel"
+             hidden>
+
+        <div class="container">
+
+            <div class="report-preview-card">
+
+                <div class="report-preview-header">
+                    <div>
+                        <span class="section-eyebrow">
+                            Generated report preview
+                        </span>
+
+                        <h2 id="report-preview-title">
+                            Report title
+                        </h2>
+
+                        <p id="report-preview-description">
+                            Report description
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            id="close-report-preview"
+                            class="icon-button"
+                            aria-label="Close report preview"
+                            title="Close preview">
+                        ×
+                    </button>
+                </div>
+
+                <div class="report-preview-notice">
+                    <span class="notice-icon">ⓘ</span>
+                    <p>
+                        <strong>Prototype preview:</strong>
+                        these rows are illustrative sample data, not
+                        verified institutional records or live loan-board
+                        information.
+                    </p>
+                </div>
+
+                <div class="report-preview-summary"
+                     id="report-preview-summary">
+                    <!-- Summary indicators are inserted by reports.js. -->
+                </div>
+
+                <div class="report-preview-table-wrap">
+                    <table class="report-preview-table">
+                        <thead id="report-preview-table-head">
+                            <!-- Column headings are inserted by reports.js. -->
+                        </thead>
+
+                        <tbody id="report-preview-table-body">
+                            <!-- Report rows are inserted by reports.js. -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="report-preview-footer">
+                    <div class="report-generated-information">
+                        <span class="generated-icon">◷</span>
+                        <div>
+                            <span>Preview generated</span>
+                            <strong id="report-generated-at">
+                                Not generated yet
+                            </strong>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            id="export-report-csv"
+                            class="button button-primary"
+                            disabled>
+                        Export CSV
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REPORTING PRINCIPLES -->
+    <section class="reporting-principles-section section-spacing"
+             id="reporting-principles">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">Data integrity</span>
+                    <h2>Reports must reflect what is verified</h2>
+                    <p>
+                        A useful report preserves the distinction between
+                        institutional records and external funding records.
+                    </p>
+                </div>
+            </div>
+
+            <div class="report-principles-grid">
+
+                <article class="report-principle-card">
+                    <span class="principle-number">01</span>
+                    <h3>Institutional authority</h3>
+                    <p>
+                        The institution remains responsible for admissions,
+                        academic administration, fee assessment, student
+                        accounts and recording payments it has received.
+                    </p>
+                </article>
+
+                <article class="report-principle-card">
+                    <span class="principle-number">02</span>
+                    <h3>Funding is not receipt</h3>
+                    <p>
+                        Loan approval and reported disbursement must not
+                        automatically be treated as payment received by
+                        the institution.
+                    </p>
+                </article>
+
+                <article class="report-principle-card">
+                    <span class="principle-number">03</span>
+                    <h3>Exceptions remain visible</h3>
+                    <p>
+                        Differences, pending transfers and unverified
+                        transactions should be reported for review instead
+                        of silently changing student balances.
+                    </p>
+                </article>
+
+                <article class="report-principle-card">
+                    <span class="principle-number">04</span>
+                    <h3>Protect student information</h3>
+                    <p>
+                        A production reporting service should enforce
+                        authorized access, minimize personal information
+                        and maintain an audit trail for sensitive exports.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="reporting-integrity-banner">
+                <div class="integrity-banner-icon">✦</div>
+
+                <div>
+                    <h3>Designed for accountable reporting</h3>
+                    <p>
+                        Production reports must be generated from
+                        authenticated, authorized and validated data sources.
+                        This front-end prototype does not connect to a
+                        database or a live loan-board service.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+
+        <a href="index.html" class="brand footer-brand"
+           aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+                <strong>SLB-IMS</strong>
+                <small>Student Management System</small>
+            </span>
+        </a>
+
+        <p>
+            Student Loan Board Integration and Management System.
+            Institutional records and funding records, clearly distinguished.
+        </p>
+
+        <div class="footer-meta">
+            <span>© <span class="current-year">2026</span> SLB-IMS</span>
+            <span class="footer-separator">•</span>
+            <span>Reporting prototype</span>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

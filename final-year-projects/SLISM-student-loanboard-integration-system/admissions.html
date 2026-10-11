@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c1529">
+    <meta name="description" content="Manage student applications, admission decisions, programme allocation and institutional admission records through SLB-IMS.">
+    <title>Admissions Management | SLB-IMS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admissions.css">
+    <script src="script.js" defer></script>
+    <script src="admissions.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.html" aria-label="SLB-IMS Home">
+                <span class="brand-icon">S</span>
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>Student Management System</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle" type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+
+                <div class="nav-dropdown open">
+                    <button class="nav-link dropdown-toggle active"
+                            type="button"
+                            aria-expanded="true">
+                        Student Management
+                        <span class="chevron">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item active" href="admissions.html" aria-current="page">Admissions</a>
+                        <a class="dropdown-item" href="registration.html">Registration</a>
+                        <a class="dropdown-item" href="academics.html">Academic Records</a>
+                        <a class="dropdown-item" href="student-portal.html">Student Portal</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        Finance & Funding
+                        <span class="chevron">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="finance.html">Student Finance</a>
+                        <a class="dropdown-item" href="loan-integration.html">Loan Board Integration</a>
+                        <a class="dropdown-item" href="reconciliation.html">Financial Reconciliation</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="reports.html">Reports</a>
+                <a class="nav-link" href="login.html">Sign In</a>
+                <a class="nav-cta" href="registration.html">Student Registration <span>↗</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="admissions-hero">
+            <div class="container">
+                <div class="admissions-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Admissions Management</span>
+                </div>
+
+                <div class="admissions-hero-grid">
+                    <div class="admissions-hero-content">
+                        <span class="eyebrow">
+                            <span class="status-dot"></span>
+                            INSTITUTIONAL STUDENT MANAGEMENT
+                        </span>
+
+                        <h1>
+                            From application<br>
+                            to <span class="gradient-text">admission.</span>
+                        </h1>
+
+                        <p class="admissions-intro">
+                            Manage applications, verify applicant information, allocate
+                            academic programmes and maintain reliable institutional
+                            admission records from one coordinated workspace.
+                        </p>
+
+                        <div class="admissions-actions">
+                            <a class="button button-primary" href="#application-workspace">
+                                Explore Applications <span>→</span>
+                            </a>
+                            <a class="button button-outline" href="registration.html">
+                                Student Registration
+                            </a>
+                        </div>
+
+                        <div class="admissions-assurance">
+                            <span class="assurance-icon">✓</span>
+                            <span>Institution-controlled admission decisions and records</span>
+                        </div>
+                    </div>
+
+                    <aside class="admissions-highlight">
+                        <div class="highlight-top">
+                            <div>
+                                <span class="card-overline">ADMISSION WORKFLOW</span>
+                                <h2>One organised process</h2>
+                            </div>
+                            <span class="highlight-symbol">✦</span>
+                        </div>
+
+                        <div class="workflow-list">
+                            <div class="workflow-item">
+                                <span class="workflow-index">01</span>
+                                <div>
+                                    <strong>Application received</strong>
+                                    <small>Capture applicant details</small>
+                                </div>
+                                <span class="workflow-status">01</span>
+                            </div>
+
+                            <div class="workflow-item">
+                                <span class="workflow-index">02</span>
+                                <div>
+                                    <strong>Information verified</strong>
+                                    <small>Review eligibility and documents</small>
+                                </div>
+                                <span class="workflow-status">02</span>
+                            </div>
+
+                            <div class="workflow-item">
+                                <span class="workflow-index">03</span>
+                                <div>
+                                    <strong>Admission decision</strong>
+                                    <small>Record the authorised outcome</small>
+                                </div>
+                                <span class="workflow-status">03</span>
+                            </div>
+
+                            <div class="workflow-item">
+                                <span class="workflow-index">04</span>
+                                <div>
+                                    <strong>Student record created</strong>
+                                    <small>Continue to registration</small>
+                                </div>
+                                <span class="workflow-status">04</span>
+                            </div>
+                        </div>
+
+                        <div class="highlight-footer">
+                            <span class="highlight-footer-dot"></span>
+                            <span>Illustrative workflow · No live records loaded</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="admissions-principles">
+            <div class="container">
+                <div class="principles-grid">
+                    <article class="principle-card">
+                        <span class="principle-icon principle-blue">◎</span>
+                        <div>
+                            <h3>Application tracking</h3>
+                            <p>Keep application details and decisions organised by applicant.</p>
+                        </div>
+                    </article>
+
+                    <article class="principle-card">
+                        <span class="principle-icon principle-gold">◇</span>
+                        <div>
+                            <h3>Document verification</h3>
+                            <p>Support review of submitted documents and eligibility evidence.</p>
+                        </div>
+                    </article>
+
+                    <article class="principle-card">
+                        <span class="principle-icon principle-teal">↗</span>
+                        <div>
+                            <h3>Connected records</h3>
+                            <p>Carry approved admission information into student registration.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="application-section" id="application-workspace">
+            <div class="container">
+                <div class="application-heading">
+                    <div>
+                        <span class="eyebrow">ADMISSIONS WORKSPACE</span>
+                        <h2>Application <span class="gold-text">overview</span></h2>
+                        <p>
+                            This demonstration workspace shows how an admissions team
+                            could organise and review applicant records.
+                        </p>
+                    </div>
+
+                    <span class="prototype-label">
+                        <span></span> PROTOTYPE
+                    </span>
+                </div>
+
+                <div class="workspace-toolbar">
+                    <div class="workspace-search">
+                        <span aria-hidden="true">⌕</span>
+                        <input type="search"
+                               id="applicant-search"
+                               placeholder="Search applicant or application ID..."
+                               aria-label="Search applicants">
+                    </div>
+
+                    <div class="workspace-filters">
+                        <label class="visually-hidden" for="status-filter">Filter by status</label>
+                        <select id="status-filter">
+                            <option value="all">All statuses</option>
+                            <option value="Pending Review">Pending Review</option>
+                            <option value="Under Verification">Under Verification</option>
+                            <option value="Admitted">Admitted</option>
+                            <option value="Not Admitted">Not Admitted</option>
+                        </select>
+
+                        <button class="button button-outline refresh-button"
+                                type="button"
+                                id="reset-filters">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div class="application-table-wrap">
+                    <table class="application-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Applicant</th>
+                                <th scope="col">Application ID</th>
+                                <th scope="col">Programme</th>
+                                <th scope="col">Submitted</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="applications-body">
+                            <tr>
+                                <td>
+                                    <div class="applicant-cell">
+                                        <span class="applicant-avatar avatar-blue">AM</span>
+                                        <span>
+                                            <strong>Alex Mwakalinga</strong>
+                                            <small>alex.example@email.test</small>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td><span class="application-id">APP-2026-001</span></td>
+                                <td>Computer Science</td>
+                                <td>12 Sep 2026</td>
+                                <td><span class="application-status status-pending">Pending Review</span></td>
+                                <td>
+                                    <button class="table-action"
+                                            type="button"
+                                            data-application="APP-2026-001">
+                                        Review <span>↗</span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="applicant-cell">
+                                        <span class="applicant-avatar avatar-gold">JN</span>
+                                        <span>
+                                            <strong>Janeth Nyerere</strong>
+                                            <small>janeth.example@email.test</small>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td><span class="application-id">APP-2026-002</span></td>
+                                <td>Information Systems</td>
+                                <td>14 Sep 2026</td>
+                                <td><span class="application-status status-verification">Under Verification</span></td>
+                                <td>
+                                    <button class="table-action"
+                                            type="button"
+                                            data-application="APP-2026-002">
+                                        Review <span>↗</span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="applicant-cell">
+                                        <span class="applicant-avatar avatar-teal">DK</span>
+                                        <span>
+                                            <strong>Daniel Kileo</strong>
+                                            <small>daniel.example@email.test</small>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td><span class="application-id">APP-2026-003</span></td>
+                                <td>Business Information Technology</td>
+                                <td>16 Sep 2026</td>
+                                <td><span class="application-status status-admitted">Admitted</span></td>
+                                <td>
+                                    <button class="table-action"
+                                            type="button"
+                                            data-application="APP-2026-003">
+                                        Review <span>↗</span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="applicant-cell">
+                                        <span class="applicant-avatar avatar-purple">SN</span>
+                                        <span>
+                                            <strong>Sarah Ngowi</strong>
+                                            <small>sarah.example@email.test</small>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td><span class="application-id">APP-2026-004</span></td>
+                                <td>Computer Engineering</td>
+                                <td>18 Sep 2026</td>
+                                <td><span class="application-status status-not-admitted">Not Admitted</span></td>
+                                <td>
+                                    <button class="table-action"
+                                            type="button"
+                                            data-application="APP-2026-004">
+                                        Review <span>↗</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="empty-state" id="empty-state" hidden>
+                        <span>⌕</span>
+                        <h3>No matching applications</h3>
+                        <p>Try a different search term or status filter.</p>
+                    </div>
+                </div>
+
+                <div class="table-footer">
+                    <span id="application-count">4 illustrative applications</span>
+                    <span>Sample data only · Not connected to a database</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="admissions-governance">
+            <div class="container">
+                <div class="governance-panel">
+                    <div class="governance-icon">⌘</div>
+
+                    <div class="governance-content">
+                        <span class="eyebrow">RECORDS & ACCOUNTABILITY</span>
+                        <h2>Admission is an institutional decision.</h2>
+                        <p>
+                            SLB-IMS keeps admission decisions under the institution's
+                            authority. Loan-board sponsorship is a separate funding
+                            process and must not determine whether an applicant is
+                            academically admitted. Funding status can be linked after
+                            the appropriate student record has been established.
+                        </p>
+                    </div>
+
+                    <a class="button button-outline governance-link"
+                       href="loan-integration.html">
+                        Explore funding integration <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand-column">
+                    <a class="brand" href="index.html">
+                        <span class="brand-icon">S</span>
+                        <span class="brand-text">
+                            <strong>SLB-IMS</strong>
+                            <small>Student Management System</small>
+                        </span>
+                    </a>
+
+                    <p>
+                        Coordinating institutional student records and loan-board
+                        funding information through accountable digital workflows.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Student Management</h3>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="registration.html">Registration</a>
+                    <a href="academics.html">Academic Records</a>
+                    <a href="student-portal.html">Student Portal</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Finance & Reporting</h3>
+                    <a href="finance.html">Student Finance</a>
+                    <a href="loan-integration.html">Loan Integration</a>
+                    <a href="reconciliation.html">Reconciliation</a>
+                    <a href="reports.html">Reports & Analytics</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>System Access</h3>
+                    <a href="login.html">Sign In</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© <span id="current-year">2026</span> SLB-IMS. All rights reserved.</span>
+                <span>Institutional records · Transparent funding · Accountable reconciliation</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

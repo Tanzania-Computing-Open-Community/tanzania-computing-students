@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c1529">
+    <meta name="description" content="SLB-IMS secure access portal for authorized institutional staff, loan-board officers, and students.">
+    <title>Sign In | SLB-IMS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+
+    <script src="script.js" defer></script>
+    <script src="login.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+                <span class="brand-icon">S</span>
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>Student Management System</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="admissions.html" class="nav-link">Admissions</a>
+                <a href="registration.html" class="nav-link">Registration</a>
+                <a href="academics.html" class="nav-link">Academics</a>
+                <a href="finance.html" class="nav-link">Finance</a>
+
+                <div class="nav-dropdown">
+                    <button
+                        class="nav-link dropdown-toggle"
+                        type="button"
+                        aria-expanded="false">
+                        Integration <span class="chevron">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="loan-integration.html" class="nav-link">
+                            Loan Integration
+                        </a>
+                        <a href="reconciliation.html" class="nav-link">
+                            Reconciliation
+                        </a>
+                    </div>
+                </div>
+
+                <a href="reports.html" class="nav-link">Reports</a>
+                <a href="student-portal.html" class="nav-link">Student Portal</a>
+
+                <a href="login.html"
+                   class="button button-primary nav-cta"
+                   aria-current="page">
+                    Sign In
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page introduction -->
+        <section class="login-hero">
+            <div class="container">
+                <div class="login-hero-content">
+                    <span class="eyebrow">
+                        <span class="status-dot"></span>
+                        Institutional Access Portal
+                    </span>
+
+                    <h1>
+                        One system.
+                        <span>Clearer student records.</span>
+                    </h1>
+
+                    <p>
+                        Access the student management environment for admissions,
+                        academic administration, institutional finances, loan
+                        sponsorship records, and funding reconciliation.
+                    </p>
+
+                    <div class="login-hero-points">
+                        <span>
+                            <span class="point-icon">01</span>
+                            Institutional records
+                        </span>
+
+                        <span>
+                            <span class="point-icon">02</span>
+                            Funding visibility
+                        </span>
+
+                        <span>
+                            <span class="point-icon">03</span>
+                            Account reconciliation
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login workspace -->
+        <section class="login-workspace section-padding">
+            <div class="container">
+                <div class="login-layout">
+
+                    <!-- Sign-in panel -->
+                    <section class="login-card glass-card" aria-labelledby="login-heading">
+                        <div class="login-card-header">
+                            <div class="login-emblem" aria-hidden="true">
+                                <span>SLB</span>
+                                <span>IMS</span>
+                            </div>
+
+                            <div>
+                                <span class="section-kicker">Welcome back</span>
+                                <h2 id="login-heading">Sign in to continue</h2>
+                                <p>Use your authorized account details.</p>
+                            </div>
+                        </div>
+
+                        <div class="prototype-notice" role="note">
+                            <span class="notice-symbol" aria-hidden="true">i</span>
+                            <p>
+                                <strong>Prototype environment.</strong>
+                                Real account authentication is not enabled.
+                                Do not enter actual passwords or confidential data.
+                            </p>
+                        </div>
+
+                        <form id="login-form" novalidate>
+                            <div class="form-field">
+                                <label for="login-identifier">
+                                    Email address or username
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="login-identifier"
+                                    name="identifier"
+                                    placeholder="Enter username or email"
+                                    autocomplete="username"
+                                    autocapitalize="none"
+                                    spellcheck="false"
+                                    required>
+
+                                <small class="field-hint">
+                                    Enter a demonstration identifier for interface testing.
+                                </small>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="login-password">Password</label>
+
+                                <div class="password-input-wrapper">
+                                    <input
+                                        type="password"
+                                        id="login-password"
+                                        name="password"
+                                        placeholder="Enter a demo password"
+                                        autocomplete="off"
+                                        required>
+
+                                    <button
+                                        type="button"
+                                        id="toggle-password"
+                                        class="password-toggle"
+                                        aria-label="Show password"
+                                        aria-pressed="false">
+                                        Show
+                                    </button>
+                                </div>
+
+                                <small class="field-hint">
+                                    This prototype does not verify or store passwords.
+                                </small>
+                            </div>
+
+                            <div class="login-form-options">
+                                <label class="checkbox-label" for="remember-session">
+                                    <input
+                                        type="checkbox"
+                                        id="remember-session"
+                                        name="remember-session">
+
+                                    <span>Remember this demo session</span>
+                                </label>
+                            </div>
+
+                            <p
+                                id="login-message"
+                                class="login-message"
+                                role="status"
+                                aria-live="polite"
+                                hidden>
+                            </p>
+
+                            <button
+                                type="submit"
+                                id="login-submit"
+                                class="button button-primary login-submit">
+                                <span>Continue to portal</span>
+                                <span aria-hidden="true">→</span>
+                            </button>
+
+                            <p class="login-form-footnote">
+                                Access to actual student and financial records must
+                                be restricted to authorized users.
+                            </p>
+                        </form>
+                    </section>
+
+                    <!-- Demonstration access panel -->
+                    <aside class="demo-access-card glass-card"
+                           aria-labelledby="demo-heading">
+
+                        <div class="demo-card-top">
+                            <span class="demo-label">
+                                INTERACTIVE PREVIEW
+                            </span>
+
+                            <span class="demo-icon" aria-hidden="true">◇</span>
+                        </div>
+
+                        <h2 id="demo-heading">Explore the system</h2>
+
+                        <p>
+                            Preview the interface from different user perspectives
+                            without connecting to a real institutional account.
+                        </p>
+
+                        <div class="form-field">
+                            <label for="login-demo-role">
+                                Choose a demonstration role
+                            </label>
+
+                            <select id="login-demo-role" name="demo-role">
+                                <option value="institution-admin">
+                                    Institution Administrator
+                                </option>
+
+                                <option value="admissions-officer">
+                                    Admissions Officer
+                                </option>
+
+                                <option value="finance-officer">
+                                    Finance Officer
+                                </option>
+
+                                <option value="loan-officer">
+                                    Loan-Board Officer
+                                </option>
+
+                                <option value="student">
+                                    Student
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="demo-role-description"
+                             id="demo-role-description"
+                             aria-live="polite">
+                            <span class="role-description-icon" aria-hidden="true">✦</span>
+
+                            <div>
+                                <strong>Institution administration</strong>
+                                <p>
+                                    Preview institutional oversight, student records,
+                                    academic administration, and system summaries.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="demo-sign-in"
+                            class="button button-secondary demo-submit">
+                            Explore demo interface
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <p class="demo-disclaimer">
+                            Demonstration only. Selecting a role does not grant
+                            real permissions or verify identity.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role access overview -->
+        <section class="access-overview section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Access responsibilities</span>
+                    <h2>Different roles. <span>Defined responsibilities.</span></h2>
+
+                    <p>
+                        Each role should access only the records and operations
+                        required for its responsibilities.
+                    </p>
+                </div>
+
+                <div class="access-role-grid">
+                    <article class="access-role-card glass-card">
+                        <span class="access-role-number">01</span>
+                        <h3>Institution Administrator</h3>
+                        <p>
+                            Oversees institutional records, operational settings,
+                            and authorized administrative activities.
+                        </p>
+                        <span class="role-tag">Institution</span>
+                    </article>
+
+                    <article class="access-role-card glass-card">
+                        <span class="access-role-number">02</span>
+                        <h3>Admissions Officer</h3>
+                        <p>
+                            Manages admission applications, decisions,
+                            student identifiers, and admission records.
+                        </p>
+                        <span class="role-tag">Admissions</span>
+                    </article>
+
+                    <article class="access-role-card glass-card">
+                        <span class="access-role-number">03</span>
+                        <h3>Finance Officer</h3>
+                        <p>
+                            Maintains assessed charges, verified receipts,
+                            student balances, and reconciliation entries.
+                        </p>
+                        <span class="role-tag">Institutional finance</span>
+                    </article>
+
+                    <article class="access-role-card glass-card">
+                        <span class="access-role-number">04</span>
+                        <h3>Loan-Board Officer</h3>
+                        <p>
+                            Reviews authorized sponsorship and disbursement
+                            information maintained by the funding authority.
+                        </p>
+                        <span class="role-tag">Funding authority</span>
+                    </article>
+
+                    <article class="access-role-card glass-card">
+                        <span class="access-role-number">05</span>
+                        <h3>Student</h3>
+                        <p>
+                            Views personal academic information, institutional
+                            charges, confirmed payments, and funding updates.
+                        </p>
+                        <span class="role-tag">Student access</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data integrity and security -->
+        <section class="login-security-section section-padding">
+            <div class="container">
+                <div class="login-security-panel glass-card">
+                    <div class="security-panel-heading">
+                        <span class="security-icon" aria-hidden="true">⌑</span>
+
+                        <div>
+                            <span class="section-kicker">Data integrity principle</span>
+                            <h2>Funding approval is not payment confirmation.</h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        An approved loan does not automatically mean that funds
+                        have been disbursed or received by the institution.
+                        Student accounts must reflect verified receipts, while
+                        pending funding and unresolved discrepancies remain
+                        distinguishable from confirmed unpaid balances.
+                    </p>
+
+                    <div class="security-principles">
+                        <div>
+                            <span class="principle-mark">✓</span>
+                            <span>Verify actual disbursements and receipts.</span>
+                        </div>
+
+                        <div>
+                            <span class="principle-mark">✓</span>
+                            <span>Keep institutional and loan-board records distinct.</span>
+                        </div>
+
+                        <div>
+                            <span class="principle-mark">✓</span>
+                            <span>Restrict sensitive information by role.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client-side demonstration result -->
+        <section
+            id="login-success-panel"
+            class="login-success-section section-padding"
+            hidden
+            aria-labelledby="login-success-title">
+
+            <div class="container">
+                <div class="login-success-card glass-card">
+                    <span class="success-symbol" aria-hidden="true">✓</span>
+
+                    <span class="section-kicker">Demo interaction complete</span>
+
+                    <h2 id="login-success-title">
+                        Demonstration access
+                    </h2>
+
+                    <p id="login-success-description">
+                        You are viewing a simulated access state.
+                    </p>
+
+                    <div class="success-role-display">
+                        <span>Selected role</span>
+                        <strong id="login-success-role">Institution Administrator</strong>
+                    </div>
+
+                    <p class="success-security-note">
+                        No identity was verified, and no real account session
+                        was created. This result is generated by the browser.
+                    </p>
+
+                    <div class="success-actions">
+                        <button
+                            type="button"
+                            id="login-logout-demo"
+                            class="button button-secondary">
+                            End demo
+                        </button>
+
+                        <button
+                            type="button"
+                            id="login-show-form"
+                            class="button button-primary">
+                            Return to sign in
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-text">
+                        <strong>SLB-IMS</strong>
+                        <small>Student Management System</small>
+                    </span>
+                </a>
+
+                <p>
+                    Coordinating institutional student records with
+                    verified sponsorship and funding information.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="finance.html">Finance</a>
+                <a href="loan-integration.html">Loan Integration</a>
+                <a href="reports.html">Reports</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; <span class="current-year">2026</span>
+                    SLB-IMS. All rights reserved.
+                </p>
+
+                <p class="footer-prototype-note">
+                    Front-end prototype — not a live authentication service.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

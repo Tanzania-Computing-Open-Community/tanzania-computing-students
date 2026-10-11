@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic administration dashboard for programmes, departments, semesters, and student academic progress in SLB-IMS.">
+    <meta name="theme-color" content="#0c1529">
+
+    <title>Academic Management | SLB-IMS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="academics.css">
+
+    <script src="script.js" defer></script>
+    <script src="academics.js" defer></script>
+</head>
+
+<body class="academics-page">
+
+    <!-- Global navigation -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a class="brand" href="index.html" aria-label="SLB-IMS Home">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <path d="M7 17L24 7L41 17L24 27L7 17Z"
+                              stroke="currentColor"
+                              stroke-width="2.4"
+                              stroke-linejoin="round"/>
+                        <path d="M13 21V31C19 37 29 37 35 31V21"
+                              stroke="currentColor"
+                              stroke-width="2.4"
+                              stroke-linecap="round"/>
+                        <path d="M41 18V30"
+                              stroke="currentColor"
+                              stroke-width="2.4"
+                              stroke-linecap="round"/>
+                    </svg>
+                </span>
+
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>Student Management System</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" id="main-navigation"
+                 aria-label="Main navigation">
+
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="admissions.html">Admissions</a>
+                <a class="nav-link" href="registration.html">Registration</a>
+                <a class="nav-link active" href="academics.html"
+                   aria-current="page">Academics</a>
+                <a class="nav-link" href="finance.html">Student Finance</a>
+                <a class="nav-link" href="loan-integration.html">Loan Integration</a>
+                <a class="nav-link" href="reconciliation.html">Reconciliation</a>
+                <a class="nav-link" href="student-portal.html">Student Portal</a>
+                <a class="nav-link" href="reports.html">Reports</a>
+                <a class="nav-cta" href="login.html">Sign In</a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Page introduction -->
+        <section class="academics-hero">
+            <div class="container academics-hero-grid">
+
+                <div class="academics-hero-copy">
+                    <div class="eyebrow">
+                        <span class="status-dot"></span>
+                        INSTITUTIONAL ACADEMIC ADMINISTRATION
+                    </div>
+
+                    <h1>
+                        Academic excellence,
+                        <span class="gradient-text">organised.</span>
+                    </h1>
+
+                    <p class="academics-hero-description">
+                        Manage academic programmes, departments, semesters,
+                        and student progress through a unified institutional
+                        academic workspace.
+                    </p>
+
+                    <div class="academics-hero-actions">
+                        <button
+                            class="button button-primary"
+                            type="button"
+                            id="show-programme-form">
+                            <span aria-hidden="true">＋</span>
+                            Add Programme
+                        </button>
+
+                        <a class="button button-outline"
+                           href="#academic-records">
+                            Explore Records
+                            <span aria-hidden="true">↘</span>
+                        </a>
+                    </div>
+
+                    <div class="academics-hero-note">
+                        <span aria-hidden="true">◇</span>
+                        Academic records remain under institutional control.
+                    </div>
+                </div>
+
+                <div class="academics-hero-visual">
+                    <div class="academic-orbit orbit-outer"></div>
+                    <div class="academic-orbit orbit-inner"></div>
+
+                    <div class="academic-visual-core">
+                        <div class="academic-core-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <path d="M8 24L32 10L56 24L32 38L8 24Z"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linejoin="round"/>
+                                <path d="M16 30V43C25 51 39 51 48 43V30"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linecap="round"/>
+                                <path d="M56 25V41"
+                                      stroke="currentColor"
+                                      stroke-width="2.5"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <span class="academic-core-label">
+                            ACADEMIC ECOSYSTEM
+                        </span>
+
+                        <strong>Learning &amp; Progress</strong>
+
+                        <span class="academic-core-caption">
+                            Programmes · Semesters · Results
+                        </span>
+                    </div>
+
+                    <div class="academic-float-card float-programmes">
+                        <span class="academic-float-icon">⌘</span>
+                        <span>
+                            <small>Academic structure</small>
+                            <strong>Programmes</strong>
+                        </span>
+                    </div>
+
+                    <div class="academic-float-card float-progress">
+                        <span class="academic-float-icon gold-icon">↗</span>
+                        <span>
+                            <small>Student development</small>
+                            <strong>Progress tracking</strong>
+                        </span>
+                    </div>
+
+                    <div class="academic-visual-glow"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Academic summary -->
+        <section class="academic-overview-section">
+            <div class="container">
+
+                <div class="academic-section-heading">
+                    <div>
+                        <span class="card-overline">ACADEMIC OVERVIEW</span>
+                        <h2>Your academic landscape</h2>
+                        <p>
+                            A quick view of the sample academic structure
+                            represented in this prototype.
+                        </p>
+                    </div>
+
+                    <span class="academic-demo-label">
+                        <span class="status-dot"></span>
+                        DEMONSTRATION DATA
+                    </span>
+                </div>
+
+                <div class="academic-stats-grid">
+
+                    <article class="academic-stat-card">
+                        <div class="academic-stat-top">
+                            <span class="academic-stat-icon blue-icon"
+                                  aria-hidden="true">⌘</span>
+                            <span class="academic-stat-tag">STRUCTURE</span>
+                        </div>
+
+                        <span class="academic-stat-value"
+                              id="total-programmes">4</span>
+
+                        <span class="academic-stat-label">
+                            Academic programmes
+                        </span>
+
+                        <span class="academic-stat-description">
+                            Defined fields of study
+                        </span>
+                    </article>
+
+                    <article class="academic-stat-card">
+                        <div class="academic-stat-top">
+                            <span class="academic-stat-icon gold-icon"
+                                  aria-hidden="true">▦</span>
+                            <span class="academic-stat-tag">ORGANISATION</span>
+                        </div>
+
+                        <span class="academic-stat-value"
+                              id="total-departments">4</span>
+
+                        <span class="academic-stat-label">
+                            Departments
+                        </span>
+
+                        <span class="academic-stat-description">
+                            Academic organisational units
+                        </span>
+                    </article>
+
+                    <article class="academic-stat-card">
+                        <div class="academic-stat-top">
+                            <span class="academic-stat-icon teal-icon"
+                                  aria-hidden="true">◷</span>
+                            <span class="academic-stat-tag">SCHEDULING</span>
+                        </div>
+
+                        <span class="academic-stat-value"
+                              id="total-semesters">2</span>
+
+                        <span class="academic-stat-label">
+                            Sample semesters
+                        </span>
+
+                        <span class="academic-stat-description">
+                            Academic calendar periods
+                        </span>
+                    </article>
+
+                    <article class="academic-stat-card">
+                        <div class="academic-stat-top">
+                            <span class="academic-stat-icon purple-icon"
+                                  aria-hidden="true">◎</span>
+                            <span class="academic-stat-tag">RECORDS</span>
+                        </div>
+
+                        <span class="academic-stat-value"
+                              id="total-academic-records">4</span>
+
+                        <span class="academic-stat-label">
+                            Student academic records
+                        </span>
+
+                        <span class="academic-stat-description">
+                            Illustrative progress entries
+                        </span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic structure -->
+        <section class="academic-structure-section">
+            <div class="container">
+
+                <div class="academic-section-heading">
+                    <div>
+                        <span class="card-overline">ACADEMIC STRUCTURE</span>
+                        <h2>Build the learning framework</h2>
+                        <p>
+                            Organise the institution's programmes, departments,
+                            and academic calendar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="academic-structure-grid">
+
+                    <article class="academic-structure-card programme-structure-card">
+                        <div class="structure-card-icon blue-icon"
+                             aria-hidden="true">⌘</div>
+
+                        <span class="card-overline">01 / PROGRAMMES</span>
+                        <h3>Programmes of study</h3>
+
+                        <p>
+                            Define the qualifications and fields of study
+                            offered by the institution.
+                        </p>
+
+                        <a href="#academic-programmes" class="text-link">
+                            Manage programmes <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="academic-structure-card">
+                        <div class="structure-card-icon gold-icon"
+                             aria-hidden="true">▦</div>
+
+                        <span class="card-overline">02 / DEPARTMENTS</span>
+                        <h3>Academic departments</h3>
+
+                        <p>
+                            Group programmes and learning activities into
+                            their appropriate academic units.
+                        </p>
+
+                        <a href="#academic-programmes" class="text-link">
+                            View structure <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="academic-structure-card">
+                        <div class="structure-card-icon teal-icon"
+                             aria-hidden="true">◷</div>
+
+                        <span class="card-overline">03 / CALENDAR</span>
+                        <h3>Academic calendar</h3>
+
+                        <p>
+                            Represent academic years and semester periods
+                            used for teaching and assessment.
+                        </p>
+
+                        <a href="#academic-calendar" class="text-link">
+                            View calendar <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Programme management -->
+        <section class="academic-records-section" id="academic-records">
+            <div class="container">
+
+                <div class="academic-section-heading records-heading"
+                     id="academic-programmes">
+                    <div>
+                        <span class="card-overline">INSTITUTIONAL CATALOGUE</span>
+                        <h2>Academic programmes</h2>
+                        <p>
+                            Search and review the sample programmes and their
+                            corresponding academic departments.
+                        </p>
+                    </div>
+
+                    <button
+                        class="button button-primary"
+                        type="button"
+                        id="show-programme-form-secondary">
+                        <span aria-hidden="true">＋</span>
+                        New Programme
+                    </button>
+                </div>
+
+                <!-- Programme creation form -->
+                <div class="academic-form-panel"
+                     id="programme-form-panel"
+                     hidden>
+
+                    <div class="academic-form-heading">
+                        <div>
+                            <span class="card-overline">PROGRAMME CONFIGURATION</span>
+                            <h3>Add an academic programme</h3>
+                            <p>
+                                Enter the details for a new sample catalogue entry.
+                            </p>
+                        </div>
+
+                        <button
+                            class="academic-close-button"
+                            type="button"
+                            id="close-programme-form"
+                            aria-label="Close programme form">
+                            ×
+                        </button>
+                    </div>
+
+                    <form id="programme-form">
+
+                        <div class="academic-form-grid">
+
+                            <div class="academic-form-field">
+                                <label for="programme-name">
+                                    Programme name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="programme-name"
+                                    name="programmeName"
+                                    placeholder="e.g. Software Engineering"
+                                    minlength="3"
+                                    maxlength="120"
+                                    required>
+                            </div>
+
+                            <div class="academic-form-field">
+                                <label for="programme-code">
+                                    Programme code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="programme-code"
+                                    name="programmeCode"
+                                    placeholder="e.g. BSE"
+                                    minlength="2"
+                                    maxlength="20"
+                                    pattern="[A-Za-z0-9-]+"
+                                    required>
+                            </div>
+
+                            <div class="academic-form-field">
+                                <label for="programme-department">
+                                    Department
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="programme-department"
+                                    name="programmeDepartment"
+                                    list="department-options"
+                                    placeholder="Select or enter a department"
+                                    maxlength="100"
+                                    required>
+
+                                <datalist id="department-options">
+                                    <option value="Computing and Informatics"></option>
+                                    <option value="Business and Management"></option>
+                                    <option value="Engineering"></option>
+                                    <option value="Social Sciences"></option>
+                                </datalist>
+                            </div>
+
+                            <div class="academic-form-field">
+                                <label for="programme-duration">
+                                    Programme duration
+                                </label>
+
+                                <select
+                                    id="programme-duration"
+                                    name="programmeDuration"
+                                    required>
+
+                                    <option value="">Select duration</option>
+                                    <option value="2 years">2 years</option>
+                                    <option value="3 years">3 years</option>
+                                    <option value="4 years">4 years</option>
+                                    <option value="5 years">5 years</option>
+                                    <option value="6 years">6 years</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="academic-form-actions">
+                            <button
+                                class="button button-outline"
+                                type="button"
+                                id="cancel-programme-form">
+                                Cancel
+                            </button>
+
+                            <button
+                                class="button button-primary"
+                                type="submit">
+                                Save Sample Programme
+                            </button>
+                        </div>
+
+                        <p
+                            class="academic-form-message"
+                            id="programme-form-message"
+                            role="status"
+                            aria-live="polite">
+                        </p>
+
+                    </form>
+                </div>
+
+                <!-- Programme search and filters -->
+                <div class="academic-record-panel">
+
+                    <div class="academic-toolbar">
+
+                        <div class="academic-search-field">
+                            <span aria-hidden="true">⌕</span>
+
+                            <input
+                                type="search"
+                                id="programme-search"
+                                placeholder="Search programmes, codes or departments..."
+                                aria-label="Search academic programmes">
+                        </div>
+
+                        <div class="academic-toolbar-actions">
+
+                            <select
+                                id="department-filter"
+                                aria-label="Filter programmes by department">
+
+                                <option value="all">All departments</option>
+                                <option value="Computing and Informatics">
+                                    Computing and Informatics
+                                </option>
+                                <option value="Business and Management">
+                                    Business and Management
+                                </option>
+                                <option value="Engineering">
+                                    Engineering
+                                </option>
+                                <option value="Social Sciences">
+                                    Social Sciences
+                                </option>
+                            </select>
+
+                            <button
+                                class="button button-outline button-small"
+                                type="button"
+                                id="reset-programme-filters">
+                                Reset
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="academic-table-heading">
+                        <div>
+                            <h3>Programme directory</h3>
+                            <p id="programme-result-count">
+                                4 programmes shown — prototype data
+                            </p>
+                        </div>
+
+                        <span class="academic-table-indicator">
+                            <span class="status-dot"></span>
+                            LOCAL SAMPLE RECORDS
+                        </span>
+                    </div>
+
+                    <div class="academic-table-wrapper">
+                        <table class="academic-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Programme</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="programme-table-body">
+
+                                <tr data-department="Computing and Informatics">
+                                    <td>
+                                        <div class="programme-cell">
+                                            <span class="programme-cell-icon blue-icon"
+                                                  aria-hidden="true">01</span>
+                                            <span>
+                                                <strong>Computer Science</strong>
+                                                <small>Undergraduate programme</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="academic-code">BCS</span></td>
+                                    <td>Computing and Informatics</td>
+                                    <td>3 years</td>
+                                    <td>
+                                        <button
+                                            class="button button-outline button-small view-programme"
+                                            type="button"
+                                            data-programme="BCS">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-department="Computing and Informatics">
+                                    <td>
+                                        <div class="programme-cell">
+                                            <span class="programme-cell-icon teal-icon"
+                                                  aria-hidden="true">02</span>
+                                            <span>
+                                                <strong>Information Systems</strong>
+                                                <small>Undergraduate programme</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="academic-code">BIS</span></td>
+                                    <td>Computing and Informatics</td>
+                                    <td>3 years</td>
+                                    <td>
+                                        <button
+                                            class="button button-outline button-small view-programme"
+                                            type="button"
+                                            data-programme="BIS">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-department="Business and Management">
+                                    <td>
+                                        <div class="programme-cell">
+                                            <span class="programme-cell-icon gold-icon"
+                                                  aria-hidden="true">03</span>
+                                            <span>
+                                                <strong>Business Information Technology</strong>
+                                                <small>Undergraduate programme</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="academic-code">BBIT</span></td>
+                                    <td>Business and Management</td>
+                                    <td>3 years</td>
+                                    <td>
+                                        <button
+                                            class="button button-outline button-small view-programme"
+                                            type="button"
+                                            data-programme="BBIT">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-department="Engineering">
+                                    <td>
+                                        <div class="programme-cell">
+                                            <span class="programme-cell-icon purple-icon"
+                                                  aria-hidden="true">04</span>
+                                            <span>
+                                                <strong>Computer Engineering</strong>
+                                                <small>Undergraduate programme</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="academic-code">BCE</span></td>
+                                    <td>Engineering</td>
+                                    <td>4 years</td>
+                                    <td>
+                                        <button
+                                            class="button button-outline button-small view-programme"
+                                            type="button"
+                                            data-programme="BCE">
+                                            View
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="academic-empty-state" id="programme-empty-state" hidden>
+                        <span aria-hidden="true">⌕</span>
+                        <h3>No matching programmes</h3>
+                        <p>
+                            Try a different search term or reset the department filter.
+                        </p>
+                    </div>
+
+                    <div class="academic-record-note">
+                        <span aria-hidden="true">ⓘ</span>
+                        <p>
+                            The catalogue contains illustrative entries only.
+                            Official programme codes and durations must be
+                            confirmed by the institution.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic calendar -->
+        <section class="academic-calendar-section" id="academic-calendar">
+            <div class="container">
+
+                <div class="academic-section-heading">
+                    <div>
+                        <span class="card-overline">ACADEMIC CALENDAR</span>
+                        <h2>Academic year at a glance</h2>
+                        <p>
+                            An illustrative semester structure for planning
+                            teaching, assessment, and academic administration.
+                        </p>
+                    </div>
+
+                    <div class="academic-year-chip">
+                        <span aria-hidden="true">◷</span>
+                        2026 / 2027
+                    </div>
+                </div>
+
+                <div class="academic-calendar-grid">
+
+                    <article class="semester-card semester-one">
+                        <div class="semester-card-top">
+                            <span class="semester-number">SEMESTER 01</span>
+                            <span class="semester-status">Sample period</span>
+                        </div>
+
+                        <h3>First semester</h3>
+                        <p class="semester-date">Illustrative calendar period</p>
+
+                        <div class="semester-progress-track">
+                            <span style="width: 50%"></span>
+                        </div>
+
+                        <div class="semester-card-footer">
+                            <span>Teaching &amp; assessment</span>
+                            <span>01</span>
+                        </div>
+                    </article>
+
+                    <article class="semester-card semester-two">
+                        <div class="semester-card-top">
+                            <span class="semester-number">SEMESTER 02</span>
+                            <span class="semester-status">Sample period</span>
+                        </div>
+
+                        <h3>Second semester</h3>
+                        <p class="semester-date">Illustrative calendar period</p>
+
+                        <div class="semester-progress-track">
+                            <span style="width: 80%"></span>
+                        </div>
+
+                        <div class="semester-card-footer">
+                            <span>Teaching &amp; assessment</span>
+                            <span>02</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="calendar-disclaimer">
+                    <span aria-hidden="true">◇</span>
+                    <p>
+                        These cards are design examples, not confirmed
+                        institutional dates or live semester-progress indicators.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Student academic progress -->
+        <section class="academic-progress-section">
+            <div class="container">
+
+                <div class="academic-section-heading">
+                    <div>
+                        <span class="card-overline">STUDENT DEVELOPMENT</span>
+                        <h2>Academic progress records</h2>
+                        <p>
+                            Illustrative records showing how academic standing
+                            may be represented independently of financial status.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="academic-record-panel">
+
+                    <div class="academic-table-heading">
+                        <div>
+                            <h3>Student progress overview</h3>
+                            <p>Sample records for interface demonstration</p>
+                        </div>
+
+                        <span class="academic-table-indicator">
+                            NOT LIVE RESULTS
+                        </span>
+                    </div>
+
+                    <div class="academic-table-wrapper">
+                        <table class="academic-table progress-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Student</th>
+                                    <th scope="col">Programme</th>
+                                    <th scope="col">Academic year</th>
+                                    <th scope="col">Academic standing</th>
+                                    <th scope="col">Record type</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="academic-progress-body">
+
+                                <tr>
+                                    <td>
+                                        <div class="progress-student">
+                                            <span class="progress-student-avatar">AM</span>
+                                            <span>
+                                                <strong>Alex Mwakalinga</strong>
+                                                <small>SLB-2026-001</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>Computer Science</td>
+                                    <td>2026 / 2027</td>
+                                    <td>
+                                        <span class="academic-standing standing-active">
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td>Illustrative record</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="progress-student">
+                                            <span class="progress-student-avatar">JN</span>
+                                            <span>
+                                                <strong>Janeth Nyerere</strong>
+                                                <small>SLB-2026-002</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>Information Systems</td>
+                                    <td>2026 / 2027</td>
+                                    <td>
+                                        <span class="academic-standing standing-review">
+                                            Review
+                                        </span>
+                                    </td>
+                                    <td>Illustrative record</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="progress-student">
+                                            <span class="progress-student-avatar">DK</span>
+                                            <span>
+                                                <strong>Daniel Kileo</strong>
+                                                <small>SLB-2026-003</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>Business Information Technology</td>
+                                    <td>2026 / 2027</td>
+                                    <td>
+                                        <span class="academic-standing standing-active">
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td>Illustrative record</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="progress-student">
+                                            <span class="progress-student-avatar">SN</span>
+                                            <span>
+                                                <strong>Sarah Ngowi</strong>
+                                                <small>SLB-2026-004</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>Computer Engineering</td>
+                                    <td>2026 / 2027</td>
+                                    <td>
+                                        <span class="academic-standing standing-active">
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td>Illustrative record</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="academic-record-note">
+                        <span aria-hidden="true">ⓘ</span>
+                        <p>
+                            Academic standing does not establish whether a
+                            student's fees are paid. Financial standing must
+                            be calculated from verified institutional account
+                            entries and confirmed funding receipts.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance -->
+        <section class="academic-governance-section">
+            <div class="container">
+
+                <div class="academic-governance-panel">
+
+                    <div class="governance-emblem" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 5L39 11V22C39 32 32 39 24 43C16 39 9 32 9 22V11L24 5Z"
+                                  stroke="currentColor"
+                                  stroke-width="2.2"
+                                  stroke-linejoin="round"/>
+                            <path d="M16 24L21 29L32 18"
+                                  stroke="currentColor"
+                                  stroke-width="2.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <div class="governance-copy">
+                        <span class="card-overline">DATA GOVERNANCE</span>
+                        <h2>Academic truth. Financial accuracy.</h2>
+
+                        <p>
+                            Student academic records, institutional fee
+                            accounts, and loan-board sponsorship records
+                            serve different purposes. They should be linked
+                            through verified identifiers without merging
+                            their separate responsibilities.
+                        </p>
+
+                        <ul class="governance-list">
+                            <li>
+                                <span aria-hidden="true">✓</span>
+                                Academic results and progression are managed
+                                by authorised institutional staff.
+                            </li>
+                            <li>
+                                <span aria-hidden="true">✓</span>
+                                Loan approval is not treated as proof of
+                                money received by the institution.
+                            </li>
+                            <li>
+                                <span aria-hidden="true">✓</span>
+                                Financial balances are based on posted charges
+                                and verified payments, including confirmed
+                                loan disbursements.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="governance-illustration" aria-hidden="true">
+                        <div class="governance-ring ring-one"></div>
+                        <div class="governance-ring ring-two"></div>
+                        <div class="governance-center">SLB</div>
+                        <span class="governance-node node-top">A</span>
+                        <span class="governance-node node-right">F</span>
+                        <span class="governance-node node-bottom">L</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global footer -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand-column">
+                    <a class="brand footer-brand" href="index.html">
+                        <span class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M7 17L24 7L41 17L24 27L7 17Z"
+                                      stroke="currentColor"
+                                      stroke-width="2.4"
+                                      stroke-linejoin="round"/>
+                                <path d="M13 21V31C19 37 29 37 35 31V21"
+                                      stroke="currentColor"
+                                      stroke-width="2.4"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </span>
+
+                        <span class="brand-text">
+                            <strong>SLB-IMS</strong>
+                            <small>Student Management System</small>
+                        </span>
+                    </a>
+
+                    <p>
+                        A unified institutional workspace for student
+                        administration, academic records, finance, and
+                        loan-board reconciliation.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Administration</h3>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="registration.html">Registration</a>
+                    <a href="academics.html">Academic management</a>
+                    <a href="finance.html">Student finance</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Funding &amp; Access</h3>
+                    <a href="loan-integration.html">Loan integration</a>
+                    <a href="reconciliation.html">Reconciliation</a>
+                    <a href="student-portal.html">Student portal</a>
+                    <a href="reports.html">Reports</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>System</h3>
+                    <a href="login.html">Sign in</a>
+                    <a href="index.html#about">About the system</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="current-year">2026</span> SLB-IMS.
+                    Academic administration prototype.
+                </p>
+
+                <span class="footer-status">
+                    <span class="status-dot"></span>
+                    Front-end demonstration
+                </span>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

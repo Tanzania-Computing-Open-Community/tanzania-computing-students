@@ -1,0 +1,1192 @@
+
+/* =========================================================
+   SLB-IMS — ADMISSIONS MANAGEMENT
+   File: admissions.css
+   Shared foundation: style.css
+   ========================================================= */
+
+:root {
+    --adm-surface: rgba(20, 38, 65, 0.72);
+    --adm-surface-light: rgba(36, 59, 91, 0.48);
+    --adm-border: rgba(180, 207, 241, 0.15);
+    --adm-border-strong: rgba(117, 183, 255, 0.3);
+    --adm-blue: #75b7ff;
+    --adm-blue-bright: #4b9fff;
+    --adm-gold: #e6c788;
+    --adm-teal: #71e1d0;
+    --adm-text: #f2f6ff;
+    --adm-muted: #a8bad3;
+    --adm-radius: 22px;
+}
+
+.admissions-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 0 78px;
+    background:
+        radial-gradient(
+            ellipse at 80% 12%,
+            rgba(71, 133, 206, 0.15),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 8% 80%,
+            rgba(111, 92, 168, 0.10),
+            transparent 35%
+        );
+}
+
+.admissions-hero::before {
+    content: "";
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    right: -230px;
+    top: 60px;
+    border: 1px solid rgba(117, 183, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.admissions-hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -160px;
+    top: 130px;
+    border: 1px solid rgba(230, 199, 136, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.admissions-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 42px;
+    color: var(--adm-muted);
+    font-size: 0.83rem;
+}
+
+.admissions-breadcrumb a {
+    color: var(--adm-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.admissions-breadcrumb a:hover {
+    color: var(--adm-gold);
+}
+
+.admissions-breadcrumb > span:first-of-type {
+    color: rgba(180, 207, 241, 0.45);
+}
+
+.admissions-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.85fr);
+    align-items: center;
+    gap: clamp(35px, 6vw, 86px);
+}
+
+.admissions-hero-content {
+    max-width: 650px;
+}
+
+.admissions-hero-content .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: var(--adm-teal);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.admissions-hero-content h1 {
+    margin: 0 0 24px;
+    color: var(--adm-text);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.65rem, 5.1vw, 4.65rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.065em;
+}
+
+.admissions-hero-content .gradient-text {
+    background: linear-gradient(
+        100deg,
+        #91c8ff 0%,
+        #75b7ff 38%,
+        #e6c788 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.admissions-intro {
+    max-width: 570px;
+    margin: 0;
+    color: var(--adm-muted);
+    font-size: 1.02rem;
+    line-height: 1.9;
+}
+
+.admissions-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.admissions-actions .button {
+    min-height: 49px;
+}
+
+.admissions-assurance {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 29px;
+    color: #bdcce0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.assurance-icon {
+    display: inline-grid;
+    flex-shrink: 0;
+    width: 23px;
+    height: 23px;
+    place-items: center;
+    border: 1px solid rgba(113, 225, 208, 0.3);
+    border-radius: 50%;
+    background: rgba(113, 225, 208, 0.1);
+    color: var(--adm-teal);
+    font-size: 0.8rem;
+}
+
+/* Workflow highlight */
+
+.admissions-highlight {
+    position: relative;
+    overflow: hidden;
+    padding: 27px;
+    border: 1px solid var(--adm-border);
+    border-radius: 27px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(39, 64, 99, 0.72),
+            rgba(15, 29, 50, 0.88)
+        );
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+}
+
+.admissions-highlight::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(75, 159, 255, 0.1);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.highlight-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.card-overline {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--adm-teal);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.highlight-top h2 {
+    margin: 0;
+    color: var(--adm-text);
+    font-family: "Manrope", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 750;
+    letter-spacing: -0.04em;
+}
+
+.highlight-symbol {
+    display: grid;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border: 1px solid rgba(230, 199, 136, 0.25);
+    border-radius: 14px;
+    background: rgba(230, 199, 136, 0.09);
+    color: var(--adm-gold);
+    font-size: 1.25rem;
+}
+
+.workflow-list {
+    position: relative;
+    display: grid;
+    gap: 11px;
+}
+
+.workflow-list::before {
+    content: "";
+    position: absolute;
+    top: 31px;
+    bottom: 31px;
+    left: 23px;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(117, 183, 255, 0.45),
+        rgba(230, 199, 136, 0.2),
+        rgba(113, 225, 208, 0.3)
+    );
+}
+
+.workflow-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 47px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 12px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.workflow-item:hover {
+    transform: translateX(3px);
+    border-color: var(--adm-border);
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.workflow-index {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 1px solid rgba(117, 183, 255, 0.24);
+    border-radius: 14px;
+    background: #1b3554;
+    color: var(--adm-blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.workflow-item:nth-child(2) .workflow-index {
+    border-color: rgba(230, 199, 136, 0.22);
+    background: rgba(91, 76, 49, 0.3);
+    color: var(--adm-gold);
+}
+
+.workflow-item:nth-child(3) .workflow-index {
+    border-color: rgba(113, 225, 208, 0.22);
+    background: rgba(35, 94, 87, 0.25);
+    color: var(--adm-teal);
+}
+
+.workflow-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #eaf1fc;
+    font-size: 0.86rem;
+    font-weight: 650;
+}
+
+.workflow-item small {
+    display: block;
+    color: #91a7c4;
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+.workflow-status {
+    color: rgba(169, 191, 220, 0.65);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.highlight-footer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 21px;
+    padding-top: 19px;
+    border-top: 1px solid rgba(180, 207, 241, 0.11);
+    color: #8fa6c4;
+    font-size: 0.72rem;
+}
+
+.highlight-footer-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--adm-gold);
+    box-shadow: 0 0 12px rgba(230, 199, 136, 0.3);
+}
+
+/* Principles */
+
+.admissions-principles {
+    padding: 0 0 78px;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.principle-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-height: 135px;
+    padding: 23px 21px;
+    border: 1px solid var(--adm-border);
+    border-radius: 19px;
+    background: linear-gradient(
+        145deg,
+        rgba(29, 51, 81, 0.58),
+        rgba(16, 30, 52, 0.62)
+    );
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--adm-border-strong);
+    background: rgba(31, 54, 86, 0.75);
+}
+
+.principle-icon {
+    display: grid;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    font-size: 1.3rem;
+}
+
+.principle-blue {
+    border-color: rgba(117, 183, 255, 0.23);
+    background: rgba(117, 183, 255, 0.1);
+    color: var(--adm-blue);
+}
+
+.principle-gold {
+    border-color: rgba(230, 199, 136, 0.23);
+    background: rgba(230, 199, 136, 0.1);
+    color: var(--adm-gold);
+}
+
+.principle-teal {
+    border-color: rgba(113, 225, 208, 0.23);
+    background: rgba(113, 225, 208, 0.1);
+    color: var(--adm-teal);
+}
+
+.principle-card h3 {
+    margin: 3px 0 9px;
+    color: var(--adm-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.principle-card p {
+    margin: 0;
+    color: var(--adm-muted);
+    font-size: 0.81rem;
+    line-height: 1.75;
+}
+
+/* Application workspace */
+
+.application-section {
+    padding: 82px 0 86px;
+    border-top: 1px solid rgba(180, 207, 241, 0.08);
+    border-bottom: 1px solid rgba(180, 207, 241, 0.08);
+    background:
+        radial-gradient(
+            ellipse at 10% 0%,
+            rgba(75, 159, 255, 0.07),
+            transparent 35%
+        ),
+        rgba(9, 20, 37, 0.28);
+}
+
+.application-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.application-heading .eyebrow,
+.governance-content .eyebrow {
+    display: block;
+    margin-bottom: 13px;
+    color: var(--adm-teal);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.application-heading h2 {
+    margin: 0;
+    color: var(--adm-text);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.9rem, 3.3vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+}
+
+.application-heading .gold-text {
+    color: var(--adm-gold);
+}
+
+.application-heading p {
+    max-width: 630px;
+    margin: 13px 0 0;
+    color: var(--adm-muted);
+    font-size: 0.91rem;
+    line-height: 1.8;
+}
+
+.prototype-label {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 9px 13px;
+    border: 1px solid rgba(230, 199, 136, 0.22);
+    border-radius: 999px;
+    background: rgba(230, 199, 136, 0.07);
+    color: var(--adm-gold);
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.prototype-label > span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--adm-gold);
+}
+
+/* Search and filters */
+
+.workspace-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 19px;
+    padding: 16px;
+    border: 1px solid var(--adm-border);
+    border-radius: 18px;
+    background: rgba(21, 39, 65, 0.65);
+}
+
+.workspace-search {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex: 1 1 280px;
+    max-width: 440px;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid rgba(180, 207, 241, 0.13);
+    border-radius: 12px;
+    background: rgba(8, 19, 35, 0.35);
+    color: var(--adm-blue);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workspace-search:focus-within {
+    border-color: rgba(117, 183, 255, 0.55);
+    box-shadow: 0 0 0 3px rgba(117, 183, 255, 0.07);
+}
+
+.workspace-search > span {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.workspace-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--adm-text);
+    font: inherit;
+    font-size: 0.84rem;
+}
+
+.workspace-search input::placeholder {
+    color: #8298b7;
+}
+
+.workspace-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.workspace-filters select {
+    min-width: 180px;
+    min-height: 44px;
+    padding: 0 35px 0 13px;
+    border: 1px solid rgba(180, 207, 241, 0.15);
+    border-radius: 12px;
+    outline: none;
+    background-color: #172b47;
+    color: #eaf1fc;
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.workspace-filters select:focus {
+    border-color: var(--adm-blue);
+}
+
+.workspace-filters select option {
+    background: #172b47;
+    color: #eaf1fc;
+}
+
+.refresh-button {
+    min-height: 44px;
+    padding: 0 17px;
+    font-size: 0.81rem;
+}
+
+/* Applications table */
+
+.application-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--adm-border);
+    border-radius: 20px;
+    background: linear-gradient(
+        150deg,
+        rgba(23, 43, 70, 0.83),
+        rgba(14, 27, 47, 0.9)
+    );
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.13);
+    scrollbar-color: #36577e #14243b;
+    scrollbar-width: thin;
+}
+
+.application-table {
+    width: 100%;
+    min-width: 890px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.application-table thead {
+    background: rgba(117, 183, 255, 0.055);
+}
+
+.application-table th {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--adm-border);
+    color: #9db3d1;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.application-table td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(180, 207, 241, 0.075);
+    color: #c1cfe2;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.application-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.application-table tbody tr:hover {
+    background: rgba(117, 183, 255, 0.045);
+}
+
+.application-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.applicant-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 205px;
+}
+
+.applicant-avatar {
+    display: grid;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    font-size: 0.74rem;
+    font-weight: 800;
+}
+
+.avatar-blue {
+    border-color: rgba(117, 183, 255, 0.2);
+    background: rgba(117, 183, 255, 0.12);
+    color: #9bcaff;
+}
+
+.avatar-gold {
+    border-color: rgba(230, 199, 136, 0.2);
+    background: rgba(230, 199, 136, 0.11);
+    color: #f0d9a6;
+}
+
+.avatar-teal {
+    border-color: rgba(113, 225, 208, 0.2);
+    background: rgba(113, 225, 208, 0.1);
+    color: #8aebdc;
+}
+
+.avatar-purple {
+    border-color: rgba(185, 157, 255, 0.2);
+    background: rgba(185, 157, 255, 0.1);
+    color: #c9b4ff;
+}
+
+.applicant-cell strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #edf3ff;
+    font-size: 0.81rem;
+    font-weight: 650;
+}
+
+.applicant-cell small {
+    display: block;
+    color: #8197b5;
+    font-size: 0.7rem;
+}
+
+.application-id {
+    color: #a9cfff;
+    font-size: 0.77rem;
+    font-weight: 650;
+    letter-spacing: 0.015em;
+}
+
+.application-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 650;
+}
+
+.application-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-pending {
+    border-color: rgba(230, 199, 136, 0.2);
+    background: rgba(230, 199, 136, 0.09);
+    color: #e8c982;
+}
+
+.status-verification {
+    border-color: rgba(117, 183, 255, 0.2);
+    background: rgba(117, 183, 255, 0.09);
+    color: #8dc5ff;
+}
+
+.status-admitted {
+    border-color: rgba(113, 225, 208, 0.2);
+    background: rgba(113, 225, 208, 0.09);
+    color: #83e7d8;
+}
+
+.status-not-admitted {
+    border-color: rgba(255, 145, 145, 0.2);
+    background: rgba(255, 145, 145, 0.08);
+    color: #ffaaaa;
+}
+
+.table-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
+    border: 1px solid rgba(117, 183, 255, 0.23);
+    border-radius: 10px;
+    background: rgba(117, 183, 255, 0.07);
+    color: #a9d1ff;
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.table-action:hover {
+    border-color: rgba(230, 199, 136, 0.42);
+    background: rgba(230, 199, 136, 0.1);
+    color: var(--adm-gold);
+}
+
+.table-action:focus-visible {
+    outline: 2px solid var(--adm-blue);
+    outline-offset: 3px;
+}
+
+.empty-state {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.empty-state[hidden] {
+    display: none !important;
+}
+
+.empty-state > span {
+    display: inline-grid;
+    width: 55px;
+    height: 55px;
+    place-items: center;
+    border: 1px solid var(--adm-border);
+    border-radius: 17px;
+    background: rgba(117, 183, 255, 0.08);
+    color: var(--adm-blue);
+    font-size: 2rem;
+}
+
+.empty-state h3 {
+    margin: 18px 0 8px;
+    color: var(--adm-text);
+    font-size: 1.05rem;
+}
+
+.empty-state p {
+    margin: 0;
+    color: var(--adm-muted);
+    font-size: 0.85rem;
+}
+
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 17px 4px 0;
+    color: #8298b7;
+    font-size: 0.74rem;
+}
+
+/* Governance panel */
+
+.admissions-governance {
+    padding: 75px 0 85px;
+}
+
+.governance-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid rgba(230, 199, 136, 0.2);
+    border-radius: 24px;
+    background:
+        radial-gradient(
+            ellipse at 0% 100%,
+            rgba(230, 199, 136, 0.075),
+            transparent 48%
+        ),
+        linear-gradient(
+            125deg,
+            rgba(31, 49, 74, 0.78),
+            rgba(17, 31, 51, 0.82)
+        );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.governance-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border: 1px solid rgba(230, 199, 136, 0.25);
+    border-radius: 18px;
+    background: rgba(230, 199, 136, 0.09);
+    color: var(--adm-gold);
+    font-size: 1.7rem;
+}
+
+.governance-content .eyebrow {
+    margin-bottom: 10px;
+    color: var(--adm-gold);
+}
+
+.governance-content h2 {
+    margin: 0 0 12px;
+    color: var(--adm-text);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.045em;
+}
+
+.governance-content p {
+    max-width: 750px;
+    margin: 0;
+    color: var(--adm-muted);
+    font-size: 0.86rem;
+    line-height: 1.9;
+}
+
+.governance-link {
+    flex-shrink: 0;
+    min-height: 45px;
+    font-size: 0.8rem;
+}
+
+/* Accessibility */
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.admissions-hero a:focus-visible,
+.admissions-actions button:focus-visible,
+.workspace-filters button:focus-visible,
+.workspace-filters select:focus-visible,
+.workspace-search input:focus-visible,
+.governance-link:focus-visible {
+    outline: 2px solid var(--adm-blue);
+    outline-offset: 4px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+    .admissions-hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+        gap: 35px;
+    }
+
+    .admissions-highlight {
+        padding: 22px;
+    }
+
+    .principle-card {
+        padding: 20px 17px;
+    }
+
+    .governance-panel {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .governance-link {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+
+@media (max-width: 850px) {
+    .admissions-hero {
+        padding-bottom: 60px;
+    }
+
+    .admissions-breadcrumb {
+        margin-bottom: 30px;
+    }
+
+    .admissions-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .admissions-hero-content {
+        max-width: 720px;
+    }
+
+    .admissions-highlight {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .admissions-principles {
+        padding-bottom: 60px;
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .principle-card {
+        min-height: auto;
+    }
+
+    .application-section {
+        padding: 62px 0;
+    }
+
+    .application-heading {
+        align-items: flex-start;
+    }
+
+    .workspace-toolbar {
+        align-items: stretch;
+    }
+
+    .workspace-search {
+        max-width: none;
+    }
+
+    .workspace-filters {
+        justify-content: flex-start;
+    }
+
+    .admissions-governance {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .admissions-hero {
+        padding-top: 20px;
+    }
+
+    .admissions-breadcrumb {
+        margin-bottom: 27px;
+        font-size: 0.77rem;
+    }
+
+    .admissions-hero-content h1 {
+        font-size: clamp(2.35rem, 10vw, 3.2rem);
+    }
+
+    .admissions-intro {
+        font-size: 0.93rem;
+        line-height: 1.8;
+    }
+
+    .admissions-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admissions-actions .button {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .admissions-assurance {
+        align-items: flex-start;
+        font-size: 0.77rem;
+    }
+
+    .admissions-highlight {
+        padding: 19px 15px;
+        border-radius: 21px;
+    }
+
+    .highlight-top h2 {
+        font-size: 1.15rem;
+    }
+
+    .workflow-item {
+        grid-template-columns: 39px minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 5px;
+    }
+
+    .workflow-index {
+        width: 38px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+    }
+
+    .workflow-list::before {
+        left: 24px;
+    }
+
+    .workflow-item strong {
+        font-size: 0.79rem;
+    }
+
+    .workflow-item small {
+        font-size: 0.68rem;
+    }
+
+    .workflow-status {
+        font-size: 0.65rem;
+    }
+
+    .highlight-footer {
+        align-items: flex-start;
+        font-size: 0.67rem;
+        line-height: 1.5;
+    }
+
+    .principle-card {
+        gap: 13px;
+        padding: 18px 15px;
+    }
+
+    .principle-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .application-heading {
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .application-heading h2 {
+        font-size: 2rem;
+    }
+
+    .application-heading p {
+        font-size: 0.84rem;
+    }
+
+    .prototype-label {
+        align-self: flex-start;
+    }
+
+    .workspace-toolbar {
+        padding: 12px;
+    }
+
+    .workspace-filters {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        width: 100%;
+    }
+
+    .workspace-filters select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .table-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        line-height: 1.6;
+    }
+
+    .governance-panel {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 24px 20px;
+    }
+
+    .governance-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .governance-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .governance-content p {
+        font-size: 0.82rem;
+    }
+
+    .governance-link {
+        grid-column: 1;
+        justify-self: stretch;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .admissions-highlight *,
+    .principle-card,
+    .workflow-item,
+    .table-action,
+    .admissions-breadcrumb a {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

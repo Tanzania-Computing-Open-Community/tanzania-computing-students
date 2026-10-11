@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLB-IMS loan disbursement and institutional payment reconciliation dashboard.">
+    <title>Reconciliation | SLB-IMS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reconciliation.css">
+    <script src="script.js" defer></script>
+    <script src="reconciliation.js" defer></script>
+</head>
+
+<body class="reconciliation-page">
+
+<header class="site-header">
+    <div class="container header-content">
+        <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+                <strong>SLB-IMS</strong>
+                <small>Student Management System</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button"
+                aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="registration.html" class="nav-link">Registration</a>
+            <a href="academics.html" class="nav-link">Academics</a>
+            <a href="finance.html" class="nav-link">Finance</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" type="button"
+                        aria-expanded="false">
+                    Integration <span class="chevron">⌄</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="loan-integration.html" class="nav-link">Loan Integration</a>
+                    <a href="reconciliation.html" class="nav-link active"
+                       aria-current="page">Reconciliation</a>
+                </div>
+            </div>
+
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="student-portal.html" class="nav-link">Student Portal</a>
+            <a href="login.html" class="button button-primary nav-cta">Sign In</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="recon-hero">
+        <div class="container">
+            <div class="recon-hero-content">
+                <div class="recon-hero-copy">
+                    <span class="eyebrow">
+                        <span class="status-dot"></span>
+                        FINANCIAL CONTROL & VERIFICATION
+                    </span>
+
+                    <h1>
+                        Reconcile the records.
+                        <span class="gradient-text">Protect the truth.</span>
+                    </h1>
+
+                    <p>
+                        Compare loan-board disbursement information with
+                        verified institutional receipts and posted student
+                        account transactions. Identify differences before
+                        making financial decisions.
+                    </p>
+
+                    <div class="recon-hero-actions">
+                        <a href="#reconciliation-records"
+                           class="button button-primary">
+                            Review Records <span aria-hidden="true">↘</span>
+                        </a>
+                        <button type="button" class="button button-outline"
+                                id="show-recon-form-secondary">
+                            <span aria-hidden="true">＋</span> Add Reconciliation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recon-hero-visual" aria-label="Reconciliation process">
+                    <div class="recon-orbit recon-orbit-one"></div>
+                    <div class="recon-orbit recon-orbit-two"></div>
+
+                    <div class="recon-visual-center">
+                        <span class="recon-center-icon" aria-hidden="true">⇄</span>
+                        <strong>Record Match</strong>
+                        <small>Independent verification</small>
+                    </div>
+
+                    <div class="recon-visual-node recon-node-board">
+                        <span class="recon-node-icon" aria-hidden="true">↗</span>
+                        <div>
+                            <strong>Loan Board</strong>
+                            <small>Reported disbursement</small>
+                        </div>
+                    </div>
+
+                    <div class="recon-visual-node recon-node-institution">
+                        <span class="recon-node-icon" aria-hidden="true">✓</span>
+                        <div>
+                            <strong>Institution</strong>
+                            <small>Verified receipt</small>
+                        </div>
+                    </div>
+
+                    <span class="recon-visual-caption">
+                        Compare evidence before confirming a match
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recon-dashboard-section">
+        <div class="container">
+
+            <div class="recon-prototype-notice" role="note">
+                <span class="recon-notice-icon" aria-hidden="true">ⓘ</span>
+                <div>
+                    <strong>Prototype data — not live financial records</strong>
+                    <p>
+                        The figures on this page are illustrative. A real
+                        reconciliation requires authorized source records,
+                        verified bank or institutional receipts, transaction
+                        references, and controlled approval procedures.
+                    </p>
+                </div>
+            </div>
+
+            <div class="recon-section-heading">
+                <div>
+                    <span class="eyebrow">RECONCILIATION OVERVIEW</span>
+                    <h2>Financial verification at a glance</h2>
+                    <p>Review the status of sample records awaiting or completing reconciliation.</p>
+                </div>
+                <span class="recon-period-label">
+                    <span class="recon-period-dot"></span>
+                    Academic year 2026/2027
+                </span>
+            </div>
+
+            <div class="recon-summary-grid">
+                <article class="recon-summary-card recon-summary-total">
+                    <div class="recon-card-top">
+                        <span class="recon-card-label">Records Reviewed</span>
+                        <span class="recon-card-icon" aria-hidden="true">▤</span>
+                    </div>
+                    <strong class="recon-card-value" id="recon-total-records">4</strong>
+                    <span class="recon-card-footnote">Sample reconciliation records</span>
+                </article>
+
+                <article class="recon-summary-card recon-summary-matched">
+                    <div class="recon-card-top">
+                        <span class="recon-card-label">Matched Records</span>
+                        <span class="recon-card-icon" aria-hidden="true">✓</span>
+                    </div>
+                    <strong class="recon-card-value" id="recon-matched-count">1</strong>
+                    <span class="recon-card-footnote">Amounts agree in the sample</span>
+                </article>
+
+                <article class="recon-summary-card recon-summary-review">
+                    <div class="recon-card-top">
+                        <span class="recon-card-label">Require Review</span>
+                        <span class="recon-card-icon" aria-hidden="true">⌕</span>
+                    </div>
+                    <strong class="recon-card-value" id="recon-review-count">3</strong>
+                    <span class="recon-card-footnote">Differences or incomplete evidence</span>
+                </article>
+
+                <article class="recon-summary-card recon-summary-difference">
+                    <div class="recon-card-top">
+                        <span class="recon-card-label">Net Difference</span>
+                        <span class="recon-card-icon" aria-hidden="true">⇄</span>
+                    </div>
+                    <strong class="recon-card-value" id="recon-value-difference">TZS 0</strong>
+                    <span class="recon-card-footnote">Board-reported minus institution-posted amounts</span>
+                </article>
+            </div>
+
+            <section class="recon-principles-card">
+                <div class="recon-principles-heading">
+                    <span class="recon-principles-icon" aria-hidden="true">◇</span>
+                    <div>
+                        <h3>What counts as a verified match?</h3>
+                        <p>A consistent record supported by evidence from both sides.</p>
+                    </div>
+                </div>
+
+                <div class="recon-principles-grid">
+                    <div class="recon-principle">
+                        <span class="recon-step-number">01</span>
+                        <div>
+                            <strong>Board evidence</strong>
+                            <p>Confirm the reported disbursement, reference and relevant period.</p>
+                        </div>
+                    </div>
+
+                    <div class="recon-principle">
+                        <span class="recon-step-number">02</span>
+                        <div>
+                            <strong>Receipt evidence</strong>
+                            <p>Verify the funds actually received by the institution.</p>
+                        </div>
+                    </div>
+
+                    <div class="recon-principle">
+                        <span class="recon-step-number">03</span>
+                        <div>
+                            <strong>Account posting</strong>
+                            <p>Confirm the receipt was correctly posted to the appropriate student account.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recon-principle-warning">
+                    <span aria-hidden="true">!</span>
+                    <p>
+                        <strong>Important:</strong> Loan approval is not proof of
+                        disbursement. A reported disbursement is not, by itself,
+                        proof that the institution received the money.
+                    </p>
+                </div>
+            </section>
+
+            <section class="recon-records-section" id="reconciliation-records">
+                <div class="recon-section-heading recon-records-heading">
+                    <div>
+                        <span class="eyebrow">RECORD MANAGEMENT</span>
+                        <h2>Reconciliation register</h2>
+                        <p>Compare reported disbursements with verified institutional receipts.</p>
+                    </div>
+
+                    <button type="button" class="button button-primary"
+                            id="show-recon-form">
+                        <span aria-hidden="true">＋</span> New Record
+                    </button>
+                </div>
+
+                <div class="recon-filter-panel">
+                    <div class="recon-search-field">
+                        <label for="recon-search">Search records</label>
+                        <div class="recon-input-wrap">
+                            <span aria-hidden="true">⌕</span>
+                            <input type="search" id="recon-search"
+                                   placeholder="Student, number or board reference..."
+                                   autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="recon-filter-field">
+                        <label for="recon-status-filter">Reconciliation status</label>
+                        <select id="recon-status-filter">
+                            <option value="all">All statuses</option>
+                            <option value="Matched">Matched</option>
+                            <option value="Amount mismatch">Amount mismatch</option>
+                            <option value="Receipt pending">Receipt pending</option>
+                            <option value="Posting mismatch">Posting mismatch</option>
+                            <option value="Under review">Under review</option>
+                        </select>
+                    </div>
+
+                    <div class="recon-filter-field">
+                        <label for="recon-year-filter">Academic year</label>
+                        <select id="recon-year-filter">
+                            <option value="all">All academic years</option>
+                            <option value="2026/2027">2026/2027</option>
+                            <option value="2025/2026">2025/2026</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="button button-outline recon-reset-button"
+                            id="recon-reset-filters">
+                        Reset filters
+                    </button>
+                </div>
+
+                <div class="recon-table-card">
+                    <div class="recon-table-header">
+                        <div>
+                            <h3>Reconciliation records</h3>
+                            <p id="recon-result-count">4 sample records</p>
+                        </div>
+                        <span class="recon-table-legend">
+                            <span class="legend-dot legend-match"></span> Matched
+                            <span class="legend-dot legend-review"></span> Review required
+                        </span>
+                    </div>
+
+                    <div class="recon-table-scroll">
+                        <table class="recon-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Student</th>
+                                    <th scope="col">Board Reference</th>
+                                    <th scope="col">Academic Year</th>
+                                    <th scope="col">Board Disbursed</th>
+                                    <th scope="col">Institution Received</th>
+                                    <th scope="col">Difference</th>
+                                    <th scope="col">Reconciliation Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recon-table-body">
+                                <tr data-student-number="SLB-2026-001"
+                                    data-board-reference="DEMO-LB-001"
+                                    data-academic-year="2026/2027"
+                                    data-board-disbursed="1000000"
+                                    data-institution-received="1000000"
+                                    data-posted-amount="1000000"
+                                    data-status="Matched">
+                                    <td>
+                                        <div class="recon-student-cell">
+                                            <span class="recon-avatar">AM</span>
+                                            <div>
+                                                <strong>Alex Mwakalinga</strong>
+                                                <small>SLB-2026-001</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="recon-reference">DEMO-LB-001</span></td>
+                                    <td>2026/2027</td>
+                                    <td>TZS 1,000,000</td>
+                                    <td>TZS 1,000,000</td>
+                                    <td class="recon-difference-cell">TZS 0</td>
+                                    <td><span class="recon-status recon-status-matched">Matched</span></td>
+                                    <td>
+                                        <button type="button" class="recon-review-button"
+                                                data-student="SLB-2026-001"
+                                                data-recon-id="DEMO-LB-001">
+                                            Review <span aria-hidden="true">↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-student-number="SLB-2026-002"
+                                    data-board-reference="DEMO-LB-002"
+                                    data-academic-year="2026/2027"
+                                    data-board-disbursed="900000"
+                                    data-institution-received="600000"
+                                    data-posted-amount="600000"
+                                    data-status="Amount mismatch">
+                                    <td>
+                                        <div class="recon-student-cell">
+                                            <span class="recon-avatar recon-avatar-gold">JN</span>
+                                            <div>
+                                                <strong>Janeth Nyerere</strong>
+                                                <small>SLB-2026-002</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="recon-reference">DEMO-LB-002</span></td>
+                                    <td>2026/2027</td>
+                                    <td>TZS 900,000</td>
+                                    <td>TZS 600,000</td>
+                                    <td class="recon-difference-cell">TZS 300,000</td>
+                                    <td><span class="recon-status recon-status-mismatch">Amount mismatch</span></td>
+                                    <td>
+                                        <button type="button" class="recon-review-button"
+                                                data-student="SLB-2026-002"
+                                                data-recon-id="DEMO-LB-002">
+                                            Review <span aria-hidden="true">↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-student-number="SLB-2026-003"
+                                    data-board-reference="DEMO-LB-003"
+                                    data-academic-year="2026/2027"
+                                    data-board-disbursed="1250000"
+                                    data-institution-received="1250000"
+                                    data-posted-amount="1200000"
+                                    data-status="Posting mismatch">
+                                    <td>
+                                        <div class="recon-student-cell">
+                                            <span class="recon-avatar recon-avatar-teal">DK</span>
+                                            <div>
+                                                <strong>Daniel Kileo</strong>
+                                                <small>SLB-2026-003</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="recon-reference">DEMO-LB-003</span></td>
+                                    <td>2026/2027</td>
+                                    <td>TZS 1,250,000</td>
+                                    <td>TZS 1,250,000</td>
+                                    <td class="recon-difference-cell">TZS 0</td>
+                                    <td><span class="recon-status recon-status-posting">Posting mismatch</span></td>
+                                    <td>
+                                        <button type="button" class="recon-review-button"
+                                                data-student="SLB-2026-003"
+                                                data-recon-id="DEMO-LB-003">
+                                            Review <span aria-hidden="true">↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-student-number="SLB-2026-004"
+                                    data-board-reference="DEMO-LB-004"
+                                    data-academic-year="2026/2027"
+                                    data-board-disbursed="800000"
+                                    data-institution-received="0"
+                                    data-posted-amount="0"
+                                    data-status="Receipt pending">
+                                    <td>
+                                        <div class="recon-student-cell">
+                                            <span class="recon-avatar recon-avatar-purple">SN</span>
+                                            <div>
+                                                <strong>Sarah Ngowi</strong>
+                                                <small>SLB-2026-004</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="recon-reference">DEMO-LB-004</span></td>
+                                    <td>2026/2027</td>
+                                    <td>TZS 800,000</td>
+                                    <td>TZS 0</td>
+                                    <td class="recon-difference-cell">TZS 800,000</td>
+                                    <td><span class="recon-status recon-status-pending">Receipt pending</span></td>
+                                    <td>
+                                        <button type="button" class="recon-review-button"
+                                                data-student="SLB-2026-004"
+                                                data-recon-id="DEMO-LB-004">
+                                            Review <span aria-hidden="true">↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="recon-empty-state" id="recon-empty-state" hidden>
+                        <span class="recon-empty-icon" aria-hidden="true">⌕</span>
+                        <h3>No matching records</h3>
+                        <p>Try a different search term or reset the filters.</p>
+                        <button type="button" class="button button-outline"
+                                id="recon-empty-reset">
+                            Clear filters
+                        </button>
+                    </div>
+
+                    <div class="recon-table-footer">
+                        <span>Illustrative records only</span>
+                        <span>All amounts displayed in Tanzanian shillings (TZS)</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recon-workflow-section">
+                <div class="recon-section-heading">
+                    <div>
+                        <span class="eyebrow">CONTROLLED WORKFLOW</span>
+                        <h2>From discrepancy to resolution</h2>
+                        <p>Every difference should have a traceable explanation and authorized outcome.</p>
+                    </div>
+                </div>
+
+                <div class="recon-workflow-grid">
+                    <article class="recon-workflow-card">
+                        <span class="recon-workflow-number">01</span>
+                        <span class="recon-workflow-icon" aria-hidden="true">⌕</span>
+                        <h3>Investigate</h3>
+                        <p>Compare references, dates, student identifiers, amounts and supporting documents.</p>
+                    </article>
+
+                    <article class="recon-workflow-card">
+                        <span class="recon-workflow-number">02</span>
+                        <span class="recon-workflow-icon" aria-hidden="true">▤</span>
+                        <h3>Document</h3>
+                        <p>Record the difference, evidence reviewed, responsible officer and next action.</p>
+                    </article>
+
+                    <article class="recon-workflow-card">
+                        <span class="recon-workflow-number">03</span>
+                        <span class="recon-workflow-icon" aria-hidden="true">✓</span>
+                        <h3>Resolve</h3>
+                        <p>Confirm corrections only after verification and authorized financial review.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="recon-record-form-panel" id="recon-form-panel" hidden>
+                <div class="recon-form-heading">
+                    <div>
+                        <span class="eyebrow">RECORD MANAGEMENT</span>
+                        <h2>Reconciliation details</h2>
+                        <p>Enter source values and document the verification outcome.</p>
+                    </div>
+                    <button type="button" class="recon-form-close" id="close-recon-form"
+                            aria-label="Close reconciliation form">×</button>
+                </div>
+
+                <div class="recon-form-notice">
+                    This form is for prototype demonstration. Entered information is
+                    not sent to the loan board, bank, or institutional financial system.
+                </div>
+
+                <form id="recon-record-form">
+                    <div class="recon-form-grid">
+                        <div class="recon-form-field">
+                            <label for="recon-student-number">Student number *</label>
+                            <input type="text" id="recon-student-number"
+                                   name="studentNumber" required
+                                   placeholder="e.g. SLB-2026-001">
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-board-reference">Loan-board reference *</label>
+                            <input type="text" id="recon-board-reference"
+                                   name="boardReference" required
+                                   placeholder="Reference from source record">
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-academic-year">Academic year *</label>
+                            <select id="recon-academic-year" name="academicYear" required>
+                                <option value="2026/2027">2026/2027</option>
+                                <option value="2025/2026">2025/2026</option>
+                            </select>
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-approved-amount">Approved amount (TZS)</label>
+                            <input type="number" id="recon-approved-amount"
+                                   name="approvedAmount" min="0" step="0.01"
+                                   placeholder="0.00">
+                            <small>Approval is informational; it is not a receipt.</small>
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-reported-disbursement">Board-reported disbursement (TZS) *</label>
+                            <input type="number" id="recon-reported-disbursement"
+                                   name="reportedDisbursement" required
+                                   min="0" step="0.01" placeholder="0.00">
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-institution-receipt">Institution receipt verified (TZS) *</label>
+                            <input type="number" id="recon-institution-receipt"
+                                   name="institutionReceipt" required
+                                   min="0" step="0.01" placeholder="0.00">
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-posted-amount">Amount posted to student account (TZS) *</label>
+                            <input type="number" id="recon-posted-amount"
+                                   name="postedAmount" required
+                                   min="0" step="0.01" placeholder="0.00">
+                        </div>
+
+                        <div class="recon-form-field">
+                            <label for="recon-receipt-reference">Institution receipt / transaction reference</label>
+                            <input type="text" id="recon-receipt-reference"
+                                   name="receiptReference"
+                                   placeholder="Verified receipt reference, if available">
+                        </div>
+
+                        <div class="recon-form-field recon-form-field-wide">
+                            <label for="recon-match-status">Reconciliation status *</label>
+                            <select id="recon-match-status" name="matchStatus" required>
+                                <option value="Under review">Under review</option>
+                                <option value="Matched">Matched</option>
+                                <option value="Amount mismatch">Amount mismatch</option>
+                                <option value="Receipt pending">Receipt pending</option>
+                                <option value="Posting mismatch">Posting mismatch</option>
+                            </select>
+                        </div>
+
+                        <div class="recon-form-field recon-form-field-wide">
+                            <label for="recon-notes">Review notes and evidence</label>
+                            <textarea id="recon-notes" name="notes" rows="4"
+                                      placeholder="Describe the discrepancy, evidence checked and follow-up action. Do not enter passwords or sensitive banking credentials."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="recon-form-message" id="recon-form-message"
+                         role="status" aria-live="polite"></div>
+
+                    <div class="recon-form-actions">
+                        <button type="button" class="button button-outline"
+                                id="cancel-recon-form">Cancel</button>
+                        <button type="submit" class="button button-primary">
+                            Save Sample Record
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="recon-integrity-note">
+                <div class="recon-integrity-symbol" aria-hidden="true">◇</div>
+                <div>
+                    <span class="eyebrow">FINANCIAL RECORD INTEGRITY</span>
+                    <h2>Keep funding status separate from fee-payment status.</h2>
+                    <p>
+                        The institution remains responsible for its student accounts,
+                        charges and verified receipts. The loan board maintains its own
+                        sponsorship and disbursement records. If a payment is reported
+                        but not yet confirmed by the institution, flag it for investigation
+                        rather than automatically marking the student as paid or indebted.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand-column">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-text">
+                        <strong>SLB-IMS</strong>
+                        <small>Student Management System</small>
+                    </span>
+                </a>
+                <p>
+                    Connecting institutional student records with accountable
+                    student-loan funding administration.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Institution</h3>
+                <a href="admissions.html">Admissions</a>
+                <a href="registration.html">Registration</a>
+                <a href="academics.html">Academics</a>
+                <a href="finance.html">Student Finance</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Financial Integration</h3>
+                <a href="loan-integration.html">Loan Integration</a>
+                <a href="reconciliation.html">Reconciliation</a>
+                <a href="reports.html">Reports</a>
+                <a href="student-portal.html">Student Portal</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span class="current-year">2026</span> SLB-IMS. Prototype interface.</span>
+            <span>Designed for accountable student record management.</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

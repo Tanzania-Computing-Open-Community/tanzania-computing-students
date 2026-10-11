@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c1529">
+    <meta name="description" content="Manage student registration, institutional student numbers, academic programmes and registration status with SLB-IMS.">
+    <title>Student Registration | SLB-IMS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="registration.css">
+    <script src="script.js" defer></script>
+    <script src="registration.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="index.html" aria-label="SLB-IMS Home">
+                <span class="brand-icon">S</span>
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>Student Management System</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+
+                <div class="nav-dropdown open">
+                    <button class="nav-link dropdown-toggle active"
+                            type="button"
+                            aria-expanded="true">
+                        Student Management
+                        <span class="chevron">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="admissions.html">Admissions</a>
+                        <a class="dropdown-item active" href="registration.html" aria-current="page">Registration</a>
+                        <a class="dropdown-item" href="academics.html">Academic Records</a>
+                        <a class="dropdown-item" href="student-portal.html">Student Portal</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        Finance & Funding
+                        <span class="chevron">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="finance.html">Student Finance</a>
+                        <a class="dropdown-item" href="loan-integration.html">Loan Board Integration</a>
+                        <a class="dropdown-item" href="reconciliation.html">Financial Reconciliation</a>
+                    </div>
+                </div>
+
+                <a class="nav-link" href="reports.html">Reports</a>
+                <a class="nav-link" href="login.html">Sign In</a>
+                <a class="nav-cta" href="admissions.html">Admissions <span>↗</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page introduction -->
+        <section class="registration-hero">
+            <div class="container">
+                <div class="registration-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="admissions.html">Admissions</a>
+                    <span>/</span>
+                    <span>Student Registration</span>
+                </div>
+
+                <div class="registration-hero-grid">
+                    <div class="registration-hero-content">
+                        <span class="eyebrow">
+                            <span class="status-dot"></span>
+                            INSTITUTIONAL ENROLMENT
+                        </span>
+
+                        <h1>
+                            Every student.<br>
+                            One <span class="gradient-text">official record.</span>
+                        </h1>
+
+                        <p class="registration-intro">
+                            Convert authorised admission outcomes into structured
+                            institutional student records. Maintain student numbers,
+                            programmes, academic periods and registration status
+                            without mixing institutional enrolment with loan-board
+                            sponsorship decisions.
+                        </p>
+
+                        <div class="registration-actions">
+                            <a class="button button-primary" href="#registration-workspace">
+                                Open Registration Workspace <span>→</span>
+                            </a>
+
+                            <a class="button button-outline" href="admissions.html">
+                                View Admissions
+                            </a>
+                        </div>
+
+                        <div class="registration-assurance">
+                            <span class="assurance-icon">✓</span>
+                            <span>Official student records remain under institutional control</span>
+                        </div>
+                    </div>
+
+                    <aside class="registration-summary">
+                        <div class="registration-summary-header">
+                            <div>
+                                <span class="card-overline">REGISTRATION LIFECYCLE</span>
+                                <h2>From admitted to enrolled</h2>
+                            </div>
+                            <span class="registration-summary-icon">✦</span>
+                        </div>
+
+                        <div class="registration-stage">
+                            <span class="stage-marker stage-blue">01</span>
+                            <div class="stage-copy">
+                                <strong>Admission confirmed</strong>
+                                <small>Verify the authorised admission record</small>
+                            </div>
+                            <span class="stage-check">✓</span>
+                        </div>
+
+                        <div class="stage-connector"></div>
+
+                        <div class="registration-stage">
+                            <span class="stage-marker stage-gold">02</span>
+                            <div class="stage-copy">
+                                <strong>Student details captured</strong>
+                                <small>Record identity and programme information</small>
+                            </div>
+                            <span class="stage-check">✓</span>
+                        </div>
+
+                        <div class="stage-connector"></div>
+
+                        <div class="registration-stage">
+                            <span class="stage-marker stage-teal">03</span>
+                            <div class="stage-copy">
+                                <strong>Institutional number assigned</strong>
+                                <small>Link the student's official record</small>
+                            </div>
+                            <span class="stage-pending">NEXT</span>
+                        </div>
+
+                        <div class="stage-connector"></div>
+
+                        <div class="registration-stage">
+                            <span class="stage-marker stage-purple">04</span>
+                            <div class="stage-copy">
+                                <strong>Registration confirmed</strong>
+                                <small>Record the approved registration status</small>
+                            </div>
+                            <span class="stage-pending">FINAL</span>
+                        </div>
+
+                        <div class="registration-summary-footer">
+                            <span></span>
+                            Illustrative workflow · No live records loaded
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration principles -->
+        <section class="registration-principles">
+            <div class="container">
+                <div class="registration-principles-grid">
+                    <article class="registration-principle">
+                        <span class="registration-principle-icon icon-blue">ID</span>
+                        <div>
+                            <h3>Unique student identity</h3>
+                            <p>Maintain a consistent institutional student number for each registered student.</p>
+                        </div>
+                    </article>
+
+                    <article class="registration-principle">
+                        <span class="registration-principle-icon icon-gold">◇</span>
+                        <div>
+                            <h3>Programme allocation</h3>
+                            <p>Associate students with the correct academic programme and intake.</p>
+                        </div>
+                    </article>
+
+                    <article class="registration-principle">
+                        <span class="registration-principle-icon icon-teal">↗</span>
+                        <div>
+                            <h3>Connected administration</h3>
+                            <p>Make authorised registration records available to relevant academic and finance modules.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration workspace -->
+        <section class="registration-workspace-section" id="registration-workspace">
+            <div class="container">
+                <div class="registration-section-heading">
+                    <div>
+                        <span class="eyebrow">STUDENT RECORDS</span>
+                        <h2>Registration <span class="gold-text">workspace</span></h2>
+                        <p>
+                            Search sample records, review registration details, or
+                            use the registration form to demonstrate a new record.
+                        </p>
+                    </div>
+
+                    <span class="registration-prototype-badge">
+                        <span></span> FRONT-END PROTOTYPE
+                    </span>
+                </div>
+
+                <div class="registration-stat-grid">
+                    <article class="registration-stat-card">
+                        <div class="registration-stat-top">
+                            <span>Total sample records</span>
+                            <span class="stat-symbol stat-symbol-blue">▤</span>
+                        </div>
+                        <strong id="total-students">4</strong>
+                        <small>Records displayed in this prototype</small>
+                    </article>
+
+                    <article class="registration-stat-card">
+                        <div class="registration-stat-top">
+                            <span>Registered</span>
+                            <span class="stat-symbol stat-symbol-teal">✓</span>
+                        </div>
+                        <strong id="registered-students">2</strong>
+                        <small>Sample records marked registered</small>
+                    </article>
+
+                    <article class="registration-stat-card">
+                        <div class="registration-stat-top">
+                            <span>Pending registration</span>
+                            <span class="stat-symbol stat-symbol-gold">◷</span>
+                        </div>
+                        <strong id="pending-students">2</strong>
+                        <small>Sample records awaiting completion</small>
+                    </article>
+                </div>
+
+                <div class="registration-record-panel">
+                    <div class="registration-record-toolbar">
+                        <div>
+                            <h3>Student register</h3>
+                            <p>Search and filter the displayed sample records.</p>
+                        </div>
+
+                        <button class="button button-primary registration-add-button"
+                                id="show-registration-form"
+                                type="button">
+                            <span>＋</span> Register Student
+                        </button>
+                    </div>
+
+                    <div class="registration-filter-bar">
+                        <label class="registration-search" for="registration-search">
+                            <span aria-hidden="true">⌕</span>
+                            <input id="registration-search"
+                                   type="search"
+                                   placeholder="Search name, student number or programme">
+                        </label>
+
+                        <label class="visually-hidden" for="registration-status-filter">
+                            Filter by registration status
+                        </label>
+                        <select id="registration-status-filter">
+                            <option value="all">All registration statuses</option>
+                            <option value="Registered">Registered</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Suspended">Suspended</option>
+                        </select>
+
+                        <button class="button button-outline registration-reset-button"
+                                id="reset-registration-filters"
+                                type="button">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="registration-table-wrap">
+                        <table class="registration-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Student</th>
+                                    <th scope="col">Student Number</th>
+                                    <th scope="col">Programme</th>
+                                    <th scope="col">Academic Year</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="registration-table-body">
+                                <tr data-status="Registered">
+                                    <td>
+                                        <div class="registration-student-cell">
+                                            <span class="registration-avatar avatar-blue">AM</span>
+                                            <span>
+                                                <strong>Alex Mwakalinga</strong>
+                                                <small>alex.example@email.test</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="student-number">SLB-2026-001</span></td>
+                                    <td>Computer Science</td>
+                                    <td>2026/2027</td>
+                                    <td><span class="registration-status status-registered">Registered</span></td>
+                                    <td>
+                                        <button class="registration-view-button"
+                                                type="button"
+                                                data-student="SLB-2026-001">
+                                            View <span>↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-status="Pending">
+                                    <td>
+                                        <div class="registration-student-cell">
+                                            <span class="registration-avatar avatar-gold">JN</span>
+                                            <span>
+                                                <strong>Janeth Nyerere</strong>
+                                                <small>janeth.example@email.test</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="student-number">SLB-2026-002</span></td>
+                                    <td>Information Systems</td>
+                                    <td>2026/2027</td>
+                                    <td><span class="registration-status status-pending">Pending</span></td>
+                                    <td>
+                                        <button class="registration-view-button"
+                                                type="button"
+                                                data-student="SLB-2026-002">
+                                            View <span>↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-status="Registered">
+                                    <td>
+                                        <div class="registration-student-cell">
+                                            <span class="registration-avatar avatar-teal">DK</span>
+                                            <span>
+                                                <strong>Daniel Kileo</strong>
+                                                <small>daniel.example@email.test</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="student-number">SLB-2026-003</span></td>
+                                    <td>Business Information Technology</td>
+                                    <td>2026/2027</td>
+                                    <td><span class="registration-status status-registered">Registered</span></td>
+                                    <td>
+                                        <button class="registration-view-button"
+                                                type="button"
+                                                data-student="SLB-2026-003">
+                                            View <span>↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr data-status="Pending">
+                                    <td>
+                                        <div class="registration-student-cell">
+                                            <span class="registration-avatar avatar-purple">SN</span>
+                                            <span>
+                                                <strong>Sarah Ngowi</strong>
+                                                <small>sarah.example@email.test</small>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td><span class="student-number">SLB-2026-004</span></td>
+                                    <td>Computer Engineering</td>
+                                    <td>2026/2027</td>
+                                    <td><span class="registration-status status-pending">Pending</span></td>
+                                    <td>
+                                        <button class="registration-view-button"
+                                                type="button"
+                                                data-student="SLB-2026-004">
+                                            View <span>↗</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="registration-empty-state" id="registration-empty-state" hidden>
+                            <span>⌕</span>
+                            <h3>No matching student records</h3>
+                            <p>Try another search term or change the status filter.</p>
+                        </div>
+                    </div>
+
+                    <div class="registration-table-footer">
+                        <span id="registration-result-count">4 sample student records</span>
+                        <span>Demonstration data only · Not connected to a database</span>
+                    </div>
+                </div>
+
+                <!-- Registration form -->
+                <section class="registration-form-panel"
+                         id="registration-form-panel"
+                         hidden
+                         aria-labelledby="registration-form-title">
+
+                    <div class="registration-form-heading">
+                        <div>
+                            <span class="eyebrow">NEW INSTITUTIONAL RECORD</span>
+                            <h3 id="registration-form-title">Register a student</h3>
+                            <p>
+                                Enter the details below to demonstrate registration.
+                                This prototype stores the new record in browser memory only.
+                            </p>
+                        </div>
+
+                        <button class="registration-close-button"
+                                type="button"
+                                id="close-registration-form"
+                                aria-label="Close registration form">
+                            ×
+                        </button>
+                    </div>
+
+                    <form id="student-registration-form">
+                        <div class="registration-form-grid">
+                            <div class="registration-field">
+                                <label for="student-full-name">Full name <span>*</span></label>
+                                <input id="student-full-name"
+                                       name="fullName"
+                                       type="text"
+                                       autocomplete="name"
+                                       maxlength="120"
+                                       placeholder="Enter student's full name"
+                                       required>
+                            </div>
+
+                            <div class="registration-field">
+                                <label for="student-email">Email address <span>*</span></label>
+                                <input id="student-email"
+                                       name="email"
+                                       type="email"
+                                       autocomplete="email"
+                                       maxlength="160"
+                                       placeholder="student@example.com"
+                                       required>
+                            </div>
+
+                            <div class="registration-field">
+                                <label for="student-programme">Academic programme <span>*</span></label>
+                                <select id="student-programme"
+                                        name="programme"
+                                        required>
+                                    <option value="">Select a programme</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Information Systems">Information Systems</option>
+                                    <option value="Business Information Technology">Business Information Technology</option>
+                                    <option value="Computer Engineering">Computer Engineering</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Software Engineering">Software Engineering</option>
+                                </select>
+                            </div>
+
+                            <div class="registration-field">
+                                <label for="student-academic-year">Academic year <span>*</span></label>
+                                <select id="student-academic-year"
+                                        name="academicYear"
+                                        required>
+                                    <option value="">Select academic year</option>
+                                    <option value="2026/2027">2026/2027</option>
+                                    <option value="2027/2028">2027/2028</option>
+                                    <option value="2028/2029">2028/2029</option>
+                                </select>
+                            </div>
+
+                            <div class="registration-field">
+                                <label for="student-admission-reference">Admission reference</label>
+                                <input id="student-admission-reference"
+                                       name="admissionReference"
+                                       type="text"
+                                       maxlength="60"
+                                       placeholder="e.g. APP-2026-005">
+                            </div>
+
+                            <div class="registration-field">
+                                <label for="student-registration-status">Registration status <span>*</span></label>
+                                <select id="student-registration-status"
+                                        name="registrationStatus"
+                                        required>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Registered">Registered</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="registration-form-notice">
+                            <span>ⓘ</span>
+                            <p>
+                                A student number generated here is a prototype identifier.
+                                Production registration must verify admission eligibility,
+                                enforce uniqueness and save the official record through a
+                                secure backend.
+                            </p>
+                        </div>
+
+                        <div class="registration-form-actions">
+                            <button class="button button-outline"
+                                    id="cancel-registration"
+                                    type="button">
+                                Cancel
+                            </button>
+
+                            <button class="button button-primary" type="submit">
+                                Save Sample Record <span>→</span>
+                            </button>
+                        </div>
+
+                        <p class="registration-form-message"
+                           id="registration-form-message"
+                           role="status"
+                           aria-live="polite"></p>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <!-- Institutional authority -->
+        <section class="registration-governance">
+            <div class="container">
+                <div class="registration-governance-panel">
+                    <div class="registration-governance-icon">⌘</div>
+
+                    <div class="registration-governance-copy">
+                        <span class="eyebrow">INSTITUTIONAL CONTROL</span>
+                        <h2>Registration and sponsorship are different records.</h2>
+                        <p>
+                            The institution controls admission and student registration.
+                            Loan-board approval and actual disbursement are maintained as
+                            separate funding information. A pending funding payment should
+                            not automatically cancel a valid registration or be treated as
+                            proof that institutional charges have been paid.
+                        </p>
+                    </div>
+
+                    <a class="button button-outline"
+                       href="loan-integration.html">
+                        Explore Loan Integration <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand-column">
+                    <a class="brand" href="index.html">
+                        <span class="brand-icon">S</span>
+                        <span class="brand-text">
+                            <strong>SLB-IMS</strong>
+                            <small>Student Management System</small>
+                        </span>
+                    </a>
+
+                    <p>
+                        Coordinating institutional student records and loan-board
+                        funding information through accountable digital workflows.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Student Management</h3>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="registration.html">Registration</a>
+                    <a href="academics.html">Academic Records</a>
+                    <a href="student-portal.html">Student Portal</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Finance & Reporting</h3>
+                    <a href="finance.html">Student Finance</a>
+                    <a href="loan-integration.html">Loan Integration</a>
+                    <a href="reconciliation.html">Reconciliation</a>
+                    <a href="reports.html">Reports & Analytics</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>System Access</h3>
+                    <a href="login.html">Sign In</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© <span id="current-year">2026</span> SLB-IMS. All rights reserved.</span>
+                <span>Institutional records · Transparent funding · Accountable reconciliation</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

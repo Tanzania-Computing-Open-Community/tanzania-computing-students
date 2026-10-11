@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SLB-IMS institutional student finance, fee assessment, payment tracking, and account reconciliation.">
+    <title>Student Finance | SLB-IMS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="finance.css">
+    <script src="script.js" defer></script>
+    <script src="finance.js" defer></script>
+</head>
+
+<body class="finance-page">
+
+<header class="site-header">
+    <div class="container header-content">
+        <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+                <strong>SLB-IMS</strong>
+                <small>Student Management System</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="registration.html" class="nav-link">Registration</a>
+            <a href="academics.html" class="nav-link">Academics</a>
+            <a href="finance.html" class="nav-link active" aria-current="page">Finance</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle"
+                        type="button"
+                        aria-expanded="false">
+                    Integration <span class="chevron">⌄</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="loan-integration.html" class="nav-link">Loan Integration</a>
+                    <a href="reconciliation.html" class="nav-link">Reconciliation</a>
+                </div>
+            </div>
+
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="student-portal.html" class="nav-link">Student Portal</a>
+            <a href="login.html" class="button button-primary nav-cta">Sign In</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="finance-hero">
+        <div class="container finance-hero-grid">
+            <div class="finance-hero-content">
+                <span class="eyebrow">
+                    <span class="status-dot"></span>
+                    INSTITUTIONAL FINANCIAL MANAGEMENT
+                </span>
+
+                <h1>
+                    Student finance,
+                    <span class="gradient-text">with clarity.</span>
+                </h1>
+
+                <p>
+                    Assess institutional charges, record payments, monitor student
+                    balances, and distinguish verified loan disbursements from
+                    sponsorship approvals.
+                </p>
+
+                <div class="finance-hero-actions">
+                    <button class="button button-primary"
+                            type="button"
+                            id="show-fee-form">
+                        <span aria-hidden="true">＋</span> Create Fee Assessment
+                    </button>
+
+                    <button class="button button-outline"
+                            type="button"
+                            id="show-payment-form">
+                        Record Payment
+                    </button>
+                </div>
+
+                <div class="finance-assurance">
+                    <span aria-hidden="true">◇</span>
+                    <span>Institutional accounts remain distinct from loan-board funding records.</span>
+                </div>
+            </div>
+
+            <aside class="finance-overview-card">
+                <div class="overview-card-heading">
+                    <div>
+                        <span class="card-overline">ACCOUNTING OVERVIEW</span>
+                        <h2>Current academic year</h2>
+                    </div>
+                    <span class="finance-year-badge">2026/27</span>
+                </div>
+
+                <div class="overview-total">
+                    <span>Illustrative assessed charges</span>
+                    <strong id="overview-assessed">TZS 48,500,000</strong>
+                    <small>Sample institutional fee assessments</small>
+                </div>
+
+                <div class="overview-progress">
+                    <div class="overview-progress-label">
+                        <span>Payments posted</span>
+                        <strong id="overview-payment-rate">62%</strong>
+                    </div>
+                    <div class="progress-track" role="progressbar"
+                         aria-label="Illustrative payment posting progress"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="62"
+                         id="overview-progress-track">
+                        <span id="overview-progress-bar"></span>
+                    </div>
+                </div>
+
+                <div class="overview-footnote">
+                    <span class="overview-footnote-icon">i</span>
+                    <p>
+                        Approved sponsorship is not counted as money received.
+                        Only verified and posted payments reduce the recorded balance.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="finance-dashboard-section">
+        <div class="container">
+
+            <div class="finance-section-heading">
+                <div>
+                    <span class="eyebrow">FINANCIAL POSITION</span>
+                    <h2>Institutional account summary</h2>
+                    <p>Illustrative prototype figures for the selected academic year.</p>
+                </div>
+
+                <label class="finance-year-select">
+                    <span>Academic year</span>
+                    <select id="finance-academic-year" aria-label="Select academic year">
+                        <option value="2026/27" selected>2026/2027</option>
+                        <option value="2025/26">2025/2026</option>
+                        <option value="2024/25">2024/2025</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="finance-stat-grid">
+                <article class="finance-stat-card stat-blue">
+                    <div class="finance-stat-top">
+                        <span class="finance-stat-icon">▤</span>
+                        <span class="finance-stat-caption">ASSESSED</span>
+                    </div>
+                    <p>Total institutional charges</p>
+                    <h3 id="total-assessed">TZS 48,500,000</h3>
+                    <small>Charges assessed for students</small>
+                </article>
+
+                <article class="finance-stat-card stat-teal">
+                    <div class="finance-stat-top">
+                        <span class="finance-stat-icon">✓</span>
+                        <span class="finance-stat-caption">POSTED</span>
+                    </div>
+                    <p>Payments received</p>
+                    <h3 id="total-received">TZS 30,070,000</h3>
+                    <small>Verified payments posted to accounts</small>
+                </article>
+
+                <article class="finance-stat-card stat-gold">
+                    <div class="finance-stat-top">
+                        <span class="finance-stat-icon">◷</span>
+                        <span class="finance-stat-caption">PENDING</span>
+                    </div>
+                    <p>Funding awaiting verification</p>
+                    <h3 id="total-funding-pending">TZS 8,200,000</h3>
+                    <small>Not yet counted as payment received</small>
+                </article>
+
+                <article class="finance-stat-card stat-purple">
+                    <div class="finance-stat-top">
+                        <span class="finance-stat-icon">∑</span>
+                        <span class="finance-stat-caption">OUTSTANDING</span>
+                    </div>
+                    <p>Unsettled account balance</p>
+                    <h3 id="total-outstanding">TZS 18,430,000</h3>
+                    <small>Assessed charges minus posted payments</small>
+                </article>
+            </div>
+
+            <div class="finance-integrity-note">
+                <div class="integrity-note-icon" aria-hidden="true">◇</div>
+                <div>
+                    <h3>One account, clear funding status</h3>
+                    <p>
+                        A student's recorded balance is calculated from institutional
+                        charges and payments actually posted. Verified pending funding
+                        is displayed separately for follow-up and must not automatically
+                        be treated as a completed payment or as proof of student default.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="finance-records-section">
+        <div class="container">
+
+            <div class="finance-section-heading finance-records-heading">
+                <div>
+                    <span class="eyebrow">STUDENT ACCOUNTS</span>
+                    <h2>Fee and payment records</h2>
+                    <p>Review institutional charges, posted payments, and funding status.</p>
+                </div>
+
+                <div class="finance-record-actions">
+                    <button class="button button-outline"
+                            type="button"
+                            id="export-finance-records">
+                        Export visible records
+                    </button>
+                </div>
+            </div>
+
+            <div class="finance-filter-panel">
+                <div class="finance-search-field">
+                    <label for="finance-search">Search records</label>
+                    <div class="finance-input-wrap">
+                        <span aria-hidden="true">⌕</span>
+                        <input type="search"
+                               id="finance-search"
+                               placeholder="Student name, number, or programme..."
+                               autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="finance-filter-field">
+                    <label for="finance-status-filter">Account status</label>
+                    <select id="finance-status-filter">
+                        <option value="all">All account statuses</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Partially paid">Partially paid</option>
+                        <option value="Funding pending">Funding pending</option>
+                        <option value="Balance due">Balance due</option>
+                        <option value="Reconciliation review">Reconciliation review</option>
+                    </select>
+                </div>
+
+                <div class="finance-filter-field">
+                    <label for="finance-funding-filter">Funding source</label>
+                    <select id="finance-funding-filter">
+                        <option value="all">All funding sources</option>
+                        <option value="Loan board">Loan board</option>
+                        <option value="Self-funded">Self-funded</option>
+                        <option value="Mixed">Mixed funding</option>
+                    </select>
+                </div>
+
+                <button class="button button-outline finance-reset-button"
+                        type="button"
+                        id="reset-finance-filters">
+                    Reset
+                </button>
+            </div>
+
+            <div class="finance-table-container">
+                <div class="finance-table-topline">
+                    <div>
+                        <strong>Student financial ledger</strong>
+                        <span id="finance-result-count">4 illustrative records</span>
+                    </div>
+                    <span class="demo-data-label">DEMO DATA</span>
+                </div>
+
+                <div class="finance-table-scroll">
+                    <table class="finance-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Student</th>
+                                <th scope="col">Assessed charges</th>
+                                <th scope="col">Received &amp; posted</th>
+                                <th scope="col">Funding pending</th>
+                                <th scope="col">Recorded balance</th>
+                                <th scope="col">Account status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-table-body">
+
+                            <tr data-student="SLB-2026-001"
+                                data-status="Partially paid"
+                                data-funding="Loan board"
+                                data-assessed="1500000"
+                                data-received="1000000"
+                                data-pending="300000"
+                                data-balance="500000">
+                                <td>
+                                    <div class="finance-student-cell">
+                                        <span class="finance-avatar avatar-blue">AM</span>
+                                        <div>
+                                            <strong>Alex Mwakalinga</strong>
+                                            <small>SLB-2026-001</small>
+                                            <span>Computer Science</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TZS 1,500,000</td>
+                                <td>TZS 1,000,000</td>
+                                <td>TZS 300,000</td>
+                                <td class="balance-cell">TZS 500,000</td>
+                                <td><span class="finance-status status-partial">Partially paid</span></td>
+                                <td>
+                                    <button class="finance-row-action view-finance-record"
+                                            type="button"
+                                            data-student="SLB-2026-001"
+                                            aria-label="View finance record for Alex Mwakalinga">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-student="SLB-2026-002"
+                                data-status="Funding pending"
+                                data-funding="Loan board"
+                                data-assessed="1800000"
+                                data-received="600000"
+                                data-pending="900000"
+                                data-balance="1200000">
+                                <td>
+                                    <div class="finance-student-cell">
+                                        <span class="finance-avatar avatar-gold">JN</span>
+                                        <div>
+                                            <strong>Janeth Nyerere</strong>
+                                            <small>SLB-2026-002</small>
+                                            <span>Information Systems</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TZS 1,800,000</td>
+                                <td>TZS 600,000</td>
+                                <td>TZS 900,000</td>
+                                <td class="balance-cell">TZS 1,200,000</td>
+                                <td><span class="finance-status status-funding">Funding pending</span></td>
+                                <td>
+                                    <button class="finance-row-action view-finance-record"
+                                            type="button"
+                                            data-student="SLB-2026-002"
+                                            aria-label="View finance record for Janeth Nyerere">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-student="SLB-2026-003"
+                                data-status="Paid"
+                                data-funding="Self-funded"
+                                data-assessed="1250000"
+                                data-received="1250000"
+                                data-pending="0"
+                                data-balance="0">
+                                <td>
+                                    <div class="finance-student-cell">
+                                        <span class="finance-avatar avatar-teal">DK</span>
+                                        <div>
+                                            <strong>Daniel Kileo</strong>
+                                            <small>SLB-2026-003</small>
+                                            <span>Business Information Technology</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TZS 1,250,000</td>
+                                <td>TZS 1,250,000</td>
+                                <td>TZS 0</td>
+                                <td class="balance-cell balance-zero">TZS 0</td>
+                                <td><span class="finance-status status-paid">Paid</span></td>
+                                <td>
+                                    <button class="finance-row-action view-finance-record"
+                                            type="button"
+                                            data-student="SLB-2026-003"
+                                            aria-label="View finance record for Daniel Kileo">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-student="SLB-2026-004"
+                                data-status="Reconciliation review"
+                                data-funding="Mixed"
+                                data-assessed="1600000"
+                                data-received="800000"
+                                data-pending="500000"
+                                data-balance="800000">
+                                <td>
+                                    <div class="finance-student-cell">
+                                        <span class="finance-avatar avatar-purple">SN</span>
+                                        <div>
+                                            <strong>Sarah Ngowi</strong>
+                                            <small>SLB-2026-004</small>
+                                            <span>Computer Engineering</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TZS 1,600,000</td>
+                                <td>TZS 800,000</td>
+                                <td>TZS 500,000</td>
+                                <td class="balance-cell">TZS 800,000</td>
+                                <td><span class="finance-status status-review">Reconciliation review</span></td>
+                                <td>
+                                    <button class="finance-row-action view-finance-record"
+                                            type="button"
+                                            data-student="SLB-2026-004"
+                                            aria-label="View finance record for Sarah Ngowi">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="finance-empty-state" id="finance-empty-state" hidden>
+                    <span aria-hidden="true">⌕</span>
+                    <h3>No matching financial records</h3>
+                    <p>Try changing your search or filters.</p>
+                </div>
+
+                <div class="finance-table-footer">
+                    <span>Showing prototype records only</span>
+                    <span>Currency: Tanzanian Shilling (TZS)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="finance-forms-section">
+        <div class="container">
+
+            <div class="finance-section-heading">
+                <div>
+                    <span class="eyebrow">ACCOUNT OPERATIONS</span>
+                    <h2>Manage financial entries</h2>
+                    <p>These forms demonstrate the intended workflow. They do not post to a real finance system.</p>
+                </div>
+            </div>
+
+            <div class="finance-form-grid">
+
+                <section class="finance-form-card"
+                         id="fee-form-panel"
+                         hidden>
+                    <div class="finance-form-heading">
+                        <div>
+                            <span class="card-overline">INSTITUTIONAL BILLING</span>
+                            <h3>Create fee assessment</h3>
+                        </div>
+                        <button type="button"
+                                class="finance-close-button"
+                                id="close-fee-form"
+                                aria-label="Close fee assessment form">×</button>
+                    </div>
+
+                    <p class="finance-form-description">
+                        Record charges determined by the institution. This action does not create a loan-board funding decision.
+                    </p>
+
+                    <form id="fee-assessment-form">
+                        <div class="finance-form-field">
+                            <label for="fee-student-number">Student number</label>
+                            <input type="text"
+                                   id="fee-student-number"
+                                   name="studentNumber"
+                                   placeholder="e.g. SLB-2026-001"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="fee-academic-year">Academic year</label>
+                            <select id="fee-academic-year" name="academicYear" required>
+                                <option value="2026/27">2026/2027</option>
+                                <option value="2025/26">2025/2026</option>
+                                <option value="2024/25">2024/2025</option>
+                            </select>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="fee-category">Charge category</label>
+                            <select id="fee-category" name="category" required>
+                                <option value="">Select category</option>
+                                <option value="Tuition">Tuition fees</option>
+                                <option value="Registration">Registration fees</option>
+                                <option value="Accommodation">Accommodation</option>
+                                <option value="Examination">Examination fees</option>
+                                <option value="Other">Other approved institutional charge</option>
+                            </select>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="fee-amount">Amount (TZS)</label>
+                            <input type="number"
+                                   id="fee-amount"
+                                   name="amount"
+                                   min="1"
+                                   step="1"
+                                   placeholder="Enter amount"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field finance-form-full">
+                            <label for="fee-description">Description</label>
+                            <textarea id="fee-description"
+                                      name="description"
+                                      rows="3"
+                                      placeholder="Describe the institutional charge"
+                                      required></textarea>
+                        </div>
+
+                        <p class="finance-form-message"
+                           id="fee-form-message"
+                           role="status"
+                           aria-live="polite"></p>
+
+                        <div class="finance-form-actions">
+                            <button type="button"
+                                    class="button button-outline"
+                                    id="cancel-fee-form">Cancel</button>
+                            <button type="submit"
+                                    class="button button-primary">Save Sample Assessment</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="finance-form-card"
+                         id="payment-form-panel"
+                         hidden>
+                    <div class="finance-form-heading">
+                        <div>
+                            <span class="card-overline">PAYMENT POSTING</span>
+                            <h3>Record payment received</h3>
+                        </div>
+                        <button type="button"
+                                class="finance-close-button"
+                                id="close-payment-form"
+                                aria-label="Close payment form">×</button>
+                    </div>
+
+                    <p class="finance-form-description">
+                        Use this demonstration form for a payment that has been independently verified as received by the institution.
+                    </p>
+
+                    <form id="payment-record-form">
+                        <div class="finance-form-field">
+                            <label for="payment-student-number">Student number</label>
+                            <input type="text"
+                                   id="payment-student-number"
+                                   name="studentNumber"
+                                   placeholder="e.g. SLB-2026-001"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="payment-amount">Amount received (TZS)</label>
+                            <input type="number"
+                                   id="payment-amount"
+                                   name="amount"
+                                   min="1"
+                                   step="1"
+                                   placeholder="Enter verified amount"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="payment-source">Payment source</label>
+                            <select id="payment-source" name="source" required>
+                                <option value="">Select source</option>
+                                <option value="Loan board">Loan-board disbursement</option>
+                                <option value="Self-funded">Student or sponsor payment</option>
+                                <option value="Mixed">Other verified institutional receipt</option>
+                            </select>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="payment-reference">Transaction reference</label>
+                            <input type="text"
+                                   id="payment-reference"
+                                   name="reference"
+                                   placeholder="Enter verified receipt/reference"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="payment-date">Date received</label>
+                            <input type="date"
+                                   id="payment-date"
+                                   name="paymentDate"
+                                   required>
+                        </div>
+
+                        <div class="finance-form-field">
+                            <label for="payment-verification">Verification status</label>
+                            <select id="payment-verification" name="verification" required>
+                                <option value="verified">Verified and received</option>
+                                <option value="review">Requires review — do not post</option>
+                            </select>
+                        </div>
+
+                        <div class="finance-form-field finance-form-full">
+                            <label for="payment-notes">Notes (optional)</label>
+                            <textarea id="payment-notes"
+                                      name="notes"
+                                      rows="3"
+                                      placeholder="Add relevant verification notes"></textarea>
+                        </div>
+
+                        <p class="finance-form-message"
+                           id="payment-form-message"
+                           role="status"
+                           aria-live="polite"></p>
+
+                        <div class="finance-form-actions">
+                            <button type="button"
+                                    class="button button-outline"
+                                    id="cancel-payment-form">Cancel</button>
+                            <button type="submit"
+                                    class="button button-primary">Save Sample Payment</button>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="finance-principles-section">
+        <div class="container">
+            <div class="finance-section-heading">
+                <div>
+                    <span class="eyebrow">ACCOUNTING CONTROLS</span>
+                    <h2>Rules that protect student records</h2>
+                </div>
+            </div>
+
+            <div class="finance-principles-grid">
+                <article class="finance-principle-card">
+                    <span class="principle-number">01</span>
+                    <h3>Assess charges independently</h3>
+                    <p>
+                        The institution maintains its own approved fee structure,
+                        assessments, invoices, and student account ledger.
+                    </p>
+                </article>
+
+                <article class="finance-principle-card">
+                    <span class="principle-number">02</span>
+                    <h3>Verify before posting</h3>
+                    <p>
+                        A payment reduces the recorded balance only after its receipt
+                        and allocation to the correct student account are verified.
+                    </p>
+                </article>
+
+                <article class="finance-principle-card">
+                    <span class="principle-number">03</span>
+                    <h3>Separate pending funding</h3>
+                    <p>
+                        Loan approval, scheduled disbursement, confirmed transfer,
+                        and money received are separate states that must not be confused.
+                    </p>
+                </article>
+
+                <article class="finance-principle-card">
+                    <span class="principle-number">04</span>
+                    <h3>Resolve discrepancies fairly</h3>
+                    <p>
+                        Where transfer or allocation evidence is incomplete, flag the
+                        account for review instead of automatically declaring default
+                        or marking it paid.
+                    </p>
+                </article>
+            </div>
+
+            <div class="finance-demo-warning">
+                <span aria-hidden="true">ⓘ</span>
+                <div>
+                    <strong>Prototype and data integrity notice</strong>
+                    <p>
+                        All names, amounts, and transactions on this page are illustrative.
+                        The current front end has no live database, verified payment gateway,
+                        or loan-board connection. Production use requires authorized data
+                        exchange, access controls, audit trails, and reconciliation procedures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand-column">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">S</span>
+                    <span class="brand-text">
+                        <strong>SLB-IMS</strong>
+                        <small>Student Management System</small>
+                    </span>
+                </a>
+                <p>
+                    Coordinating institutional student records and loan-board funding
+                    information through clear, accountable workflows.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Institution</h3>
+                <a href="admissions.html">Admissions</a>
+                <a href="registration.html">Registration</a>
+                <a href="academics.html">Academics</a>
+                <a href="finance.html">Student Finance</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Coordination</h3>
+                <a href="loan-integration.html">Loan Integration</a>
+                <a href="reconciliation.html">Reconciliation</a>
+                <a href="reports.html">Reports</a>
+                <a href="student-portal.html">Student Portal</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span class="current-year">2026</span> SLB-IMS Prototype</span>
+            <span>Institutional records and funding information, clearly distinguished.</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

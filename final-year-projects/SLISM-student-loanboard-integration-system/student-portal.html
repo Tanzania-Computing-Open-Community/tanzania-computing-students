@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c1529">
+    <meta name="description" content="SLB-IMS student portal for institutional records, academic progress, fee statements, and student loan funding information.">
+    <title>Student Portal | SLB-IMS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="student-portal.css">
+
+    <script src="script.js" defer></script>
+    <script src="student-portal.js" defer></script>
+</head>
+<body class="student-portal-page">
+
+<header class="site-header">
+    <div class="container header-content">
+        <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+                <strong>SLB-IMS</strong>
+                <small>Student Management System</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button"
+                aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="registration.html" class="nav-link">Registration</a>
+            <a href="academics.html" class="nav-link">Academics</a>
+            <a href="finance.html" class="nav-link">Finance</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" type="button"
+                        aria-expanded="false">
+                    Integration <span class="chevron">⌄</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="loan-integration.html" class="nav-link">Loan Integration</a>
+                    <a href="reconciliation.html" class="nav-link">Reconciliation</a>
+                </div>
+            </div>
+
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="student-portal.html" class="nav-link active"
+               aria-current="page">Student Portal</a>
+            <a href="login.html" class="button button-primary nav-cta">Sign In</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="portal-hero">
+        <div class="container portal-hero-inner">
+            <div class="portal-hero-copy">
+                <span class="portal-eyebrow">
+                    <span class="portal-eyebrow-dot"></span>
+                    STUDENT SELF-SERVICE
+                </span>
+
+                <h1>Your academic journey, <span>in one place.</span></h1>
+
+                <p>
+                    View your institutional records, follow your academic
+                    progress, understand your fee balance, and check the
+                    status of your student loan funding.
+                </p>
+
+                <div class="portal-hero-actions">
+                    <a href="#student-record" class="button button-primary">
+                        View My Record
+                    </a>
+                    <a href="#funding-overview" class="button button-secondary">
+                        Check Funding
+                    </a>
+                </div>
+
+                <p class="portal-demo-notice">
+                    <span aria-hidden="true">ⓘ</span>
+                    Demonstration portal — the student profile shown below
+                    is sample data, not a verified personal account.
+                </p>
+            </div>
+
+            <aside class="portal-profile-card" aria-label="Sample student profile">
+                <div class="portal-profile-top">
+                    <div class="portal-avatar" aria-hidden="true">AM</div>
+                    <div>
+                        <span class="portal-profile-label">SAMPLE STUDENT</span>
+                        <h2 id="portal-student-name">Alex Mwakalinga</h2>
+                        <p id="portal-student-number">SLB-2026-001</p>
+                    </div>
+                </div>
+
+                <div class="portal-profile-divider"></div>
+
+                <div class="portal-profile-detail">
+                    <span>Programme</span>
+                    <strong id="portal-programme">Computer Science</strong>
+                </div>
+
+                <div class="portal-profile-detail">
+                    <span>Academic year</span>
+                    <strong id="portal-academic-year">2026/2027</strong>
+                </div>
+
+                <div class="portal-profile-detail">
+                    <span>Registration</span>
+                    <span id="portal-registration-status"
+                          class="portal-status portal-status-success">
+                        Registered
+                    </span>
+                </div>
+
+                <div class="portal-profile-detail">
+                    <span>Record type</span>
+                    <strong>Sample record</strong>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="portal-overview section-padding" id="student-record">
+        <div class="container">
+            <div class="portal-section-heading">
+                <div>
+                    <span class="portal-section-kicker">PERSONAL OVERVIEW</span>
+                    <h2>Your student dashboard</h2>
+                    <p>A quick overview of the sample institutional record.</p>
+                </div>
+
+                <span class="portal-year-chip">
+                    <span aria-hidden="true">◷</span>
+                    2026/2027
+                </span>
+            </div>
+
+            <div class="portal-metric-grid">
+                <article class="portal-metric-card portal-metric-blue">
+                    <div class="portal-metric-icon" aria-hidden="true">▤</div>
+                    <span class="portal-metric-label">Assessed fees</span>
+                    <strong id="portal-assessed-fees">TZS 1,500,000</strong>
+                    <p>Institutional charges recorded</p>
+                </article>
+
+                <article class="portal-metric-card portal-metric-teal">
+                    <div class="portal-metric-icon" aria-hidden="true">✓</div>
+                    <span class="portal-metric-label">Payments received</span>
+                    <strong id="portal-received-payments">TZS 1,000,000</strong>
+                    <p>Sample verified receipts</p>
+                </article>
+
+                <article class="portal-metric-card portal-metric-gold">
+                    <div class="portal-metric-icon" aria-hidden="true">◷</div>
+                    <span class="portal-metric-label">Outstanding balance</span>
+                    <strong id="portal-fee-balance">TZS 500,000</strong>
+                    <p>Based on assessed fees and received payments</p>
+                </article>
+
+                <article class="portal-metric-card portal-metric-purple">
+                    <div class="portal-metric-icon" aria-hidden="true">◇</div>
+                    <span class="portal-metric-label">Academic standing</span>
+                    <strong id="portal-academic-standing">In progress</strong>
+                    <p>Sample academic record status</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="portal-funding-section section-padding" id="funding-overview">
+        <div class="container">
+            <div class="portal-section-heading">
+                <div>
+                    <span class="portal-section-kicker">FINANCIAL TRANSPARENCY</span>
+                    <h2>Understand your funding</h2>
+                    <p>
+                        Loan approval, disbursement, institutional receipt,
+                        and your fee balance are different records.
+                    </p>
+                </div>
+            </div>
+
+            <div class="portal-funding-grid">
+                <article class="portal-panel portal-loan-panel">
+                    <div class="portal-panel-heading">
+                        <div>
+                            <span class="portal-panel-kicker">LOAN BOARD RECORD</span>
+                            <h3>Sponsorship status</h3>
+                        </div>
+                        <span class="portal-panel-symbol" aria-hidden="true">◇</span>
+                    </div>
+
+                    <div class="portal-loan-status">
+                        <span class="portal-status portal-status-info"
+                              id="portal-loan-status">
+                            Approved
+                        </span>
+                        <span class="portal-loan-status-caption">
+                            Sample approval status
+                        </span>
+                    </div>
+
+                    <div class="portal-amount-row">
+                        <span>Approved funding</span>
+                        <strong id="portal-approved-amount">TZS 1,200,000</strong>
+                    </div>
+
+                    <div class="portal-amount-row">
+                        <span>Reported disbursement</span>
+                        <strong id="portal-disbursed-amount">TZS 1,000,000</strong>
+                    </div>
+
+                    <div class="portal-amount-row">
+                        <span>Received by institution</span>
+                        <strong id="portal-institution-received">TZS 1,000,000</strong>
+                    </div>
+
+                    <div class="portal-funding-note">
+                        <span aria-hidden="true">ⓘ</span>
+                        <p id="portal-funding-explanation">
+                            Approval does not mean the full amount has been
+                            disbursed or received. Check the recorded amounts
+                            and any outstanding verification separately.
+                        </p>
+                    </div>
+
+                    <a href="loan-integration.html" class="portal-text-link">
+                        View loan integration
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+
+                <article class="portal-panel portal-fee-panel">
+                    <div class="portal-panel-heading">
+                        <div>
+                            <span class="portal-panel-kicker">INSTITUTIONAL ACCOUNT</span>
+                            <h3>Fee account summary</h3>
+                        </div>
+                        <span class="portal-panel-symbol" aria-hidden="true">▤</span>
+                    </div>
+
+                    <div class="portal-fee-summary">
+                        <div class="portal-fee-summary-top">
+                            <span>Payments recorded against fees</span>
+                            <strong id="portal-payment-percentage">66.7%</strong>
+                        </div>
+                        <div class="portal-progress-track"
+                             role="progressbar"
+                             aria-label="Proportion of assessed fees received"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="66.7"
+                             id="portal-payment-progress">
+                            <span id="portal-payment-progress-bar"
+                                  style="width: 66.7%"></span>
+                        </div>
+                        <p>Calculated using sample assessed fees and receipts.</p>
+                    </div>
+
+                    <div class="portal-fee-breakdown">
+                        <div>
+                            <span>Assessed charges</span>
+                            <strong id="portal-breakdown-assessed">TZS 1,500,000</strong>
+                        </div>
+                        <div>
+                            <span>Verified receipts</span>
+                            <strong id="portal-breakdown-received">TZS 1,000,000</strong>
+                        </div>
+                        <div class="portal-fee-balance-row">
+                            <span>Calculated balance</span>
+                            <strong id="portal-breakdown-balance">TZS 500,000</strong>
+                        </div>
+                    </div>
+
+                    <div class="portal-funding-note portal-fee-note">
+                        <span aria-hidden="true">ⓘ</span>
+                        <p>
+                            A balance is calculated from institutional charges
+                            and payments actually received and posted. A loan
+                            approval alone is not a payment.
+                        </p>
+                    </div>
+
+                    <a href="finance.html" class="portal-text-link">
+                        View finance records
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="portal-academics-section section-padding">
+        <div class="container">
+            <div class="portal-section-heading">
+                <div>
+                    <span class="portal-section-kicker">ACADEMIC PROGRESS</span>
+                    <h2>Learning and registration</h2>
+                    <p>
+                        Review your sample programme information and the
+                        academic milestones recorded by the institution.
+                    </p>
+                </div>
+                <a href="academics.html" class="portal-text-link">
+                    Academic records <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <div class="portal-academic-grid">
+                <article class="portal-panel">
+                    <div class="portal-panel-heading">
+                        <div>
+                            <span class="portal-panel-kicker">PROGRAMME PROFILE</span>
+                            <h3>Programme details</h3>
+                        </div>
+                    </div>
+
+                    <div class="portal-programme-visual">
+                        <div class="portal-programme-icon" aria-hidden="true">⌘</div>
+                        <div>
+                            <span>Current programme</span>
+                            <h4 id="portal-programme-detail">Bachelor of Computer Science</h4>
+                            <p>Sample programme record</p>
+                        </div>
+                    </div>
+
+                    <div class="portal-detail-list">
+                        <div>
+                            <span>Student number</span>
+                            <strong>SLB-2026-001</strong>
+                        </div>
+                        <div>
+                            <span>Academic year</span>
+                            <strong>2026/2027</strong>
+                        </div>
+                        <div>
+                            <span>Registration record</span>
+                            <strong>Registered — sample</strong>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portal-panel">
+                    <div class="portal-panel-heading">
+                        <div>
+                            <span class="portal-panel-kicker">MILESTONES</span>
+                            <h3>Academic checklist</h3>
+                        </div>
+                    </div>
+
+                    <div class="portal-checklist" id="portal-academic-checklist">
+                        <div class="portal-checklist-item">
+                            <span class="portal-check-icon is-complete" aria-hidden="true">✓</span>
+                            <div>
+                                <strong>Admission record</strong>
+                                <p>Sample admission information recorded</p>
+                            </div>
+                            <span class="portal-check-state">Recorded</span>
+                        </div>
+
+                        <div class="portal-checklist-item">
+                            <span class="portal-check-icon is-complete" aria-hidden="true">✓</span>
+                            <div>
+                                <strong>Student registration</strong>
+                                <p>Registration status shown in this prototype</p>
+                            </div>
+                            <span class="portal-check-state">Recorded</span>
+                        </div>
+
+                        <div class="portal-checklist-item">
+                            <span class="portal-check-icon is-pending" aria-hidden="true">◷</span>
+                            <div>
+                                <strong>Semester enrolment</strong>
+                                <p>Confirm semester-specific requirements with the institution</p>
+                            </div>
+                            <span class="portal-check-state">Verify</span>
+                        </div>
+
+                        <div class="portal-checklist-item">
+                            <span class="portal-check-icon is-pending" aria-hidden="true">◷</span>
+                            <div>
+                                <strong>Academic results</strong>
+                                <p>Consult the official academic record when published</p>
+                            </div>
+                            <span class="portal-check-state">Verify</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="portal-announcements-section section-padding">
+        <div class="container">
+            <div class="portal-section-heading">
+                <div>
+                    <span class="portal-section-kicker">STUDENT INFORMATION</span>
+                    <h2>Announcements and reminders</h2>
+                    <p>
+                        Example notices for the prototype. Official notices
+                        must be published and verified by authorized staff.
+                    </p>
+                </div>
+            </div>
+
+            <div class="portal-announcement-grid" id="portal-announcements">
+                <article class="portal-announcement-card">
+                    <div class="portal-announcement-icon portal-announcement-blue"
+                         aria-hidden="true">▤</div>
+                    <div class="portal-announcement-content">
+                        <span class="portal-announcement-category">REGISTRATION</span>
+                        <h3>Confirm your registration record</h3>
+                        <p>
+                            Review your programme and registration details.
+                            Report incorrect information to the relevant
+                            institutional office.
+                        </p>
+                        <span class="portal-announcement-date">Demonstration notice</span>
+                    </div>
+                </article>
+
+                <article class="portal-announcement-card">
+                    <div class="portal-announcement-icon portal-announcement-gold"
+                         aria-hidden="true">◇</div>
+                    <div class="portal-announcement-content">
+                        <span class="portal-announcement-category">STUDENT FUNDING</span>
+                        <h3>Check funding and disbursement separately</h3>
+                        <p>
+                            Verify approval, disbursement, institutional
+                            receipt, and posted payments before drawing
+                            conclusions about your fee balance.
+                        </p>
+                        <span class="portal-announcement-date">Demonstration notice</span>
+                    </div>
+                </article>
+
+                <article class="portal-announcement-card">
+                    <div class="portal-announcement-icon portal-announcement-teal"
+                         aria-hidden="true">✓</div>
+                    <div class="portal-announcement-content">
+                        <span class="portal-announcement-category">ACADEMICS</span>
+                        <h3>Keep your academic details up to date</h3>
+                        <p>
+                            Contact the appropriate institutional office
+                            if your programme, academic year, or registration
+                            information requires correction.
+                        </p>
+                        <span class="portal-announcement-date">Demonstration notice</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="portal-support-section">
+        <div class="container">
+            <div class="portal-support-card">
+                <div class="portal-support-icon" aria-hidden="true">?</div>
+                <div class="portal-support-copy">
+                    <span class="portal-section-kicker">NEED ASSISTANCE?</span>
+                    <h2>Get help with your student record</h2>
+                    <p>
+                        Contact the relevant institutional office for admission,
+                        registration, academic, or fee-account corrections.
+                        For loan sponsorship and disbursement questions, consult
+                        the responsible loan-board channel.
+                    </p>
+                </div>
+                <a href="index.html#contact" class="button button-primary">
+                    Contact Institution
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="portal-integrity-section">
+        <div class="container">
+            <div class="portal-integrity-note">
+                <span class="portal-integrity-icon" aria-hidden="true">ⓘ</span>
+                <div>
+                    <h3>Important: prototype data and financial accuracy</h3>
+                    <p>
+                        This front-end demonstration does not authenticate students,
+                        connect to a live loan board, or retrieve official institutional
+                        records. The names, amounts, statuses, and notices are illustrative.
+                        In a production system, access must be authenticated and authorized,
+                        and financial status must be based on verified institutional receipts
+                        and reconciled funding records. Loan approval must never be treated
+                        as proof of disbursement or payment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">S</span>
+                <span class="brand-text">
+                    <strong>SLB-IMS</strong>
+                    <small>Student Management System</small>
+                </span>
+            </a>
+            <p>
+                Supporting accurate student records and transparent
+                coordination between institutional finance and student funding.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Institution</h3>
+            <a href="admissions.html">Admissions</a>
+            <a href="registration.html">Registration</a>
+            <a href="academics.html">Academic records</a>
+            <a href="finance.html">Fee accounts</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Funding and access</h3>
+            <a href="loan-integration.html">Loan integration</a>
+            <a href="reconciliation.html">Payment reconciliation</a>
+            <a href="reports.html">Reports</a>
+            <a href="login.html">Sign in</a>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p>© <span id="current-year">2026</span> SLB-IMS. Student management prototype.</p>
+        <p>Institutional records and funding records remain distinct.</p>
+    </div>
+</footer>
+
+</body>
+</html>

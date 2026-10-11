@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SLB-IMS loan-board integration workspace for tracking sponsorship approvals, disbursements, institutional receipts, and funding verification.">
+  <meta name="theme-color" content="#0c1529">
+  <title>Loan Integration | SLB-IMS</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loan-integration.css">
+
+  <script src="script.js" defer></script>
+  <script src="loan-integration.js" defer></script>
+</head>
+
+<body class="loan-integration-page">
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+        <span class="brand-icon">S</span>
+        <span class="brand-text">
+          <strong>SLB-IMS</strong>
+          <small>Student Management System</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="admissions.html" class="nav-link">Admissions</a>
+        <a href="registration.html" class="nav-link">Registration</a>
+        <a href="academics.html" class="nav-link">Academics</a>
+        <a href="finance.html" class="nav-link">Finance</a>
+
+        <div class="nav-dropdown">
+          <button
+            class="nav-link dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+          >
+            Integration <span class="chevron">⌄</span>
+          </button>
+
+          <div class="dropdown-menu">
+            <a
+              href="loan-integration.html"
+              class="nav-link active"
+              aria-current="page"
+            >Loan Integration</a>
+            <a href="reconciliation.html" class="nav-link">Reconciliation</a>
+          </div>
+        </div>
+
+        <a href="reports.html" class="nav-link">Reports</a>
+        <a href="student-portal.html" class="nav-link">Student Portal</a>
+        <a href="login.html" class="button button-primary nav-cta">Sign In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page introduction -->
+    <section class="loan-hero">
+      <div class="container loan-hero-grid">
+        <div class="loan-hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            FUNDING COORDINATION WORKSPACE
+          </div>
+
+          <h1>
+            Connect funding records.
+            <span class="gradient-text">Protect student accuracy.</span>
+          </h1>
+
+          <p>
+            Track student sponsorship decisions, disbursement progress, and
+            institutional receipt records in one workspace. Keep loan-board
+            funding information distinct from the institution's own financial
+            records.
+          </p>
+
+          <div class="loan-hero-actions">
+            <button
+              class="button button-primary"
+              id="show-loan-record-form"
+              type="button"
+            >
+              <span aria-hidden="true">＋</span>
+              Add Funding Record
+            </button>
+
+            <a href="reconciliation.html" class="button button-outline">
+              Open Reconciliation <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="loan-hero-note">
+            <span class="loan-note-icon" aria-hidden="true">ⓘ</span>
+            <span>
+              Prototype workspace: all displayed records are illustrative.
+              No live loan-board connection is active.
+            </span>
+          </div>
+        </div>
+
+        <div class="loan-hero-visual" aria-label="Funding record workflow">
+          <div class="loan-orbit orbit-one"></div>
+          <div class="loan-orbit orbit-two"></div>
+
+          <div class="loan-visual-core">
+            <div class="loan-core-symbol" aria-hidden="true">⇄</div>
+            <span>Funding Bridge</span>
+            <strong>SLB-IMS</strong>
+            <small>Institution ↔ Loan Board</small>
+          </div>
+
+          <div class="loan-float-card loan-float-approved">
+            <span class="loan-float-icon" aria-hidden="true">✓</span>
+            <div>
+              <small>Sponsorship decision</small>
+              <strong>Approval recorded</strong>
+            </div>
+          </div>
+
+          <div class="loan-float-card loan-float-transfer">
+            <span class="loan-float-icon" aria-hidden="true">⇢</span>
+            <div>
+              <small>Funding movement</small>
+              <strong>Receipt verification</strong>
+            </div>
+          </div>
+
+          <div class="loan-visual-glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prototype notice -->
+    <section class="container loan-prototype-strip" aria-label="Prototype notice">
+      <div class="loan-prototype-symbol" aria-hidden="true">!</div>
+      <div>
+        <strong>Demonstration data only</strong>
+        <p>
+          Names, amounts, references, and statuses below are fictional examples.
+          They must not be treated as official student accounts or confirmed
+          loan-board transactions.
+        </p>
+      </div>
+      <span class="loan-demo-badge">DEMO MODE</span>
+    </section>
+
+    <!-- Summary metrics -->
+    <section class="container loan-overview-section">
+      <div class="section-heading loan-section-heading">
+        <div>
+          <span class="card-overline">FUNDING OVERVIEW</span>
+          <h2>Integration at a glance</h2>
+          <p>Illustrative funding records for the 2026/2027 academic year.</p>
+        </div>
+
+        <div class="loan-period-label">
+          <span class="loan-period-dot"></span>
+          Academic year <strong>2026/2027</strong>
+        </div>
+      </div>
+
+      <div class="loan-metrics-grid">
+        <article class="loan-metric-card">
+          <div class="loan-metric-top">
+            <span class="loan-metric-label">Funding records</span>
+            <span class="loan-metric-icon loan-icon-blue" aria-hidden="true">▤</span>
+          </div>
+          <div class="loan-metric-value" id="loan-total-records">4</div>
+          <p class="loan-metric-footnote">
+            <span class="loan-metric-indicator"></span>
+            Illustrative student records
+          </p>
+        </article>
+
+        <article class="loan-metric-card">
+          <div class="loan-metric-top">
+            <span class="loan-metric-label">Approved sponsorships</span>
+            <span class="loan-metric-icon loan-icon-gold" aria-hidden="true">✓</span>
+          </div>
+          <div class="loan-metric-value" id="loan-approved-count">3</div>
+          <p class="loan-metric-footnote">
+            Approval does not confirm payment
+          </p>
+        </article>
+
+        <article class="loan-metric-card">
+          <div class="loan-metric-top">
+            <span class="loan-metric-label">Verified disbursements</span>
+            <span class="loan-metric-icon loan-icon-teal" aria-hidden="true">⇢</span>
+          </div>
+          <div class="loan-metric-value loan-currency-value" id="loan-disbursed-total">
+            TZS 1,600,000
+          </div>
+          <p class="loan-metric-footnote">
+            <span class="loan-metric-indicator teal-indicator"></span>
+            Demo amount marked as disbursed
+          </p>
+        </article>
+
+        <article class="loan-metric-card">
+          <div class="loan-metric-top">
+            <span class="loan-metric-label">Awaiting completion</span>
+            <span class="loan-metric-icon loan-icon-purple" aria-hidden="true">◷</span>
+          </div>
+          <div class="loan-metric-value" id="loan-pending-count">3</div>
+          <p class="loan-metric-footnote">
+            Approval, transfer, or verification pending
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Lifecycle guidance -->
+    <section class="container loan-lifecycle-section">
+      <div class="section-heading">
+        <div>
+          <span class="card-overline">CONTROLLED FUNDING LIFECYCLE</span>
+          <h2>Follow the money, not just the approval</h2>
+          <p>
+            Each stage represents a different event and must be supported by
+            its own evidence.
+          </p>
+        </div>
+      </div>
+
+      <div class="loan-lifecycle-grid">
+        <article class="loan-stage-card">
+          <div class="loan-stage-top">
+            <span class="loan-stage-number">01</span>
+            <span class="loan-stage-icon" aria-hidden="true">◎</span>
+          </div>
+          <h3>Sponsorship decision</h3>
+          <p>
+            Record the loan board's decision, approved amount, academic year,
+            and official reference.
+          </p>
+          <span class="loan-stage-label">APPROVAL EVIDENCE</span>
+        </article>
+
+        <div class="loan-stage-connector" aria-hidden="true">→</div>
+
+        <article class="loan-stage-card">
+          <div class="loan-stage-top">
+            <span class="loan-stage-number">02</span>
+            <span class="loan-stage-icon" aria-hidden="true">⇢</span>
+          </div>
+          <h3>Disbursement</h3>
+          <p>
+            Track whether funds are scheduled, transferred, partially
+            disbursed, or still pending.
+          </p>
+          <span class="loan-stage-label">TRANSFER EVIDENCE</span>
+        </article>
+
+        <div class="loan-stage-connector" aria-hidden="true">→</div>
+
+        <article class="loan-stage-card">
+          <div class="loan-stage-top">
+            <span class="loan-stage-number">03</span>
+            <span class="loan-stage-icon" aria-hidden="true">▣</span>
+          </div>
+          <h3>Institutional receipt</h3>
+          <p>
+            Confirm the amount actually received using an authorized
+            institutional record.
+          </p>
+          <span class="loan-stage-label">RECEIPT EVIDENCE</span>
+        </article>
+
+        <div class="loan-stage-connector" aria-hidden="true">→</div>
+
+        <article class="loan-stage-card">
+          <div class="loan-stage-top">
+            <span class="loan-stage-number">04</span>
+            <span class="loan-stage-icon" aria-hidden="true">⇄</span>
+          </div>
+          <h3>Reconciliation</h3>
+          <p>
+            Match references and amounts before updating the student's
+            institutional account balance.
+          </p>
+          <span class="loan-stage-label">MATCHING EVIDENCE</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Funding records -->
+    <section class="container loan-records-section">
+      <div class="section-heading loan-records-heading">
+        <div>
+          <span class="card-overline">SPONSORSHIP REGISTER</span>
+          <h2>Student funding records</h2>
+          <p>
+            Search and filter illustrative records before reviewing their
+            funding status.
+          </p>
+        </div>
+
+        <button
+          class="button button-primary"
+          id="show-loan-record-form-secondary"
+          type="button"
+        >
+          <span aria-hidden="true">＋</span>
+          Add Record
+        </button>
+      </div>
+
+      <div class="loan-filter-panel">
+        <div class="loan-search-field">
+          <label for="loan-search">Search records</label>
+          <div class="loan-input-with-icon">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="loan-search"
+              type="search"
+              placeholder="Student name, number, or board reference"
+              autocomplete="off"
+            >
+          </div>
+        </div>
+
+        <div class="loan-filter-field">
+          <label for="loan-status-filter">Funding status</label>
+          <select id="loan-status-filter">
+            <option value="all">All statuses</option>
+            <option value="Approved">Approved</option>
+            <option value="Pending approval">Pending approval</option>
+            <option value="Partially disbursed">Partially disbursed</option>
+            <option value="Disbursed">Disbursed</option>
+            <option value="Awaiting verification">Awaiting verification</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div class="loan-filter-field">
+          <label for="loan-academic-year">Academic year</label>
+          <select id="loan-academic-year">
+            <option value="all">All academic years</option>
+            <option value="2026/2027">2026/2027</option>
+            <option value="2025/2026">2025/2026</option>
+          </select>
+        </div>
+
+        <div class="loan-filter-field">
+          <label for="loan-funding-type-filter">Funding type</label>
+          <select id="loan-funding-type-filter">
+            <option value="all">All funding types</option>
+            <option value="Full sponsorship">Full sponsorship</option>
+            <option value="Partial sponsorship">Partial sponsorship</option>
+            <option value="Institutional support">Institutional support</option>
+          </select>
+        </div>
+
+        <button
+          class="button button-outline loan-reset-button"
+          id="reset-loan-filters"
+          type="button"
+        >
+          Reset
+        </button>
+      </div>
+
+      <div class="loan-table-card">
+        <div class="loan-table-header">
+          <div>
+            <h3>Funding register</h3>
+            <p id="loan-result-count">4 records shown — prototype data</p>
+          </div>
+
+          <span class="loan-table-badge">
+            <span class="loan-status-dot"></span>
+            Sample records
+          </span>
+        </div>
+
+        <div class="loan-table-scroll">
+          <table class="loan-records-table">
+            <thead>
+              <tr>
+                <th scope="col">Student</th>
+                <th scope="col">Board reference</th>
+                <th scope="col">Academic year</th>
+                <th scope="col">Approved amount</th>
+                <th scope="col">Disbursed amount</th>
+                <th scope="col">Funding status</th>
+                <th scope="col">Institution receipt</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="loan-table-body">
+              <tr
+                data-student="SLB-2026-001"
+                data-loan-id="LOAN-DEMO-001"
+                data-status="Partially disbursed"
+                data-year="2026/2027"
+                data-funding-type="Full sponsorship"
+              >
+                <td>
+                  <div class="loan-student-cell">
+                    <span class="loan-avatar avatar-blue">AM</span>
+                    <div>
+                      <strong>Alex Mwakalinga</strong>
+                      <small>SLB-2026-001</small>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="loan-reference">DEMO-LB-26001</span></td>
+                <td>2026/2027</td>
+                <td>TZS 1,200,000</td>
+                <td>TZS 800,000</td>
+                <td><span class="loan-status status-partial">Partially disbursed</span></td>
+                <td><span class="loan-receipt receipt-pending">Partial / review</span></td>
+                <td>
+                  <button
+                    class="loan-view-button"
+                    type="button"
+                    data-student="SLB-2026-001"
+                    data-loan-id="LOAN-DEMO-001"
+                  >Review <span aria-hidden="true">↗</span></button>
+                </td>
+              </tr>
+
+              <tr
+                data-student="SLB-2026-002"
+                data-loan-id="LOAN-DEMO-002"
+                data-status="Approved"
+                data-year="2026/2027"
+                data-funding-type="Partial sponsorship"
+              >
+                <td>
+                  <div class="loan-student-cell">
+                    <span class="loan-avatar avatar-gold">JN</span>
+                    <div>
+                      <strong>Janeth Nyerere</strong>
+                      <small>SLB-2026-002</small>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="loan-reference">DEMO-LB-26002</span></td>
+                <td>2026/2027</td>
+                <td>TZS 900,000</td>
+                <td>TZS 0</td>
+                <td><span class="loan-status status-approved">Approved</span></td>
+                <td><span class="loan-receipt receipt-pending">Not received</span></td>
+                <td>
+                  <button
+                    class="loan-view-button"
+                    type="button"
+                    data-student="SLB-2026-002"
+                    data-loan-id="LOAN-DEMO-002"
+                  >Review <span aria-hidden="true">↗</span></button>
+                </td>
+              </tr>
+
+              <tr
+                data-student="SLB-2026-003"
+                data-loan-id="LOAN-DEMO-003"
+                data-status="Disbursed"
+                data-year="2026/2027"
+                data-funding-type="Full sponsorship"
+              >
+                <td>
+                  <div class="loan-student-cell">
+                    <span class="loan-avatar avatar-teal">DK</span>
+                    <div>
+                      <strong>Daniel Kileo</strong>
+                      <small>SLB-2026-003</small>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="loan-reference">DEMO-LB-26003</span></td>
+                <td>2026/2027</td>
+                <td>TZS 1,000,000</td>
+                <td>TZS 800,000</td>
+                <td><span class="loan-status status-disbursed">Disbursed</span></td>
+                <td><span class="loan-receipt receipt-verified">Verified sample</span></td>
+                <td>
+                  <button
+                    class="loan-view-button"
+                    type="button"
+                    data-student="SLB-2026-003"
+                    data-loan-id="LOAN-DEMO-003"
+                  >Review <span aria-hidden="true">↗</span></button>
+                </td>
+              </tr>
+
+              <tr
+                data-student="SLB-2026-004"
+                data-loan-id="LOAN-DEMO-004"
+                data-status="Pending approval"
+                data-year="2026/2027"
+                data-funding-type="Partial sponsorship"
+              >
+                <td>
+                  <div class="loan-student-cell">
+                    <span class="loan-avatar avatar-purple">SN</span>
+                    <div>
+                      <strong>Sarah Ngowi</strong>
+                      <small>SLB-2026-004</small>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="loan-reference">DEMO-LB-26004</span></td>
+                <td>2026/2027</td>
+                <td>TZS 700,000</td>
+                <td>TZS 0</td>
+                <td><span class="loan-status status-awaiting">Pending approval</span></td>
+                <td><span class="loan-receipt receipt-pending">Not received</span></td>
+                <td>
+                  <button
+                    class="loan-view-button"
+                    type="button"
+                    data-student="SLB-2026-004"
+                    data-loan-id="LOAN-DEMO-004"
+                  >Review <span aria-hidden="true">↗</span></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="loan-empty-state" id="loan-empty-state" hidden>
+          <span class="loan-empty-icon" aria-hidden="true">⌕</span>
+          <h3>No matching funding records</h3>
+          <p>Try another search term or reset your filters.</p>
+          <button class="button button-outline" id="loan-empty-reset" type="button">
+            Clear filters
+          </button>
+        </div>
+
+        <div class="loan-table-footer">
+          <span><span class="loan-footer-dot"></span> Fictional data for interface demonstration</span>
+          <a href="finance.html">View institutional finance <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add or edit funding record -->
+    <section class="container loan-form-section" id="loan-record-form-panel" hidden>
+      <div class="loan-form-card">
+        <div class="loan-form-heading">
+          <div>
+            <span class="card-overline">FUNDING REGISTER</span>
+            <h2>Add a funding record</h2>
+            <p>
+              Enter a sample sponsorship and disbursement record. This prototype
+              does not submit information to a loan board.
+            </p>
+          </div>
+
+          <button
+            class="loan-close-button"
+            id="close-loan-form"
+            type="button"
+            aria-label="Close funding record form"
+          >×</button>
+        </div>
+
+        <div class="loan-form-notice">
+          <span aria-hidden="true">ⓘ</span>
+          <p>
+            An approved amount is not the same as money received. Record
+            disbursement and institutional receipt separately, using verified
+            evidence in a production system.
+          </p>
+        </div>
+
+        <form id="loan-record-form">
+          <div class="loan-form-grid">
+            <div class="loan-form-field">
+              <label for="loan-student-number">Student number <span>*</span></label>
+              <input
+                id="loan-student-number"
+                name="studentNumber"
+                type="text"
+                placeholder="e.g. SLB-2026-005"
+                required
+                maxlength="40"
+              >
+              <small>Use the institution's official student identifier.</small>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-board-reference">Loan-board reference <span>*</span></label>
+              <input
+                id="loan-board-reference"
+                name="boardReference"
+                type="text"
+                placeholder="Enter the official reference"
+                required
+                maxlength="80"
+              >
+              <small>Use a real reference only in an authorized environment.</small>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-academic-year-form">Academic year <span>*</span></label>
+              <select id="loan-academic-year-form" name="academicYear" required>
+                <option value="2026/2027">2026/2027</option>
+                <option value="2025/2026">2025/2026</option>
+              </select>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-funding-type">Funding type <span>*</span></label>
+              <select id="loan-funding-type" name="fundingType" required>
+                <option value="Full sponsorship">Full sponsorship</option>
+                <option value="Partial sponsorship">Partial sponsorship</option>
+                <option value="Institutional support">Institutional support</option>
+              </select>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-approval-status">Sponsorship decision <span>*</span></label>
+              <select id="loan-approval-status" name="approvalStatus" required>
+                <option value="Pending approval">Pending approval</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-approved-amount">Approved amount (TZS) <span>*</span></label>
+              <input
+                id="loan-approved-amount"
+                name="approvedAmount"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="0"
+                required
+              >
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-disbursement-status">Disbursement status <span>*</span></label>
+              <select id="loan-disbursement-status" name="disbursementStatus" required>
+                <option value="Not disbursed">Not disbursed</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Partially disbursed">Partially disbursed</option>
+                <option value="Disbursed">Disbursed</option>
+                <option value="Awaiting verification">Awaiting verification</option>
+              </select>
+            </div>
+
+            <div class="loan-form-field">
+              <label for="loan-disbursed-amount">Reported disbursed amount (TZS) <span>*</span></label>
+              <input
+                id="loan-disbursed-amount"
+                name="disbursedAmount"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="0"
+                required
+              >
+              <small>Reported funding is not automatically a verified institutional receipt.</small>
+            </div>
+
+            <div class="loan-form-field loan-form-field-wide">
+              <label for="loan-transfer-reference">Transfer reference</label>
+              <input
+                id="loan-transfer-reference"
+                name="transferReference"
+                type="text"
+                placeholder="Optional transfer or transaction reference"
+                maxlength="100"
+              >
+            </div>
+          </div>
+
+          <div class="loan-form-message" id="loan-form-message" role="status" aria-live="polite"></div>
+
+          <div class="loan-form-actions">
+            <button class="button button-outline" id="cancel-loan-form" type="button">
+              Cancel
+            </button>
+            <button class="button button-primary" type="submit">
+              Save Sample Record
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Data integrity and responsibilities -->
+    <section class="container loan-governance-section">
+      <div class="section-heading">
+        <div>
+          <span class="card-overline">DATA INTEGRITY & ACCOUNTABILITY</span>
+          <h2>Keep institutional and loan-board records distinct</h2>
+          <p>
+            Integration should connect trusted records without merging
+            responsibilities or assuming that a transfer has occurred.
+          </p>
+        </div>
+      </div>
+
+      <div class="loan-governance-grid">
+        <article class="loan-governance-card">
+          <div class="loan-governance-icon governance-blue" aria-hidden="true">▤</div>
+          <h3>Institutional responsibility</h3>
+          <p>
+            The institution maintains admissions, academic registration,
+            assessed charges, student accounts, and confirmed receipts.
+          </p>
+          <a href="finance.html">Institutional finance <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="loan-governance-card">
+          <div class="loan-governance-icon governance-gold" aria-hidden="true">◎</div>
+          <h3>Loan-board responsibility</h3>
+          <p>
+            The loan board maintains its own sponsorship decisions, approved
+            funding, disbursement schedules, and transaction information.
+          </p>
+          <span class="loan-governance-caption">Independent funding records</span>
+        </article>
+
+        <article class="loan-governance-card">
+          <div class="loan-governance-icon governance-teal" aria-hidden="true">⇄</div>
+          <h3>Integration responsibility</h3>
+          <p>
+            Match authorized records, verify evidence, identify discrepancies,
+            and send unresolved cases for reconciliation.
+          </p>
+          <a href="reconciliation.html">Review reconciliation <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="loan-integrity-rule">
+        <div class="loan-integrity-symbol" aria-hidden="true">✓</div>
+        <div>
+          <strong>Critical rule: approval is not payment.</strong>
+          <p>
+            Do not mark institutional fees as paid solely because sponsorship
+            was approved or a transfer was scheduled. Equally, do not treat
+            a funding-related balance as a confirmed student debt without
+            checking actual receipts, pending transfers, applicable deadlines,
+            and institutional policy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future integration requirements -->
+    <section class="container loan-connection-section">
+      <div class="loan-connection-card">
+        <div class="loan-connection-copy">
+          <span class="card-overline">PRODUCTION READINESS</span>
+          <h2>From prototype to verified integration</h2>
+          <p>
+            A working deployment needs an authorized connection to the relevant
+            loan-board service or an agreed secure data-exchange process.
+            This front-end page does not fetch, verify, or transmit official
+            funding records.
+          </p>
+        </div>
+
+        <div class="loan-requirements-list">
+          <div>
+            <span class="loan-requirement-check" aria-hidden="true">01</span>
+            <span>Authorized API or agreed secure data exchange</span>
+          </div>
+          <div>
+            <span class="loan-requirement-check" aria-hidden="true">02</span>
+            <span>Authenticated access and role-based permissions</span>
+          </div>
+          <div>
+            <span class="loan-requirement-check" aria-hidden="true">03</span>
+            <span>Verified transfer and institutional receipt evidence</span>
+          </div>
+          <div>
+            <span class="loan-requirement-check" aria-hidden="true">04</span>
+            <span>Audit logs, discrepancy handling, and reconciliation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand-column">
+          <a href="index.html" class="brand" aria-label="SLB-IMS Home">
+            <span class="brand-icon">S</span>
+            <span class="brand-text">
+              <strong>SLB-IMS</strong>
+              <small>Student Management System</small>
+            </span>
+          </a>
+          <p>
+            A unified institutional workspace for student administration,
+            financial accountability, and coordinated funding records.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Institution</h3>
+          <a href="admissions.html">Admissions</a>
+          <a href="registration.html">Registration</a>
+          <a href="academics.html">Academics</a>
+          <a href="finance.html">Finance</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Funding & Access</h3>
+          <a href="loan-integration.html">Loan Integration</a>
+          <a href="reconciliation.html">Reconciliation</a>
+          <a href="reports.html">Reports</a>
+          <a href="student-portal.html">Student Portal</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> SLB-IMS. Demonstration interface.</p>
+        <p class="gold-text">Accuracy · Accountability · Student Support</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

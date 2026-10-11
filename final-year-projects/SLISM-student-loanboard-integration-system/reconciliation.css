@@ -1,0 +1,1595 @@
+
+/* =========================================================
+   SLB-IMS — RECONCILIATION DASHBOARD
+   Glass UI | Sapphire | Champagne Gold | Teal
+   File: reconciliation.css
+   ========================================================= */
+
+.reconciliation-page {
+    --recon-bg: #0c1529;
+    --recon-surface: rgba(20, 38, 65, 0.72);
+    --recon-surface-light: rgba(35, 58, 91, 0.48);
+    --recon-border: rgba(181, 207, 240, 0.15);
+    --recon-text: #f2f6ff;
+    --recon-muted: #a6b8d2;
+    --recon-blue: #75b7ff;
+    --recon-gold: #e6c788;
+    --recon-teal: #71e1d0;
+    --recon-danger: #ff9eaa;
+    --recon-warning: #f5cf83;
+
+    color: var(--recon-text);
+}
+
+.reconciliation-page main {
+    overflow: hidden;
+}
+
+.reconciliation-page .container {
+    width: min(100% - 40px, 1440px);
+    margin-inline: auto;
+}
+
+.reconciliation-page .gradient-text {
+    background: linear-gradient(105deg, #8dcaff 0%, #e6c788 55%, #71e1d0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.recon-hero {
+    position: relative;
+    isolation: isolate;
+    padding: 76px 0 66px;
+    border-bottom: 1px solid rgba(181, 207, 240, 0.1);
+    background:
+        radial-gradient(ellipse at 82% 35%, rgba(69, 127, 199, 0.18), transparent 43%),
+        radial-gradient(ellipse at 10% 85%, rgba(113, 225, 208, 0.07), transparent 38%),
+        linear-gradient(135deg, rgba(18, 35, 60, 0.7), rgba(12, 21, 41, 0.28));
+}
+
+.recon-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        linear-gradient(rgba(181, 207, 240, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(181, 207, 240, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(90deg, transparent, #000 45%, #000);
+}
+
+.recon-hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    align-items: center;
+    gap: clamp(36px, 6vw, 100px);
+}
+
+.recon-hero-copy {
+    max-width: 720px;
+}
+
+.reconciliation-page .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--recon-gold);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+}
+
+.recon-hero-copy h1 {
+    max-width: 760px;
+    margin: 0 0 22px;
+    font-size: clamp(2.4rem, 4.7vw, 4.4rem);
+    font-weight: 750;
+    letter-spacing: -0.055em;
+    line-height: 1.09;
+}
+
+.recon-hero-copy > p {
+    max-width: 660px;
+    margin: 0;
+    color: var(--recon-muted);
+    font-size: 1.04rem;
+    line-height: 1.9;
+}
+
+.recon-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 13px;
+    margin-top: 30px;
+}
+
+.reconciliation-page .button {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.reconciliation-page .button:hover {
+    transform: translateY(-2px);
+}
+
+.reconciliation-page .button-primary {
+    border: 1px solid rgba(117, 183, 255, 0.6);
+    background: linear-gradient(135deg, #367bc0, #25538b);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37, 103, 174, 0.19);
+}
+
+.reconciliation-page .button-primary:hover {
+    background: linear-gradient(135deg, #478ed2, #2d639f);
+    box-shadow: 0 10px 30px rgba(58, 135, 207, 0.25);
+}
+
+.reconciliation-page .button-outline {
+    border: 1px solid rgba(181, 207, 240, 0.22);
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--recon-text);
+}
+
+.reconciliation-page .button-outline:hover {
+    border-color: rgba(230, 199, 136, 0.6);
+    background: rgba(230, 199, 136, 0.07);
+}
+
+.reconciliation-page button:focus-visible,
+.reconciliation-page a:focus-visible,
+.reconciliation-page input:focus-visible,
+.reconciliation-page select:focus-visible,
+.reconciliation-page textarea:focus-visible {
+    outline: 2px solid var(--recon-gold);
+    outline-offset: 3px;
+}
+
+/* Hero process illustration */
+
+.recon-hero-visual {
+    position: relative;
+    min-height: 365px;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+
+.recon-orbit {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(117, 183, 255, 0.18);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.recon-orbit-one {
+    width: 290px;
+    height: 290px;
+    box-shadow: 0 0 70px rgba(67, 130, 205, 0.07);
+}
+
+.recon-orbit-two {
+    width: 390px;
+    height: 390px;
+    border-style: dashed;
+    border-color: rgba(230, 199, 136, 0.16);
+}
+
+.recon-visual-center {
+    position: relative;
+    z-index: 2;
+    width: 205px;
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(230, 199, 136, 0.32);
+    border-radius: 26px;
+    background:
+        linear-gradient(145deg, rgba(42, 69, 105, 0.87), rgba(15, 30, 52, 0.93));
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.18),
+        inset 0 1px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    text-align: center;
+}
+
+.recon-center-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(113, 225, 208, 0.35);
+    border-radius: 18px;
+    background: rgba(113, 225, 208, 0.1);
+    color: var(--recon-teal);
+    font-size: 2rem;
+}
+
+.recon-visual-center strong {
+    font-size: 1rem;
+}
+
+.recon-visual-center small {
+    color: var(--recon-muted);
+    font-size: 0.73rem;
+}
+
+.recon-visual-node {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: max-content;
+    max-width: 245px;
+    padding: 13px 16px;
+    border: 1px solid var(--recon-border);
+    border-radius: 16px;
+    background: rgba(17, 34, 59, 0.91);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.17);
+    backdrop-filter: blur(15px);
+}
+
+.recon-node-board {
+    top: 16px;
+    right: -4px;
+}
+
+.recon-node-institution {
+    bottom: 40px;
+    left: -4px;
+}
+
+.recon-node-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(117, 183, 255, 0.12);
+    color: var(--recon-blue);
+    font-size: 1.3rem;
+}
+
+.recon-node-institution .recon-node-icon {
+    background: rgba(113, 225, 208, 0.11);
+    color: var(--recon-teal);
+}
+
+.recon-visual-node div {
+    display: grid;
+    gap: 4px;
+}
+
+.recon-visual-node strong {
+    font-size: 0.83rem;
+}
+
+.recon-visual-node small {
+    color: var(--recon-muted);
+    font-size: 0.7rem;
+}
+
+.recon-visual-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: var(--recon-muted);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.recon-dashboard-section {
+    padding: 45px 0 85px;
+}
+
+.recon-prototype-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 19px 22px;
+    border: 1px solid rgba(230, 199, 136, 0.25);
+    border-radius: 17px;
+    background:
+        linear-gradient(110deg, rgba(230, 199, 136, 0.08), rgba(34, 51, 76, 0.34));
+}
+
+.recon-notice-icon {
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(230, 199, 136, 0.3);
+    border-radius: 11px;
+    background: rgba(230, 199, 136, 0.1);
+    color: var(--recon-gold);
+    font-size: 1.15rem;
+}
+
+.recon-prototype-notice strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--recon-gold);
+    font-size: 0.9rem;
+}
+
+.recon-prototype-notice p {
+    margin: 0;
+    color: var(--recon-muted);
+    font-size: 0.83rem;
+    line-height: 1.7;
+}
+
+.recon-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 54px 0 24px;
+}
+
+.recon-section-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.recon-section-heading h2,
+.recon-form-heading h2 {
+    margin: 0;
+    font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+    font-weight: 720;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+}
+
+.recon-section-heading p,
+.recon-form-heading > div > p {
+    margin: 9px 0 0;
+    color: var(--recon-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.recon-period-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 10px 13px;
+    border: 1px solid var(--recon-border);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--recon-muted);
+    font-size: 0.78rem;
+}
+
+.recon-period-dot,
+.reconciliation-page .status-dot {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--recon-teal);
+    box-shadow: 0 0 12px rgba(113, 225, 208, 0.45);
+}
+
+.recon-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.recon-summary-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid var(--recon-border);
+    border-radius: 19px;
+    background:
+        linear-gradient(145deg, rgba(35, 57, 88, 0.65), rgba(17, 31, 53, 0.72));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(16px);
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.recon-summary-card::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -35px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--summary-glow, rgba(117, 183, 255, 0.09));
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.recon-summary-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(181, 207, 240, 0.28);
+}
+
+.recon-summary-total {
+    --summary-glow: rgba(117, 183, 255, 0.12);
+}
+
+.recon-summary-matched {
+    --summary-glow: rgba(113, 225, 208, 0.12);
+}
+
+.recon-summary-review {
+    --summary-glow: rgba(230, 199, 136, 0.12);
+}
+
+.recon-summary-difference {
+    --summary-glow: rgba(255, 158, 170, 0.1);
+}
+
+.recon-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.recon-card-label {
+    color: var(--recon-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.recon-card-icon {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--recon-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--recon-blue);
+    font-size: 1.1rem;
+}
+
+.recon-summary-matched .recon-card-icon {
+    color: var(--recon-teal);
+}
+
+.recon-summary-review .recon-card-icon {
+    color: var(--recon-gold);
+}
+
+.recon-summary-difference .recon-card-icon {
+    color: var(--recon-danger);
+}
+
+.recon-card-value {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 21px 0 10px;
+    font-size: clamp(1.8rem, 2.7vw, 2.55rem);
+    font-weight: 760;
+    letter-spacing: -0.045em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.recon-summary-difference .recon-card-value {
+    font-size: clamp(1.3rem, 2vw, 1.95rem);
+}
+
+.recon-card-footnote {
+    display: block;
+    color: var(--recon-muted);
+    font-size: 0.73rem;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   RECONCILIATION PRINCIPLES
+   ========================================================= */
+
+.recon-principles-card {
+    margin-top: 28px;
+    padding: clamp(22px, 3vw, 32px);
+    border: 1px solid var(--recon-border);
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(117, 183, 255, 0.07), transparent 50%),
+        rgba(19, 35, 58, 0.64);
+    backdrop-filter: blur(18px);
+}
+
+.recon-principles-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.recon-principles-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(230, 199, 136, 0.3);
+    border-radius: 15px;
+    background: rgba(230, 199, 136, 0.08);
+    color: var(--recon-gold);
+    font-size: 1.55rem;
+}
+
+.recon-principles-heading h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.recon-principles-heading p {
+    margin: 6px 0 0;
+    color: var(--recon-muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.recon-principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.recon-principle {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.recon-step-number {
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(117, 183, 255, 0.25);
+    border-radius: 11px;
+    background: rgba(117, 183, 255, 0.08);
+    color: var(--recon-blue);
+    font-size: 0.74rem;
+    font-weight: 800;
+}
+
+.recon-principle strong {
+    display: block;
+    margin: 2px 0 7px;
+    font-size: 0.88rem;
+}
+
+.recon-principle p {
+    margin: 0;
+    color: var(--recon-muted);
+    font-size: 0.79rem;
+    line-height: 1.75;
+}
+
+.recon-principle-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 15px 17px;
+    border: 1px solid rgba(230, 199, 136, 0.2);
+    border-radius: 13px;
+    background: rgba(230, 199, 136, 0.055);
+}
+
+.recon-principle-warning > span {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(230, 199, 136, 0.15);
+    color: var(--recon-gold);
+    font-weight: 800;
+}
+
+.recon-principle-warning p {
+    margin: 1px 0 0;
+    color: var(--recon-muted);
+    font-size: 0.81rem;
+    line-height: 1.8;
+}
+
+.recon-principle-warning strong {
+    color: var(--recon-gold);
+}
+
+/* =========================================================
+   REGISTER AND FILTER CONTROLS
+   ========================================================= */
+
+.recon-records-section {
+    scroll-margin-top: 35px;
+}
+
+.recon-records-heading {
+    margin-top: 64px;
+}
+
+.recon-filter-panel {
+    display: grid;
+    grid-template-columns: minmax(210px, 1.5fr) minmax(170px, 0.9fr)
+        minmax(165px, 0.8fr) auto;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 18px;
+    padding: 20px;
+    border: 1px solid var(--recon-border);
+    border-radius: 18px;
+    background: rgba(20, 38, 65, 0.54);
+    backdrop-filter: blur(14px);
+}
+
+.recon-search-field,
+.recon-filter-field,
+.recon-form-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.recon-search-field label,
+.recon-filter-field label,
+.recon-form-field label {
+    color: var(--recon-muted);
+    font-size: 0.77rem;
+    font-weight: 650;
+}
+
+.recon-input-wrap {
+    position: relative;
+}
+
+.recon-input-wrap > span {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    color: #8ea7c8;
+    font-size: 1.2rem;
+    transform: translateY(-52%);
+    pointer-events: none;
+}
+
+.reconciliation-page input,
+.reconciliation-page select,
+.reconciliation-page textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid rgba(181, 207, 240, 0.17);
+    border-radius: 11px;
+    background-color: rgba(8, 18, 34, 0.58);
+    color: var(--recon-text);
+    font: inherit;
+    font-size: 0.82rem;
+    transition: border-color 180ms ease, background 180ms ease;
+}
+
+.reconciliation-page input,
+.reconciliation-page select {
+    min-height: 44px;
+    padding: 10px 12px;
+}
+
+.reconciliation-page .recon-input-wrap input {
+    padding-left: 39px;
+}
+
+.reconciliation-page input::placeholder,
+.reconciliation-page textarea::placeholder {
+    color: #7187a5;
+    opacity: 1;
+}
+
+.reconciliation-page select {
+    cursor: pointer;
+}
+
+.reconciliation-page select option {
+    background: #14233c;
+    color: #f2f6ff;
+}
+
+.reconciliation-page input:hover,
+.reconciliation-page select:hover,
+.reconciliation-page textarea:hover {
+    border-color: rgba(117, 183, 255, 0.35);
+}
+
+.reconciliation-page input:focus,
+.reconciliation-page select:focus,
+.reconciliation-page textarea:focus {
+    border-color: rgba(117, 183, 255, 0.75);
+    background-color: rgba(10, 23, 43, 0.88);
+}
+
+.recon-reset-button {
+    white-space: nowrap;
+}
+
+/* =========================================================
+   RECORDS TABLE
+   ========================================================= */
+
+.recon-table-card {
+    overflow: hidden;
+    border: 1px solid var(--recon-border);
+    border-radius: 20px;
+    background: rgba(17, 32, 54, 0.68);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.09);
+    backdrop-filter: blur(17px);
+}
+
+.recon-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 22px 23px;
+    border-bottom: 1px solid rgba(181, 207, 240, 0.1);
+}
+
+.recon-table-header h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.recon-table-header p {
+    margin: 6px 0 0;
+    color: var(--recon-muted);
+    font-size: 0.77rem;
+}
+
+.recon-table-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: var(--recon-muted);
+    font-size: 0.72rem;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.legend-match {
+    background: var(--recon-teal);
+}
+
+.legend-review {
+    margin-left: 8px;
+    background: var(--recon-gold);
+}
+
+.recon-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.recon-table {
+    width: 100%;
+    min-width: 1120px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.recon-table thead {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.recon-table th {
+    padding: 15px 16px;
+    color: #a9bbd4;
+    font-size: 0.69rem;
+    font-weight: 750;
+    letter-spacing: 0.035em;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.recon-table td {
+    padding: 17px 16px;
+    border-top: 1px solid rgba(181, 207, 240, 0.08);
+    color: #d9e4f4;
+    font-size: 0.77rem;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.recon-table tbody tr {
+    transition: background 160ms ease;
+}
+
+.recon-table tbody tr:hover {
+    background: rgba(117, 183, 255, 0.045);
+}
+
+.recon-student-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 180px;
+}
+
+.recon-avatar {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(117, 183, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(117, 183, 255, 0.1);
+    color: var(--recon-blue);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.recon-avatar-gold {
+    border-color: rgba(230, 199, 136, 0.23);
+    background: rgba(230, 199, 136, 0.09);
+    color: var(--recon-gold);
+}
+
+.recon-avatar-teal {
+    border-color: rgba(113, 225, 208, 0.23);
+    background: rgba(113, 225, 208, 0.08);
+    color: var(--recon-teal);
+}
+
+.recon-avatar-purple {
+    border-color: rgba(190, 163, 255, 0.23);
+    background: rgba(190, 163, 255, 0.09);
+    color: #c7b0ff;
+}
+
+.recon-student-cell > div {
+    display: grid;
+    gap: 5px;
+}
+
+.recon-student-cell strong {
+    color: var(--recon-text);
+    font-size: 0.77rem;
+    font-weight: 700;
+}
+
+.recon-student-cell small {
+    color: var(--recon-muted);
+    font-size: 0.69rem;
+}
+
+.recon-reference {
+    color: #b8d9ff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.71rem;
+}
+
+.recon-difference-cell {
+    color: var(--recon-warning) !important;
+    font-weight: 750;
+}
+
+.recon-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.recon-status-matched {
+    border-color: rgba(113, 225, 208, 0.22);
+    background: rgba(113, 225, 208, 0.09);
+    color: var(--recon-teal);
+}
+
+.recon-status-mismatch {
+    border-color: rgba(245, 207, 131, 0.23);
+    background: rgba(245, 207, 131, 0.09);
+    color: var(--recon-warning);
+}
+
+.recon-status-pending {
+    border-color: rgba(255, 158, 170, 0.22);
+    background: rgba(255, 158, 170, 0.08);
+    color: var(--recon-danger);
+}
+
+.recon-status-posting {
+    border-color: rgba(190, 163, 255, 0.22);
+    background: rgba(190, 163, 255, 0.08);
+    color: #c7b0ff;
+}
+
+.recon-status-review {
+    border-color: rgba(117, 183, 255, 0.22);
+    background: rgba(117, 183, 255, 0.08);
+    color: var(--recon-blue);
+}
+
+.recon-review-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    background: rgba(117, 183, 255, 0.09);
+    color: var(--recon-blue);
+    font: inherit;
+    font-size: 0.73rem;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+}
+
+.recon-review-button:hover {
+    background: rgba(117, 183, 255, 0.17);
+    color: #b8d9ff;
+}
+
+.recon-table-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 22px;
+    border-top: 1px solid rgba(181, 207, 240, 0.09);
+    color: var(--recon-muted);
+    font-size: 0.72rem;
+}
+
+.recon-empty-state {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.recon-empty-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 14px;
+    border: 1px solid var(--recon-border);
+    border-radius: 16px;
+    background: rgba(117, 183, 255, 0.07);
+    color: var(--recon-blue);
+    font-size: 1.6rem;
+}
+
+.recon-empty-state h3 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+}
+
+.recon-empty-state p {
+    margin: 0 0 18px;
+    color: var(--recon-muted);
+    font-size: 0.83rem;
+}
+
+/* =========================================================
+   WORKFLOW CARDS
+   ========================================================= */
+
+.recon-workflow-section {
+    margin-top: 62px;
+}
+
+.recon-workflow-section .recon-section-heading {
+    margin-top: 0;
+}
+
+.recon-workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.recon-workflow-card {
+    position: relative;
+    overflow: hidden;
+    padding: 26px;
+    border: 1px solid var(--recon-border);
+    border-radius: 19px;
+    background:
+        linear-gradient(145deg, rgba(30, 51, 81, 0.65), rgba(16, 30, 51, 0.7));
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.recon-workflow-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(117, 183, 255, 0.29);
+}
+
+.recon-workflow-number {
+    position: absolute;
+    top: 22px;
+    right: 23px;
+    color: rgba(181, 207, 240, 0.22);
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+}
+
+.recon-workflow-icon {
+    width: 47px;
+    height: 47px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 23px;
+    border: 1px solid rgba(117, 183, 255, 0.22);
+    border-radius: 15px;
+    background: rgba(117, 183, 255, 0.08);
+    color: var(--recon-blue);
+    font-size: 1.45rem;
+}
+
+.recon-workflow-card:nth-child(2) .recon-workflow-icon {
+    border-color: rgba(230, 199, 136, 0.23);
+    background: rgba(230, 199, 136, 0.08);
+    color: var(--recon-gold);
+}
+
+.recon-workflow-card:nth-child(3) .recon-workflow-icon {
+    border-color: rgba(113, 225, 208, 0.23);
+    background: rgba(113, 225, 208, 0.08);
+    color: var(--recon-teal);
+}
+
+.recon-workflow-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+}
+
+.recon-workflow-card p {
+    margin: 0;
+    color: var(--recon-muted);
+    font-size: 0.83rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   RECONCILIATION FORM
+   ========================================================= */
+
+.recon-record-form-panel {
+    margin-top: 45px;
+    padding: clamp(22px, 3.5vw, 38px);
+    border: 1px solid rgba(117, 183, 255, 0.24);
+    border-radius: 23px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(117, 183, 255, 0.09), transparent 45%),
+        rgba(17, 33, 56, 0.82);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(20px);
+    scroll-margin-top: 25px;
+}
+
+.recon-record-form-panel[hidden],
+.reconciliation-page [hidden] {
+    display: none !important;
+}
+
+.recon-form-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.recon-form-heading .eyebrow {
+    margin-bottom: 10px;
+}
+
+.recon-form-close {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--recon-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--recon-text);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease;
+}
+
+.recon-form-close:hover {
+    border-color: rgba(255, 158, 170, 0.4);
+    background: rgba(255, 158, 170, 0.08);
+}
+
+.recon-form-notice {
+    margin-bottom: 24px;
+    padding: 13px 16px;
+    border: 1px solid rgba(230, 199, 136, 0.2);
+    border-radius: 11px;
+    background: rgba(230, 199, 136, 0.055);
+    color: var(--recon-muted);
+    font-size: 0.8rem;
+    line-height: 1.7;
+}
+
+.recon-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 20px;
+}
+
+.recon-form-field small {
+    color: #8ea7c8;
+    font-size: 0.7rem;
+    line-height: 1.6;
+}
+
+.reconciliation-page textarea {
+    min-height: 110px;
+    padding: 12px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.recon-form-field-wide {
+    grid-column: 1 / -1;
+}
+
+.recon-form-message {
+    margin-top: 20px;
+    padding: 0;
+    color: var(--recon-muted);
+    font-size: 0.83rem;
+    line-height: 1.7;
+}
+
+.recon-form-message:empty {
+    display: none;
+}
+
+.recon-form-message.is-error {
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 158, 170, 0.25);
+    border-radius: 10px;
+    background: rgba(255, 158, 170, 0.07);
+    color: var(--recon-danger);
+}
+
+.recon-form-message.is-success {
+    padding: 12px 15px;
+    border: 1px solid rgba(113, 225, 208, 0.24);
+    border-radius: 10px;
+    background: rgba(113, 225, 208, 0.07);
+    color: var(--recon-teal);
+}
+
+.recon-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(181, 207, 240, 0.1);
+}
+
+/* =========================================================
+   FINANCIAL INTEGRITY FOOTER PANEL
+   ========================================================= */
+
+.recon-integrity-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    margin-top: 55px;
+    padding: clamp(22px, 3.5vw, 35px);
+    border: 1px solid rgba(113, 225, 208, 0.2);
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse at 0% 100%, rgba(113, 225, 208, 0.07), transparent 50%),
+        linear-gradient(115deg, rgba(24, 49, 66, 0.65), rgba(20, 37, 61, 0.63));
+}
+
+.recon-integrity-symbol {
+    width: 53px;
+    height: 53px;
+    flex: 0 0 53px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(113, 225, 208, 0.28);
+    border-radius: 17px;
+    background: rgba(113, 225, 208, 0.08);
+    color: var(--recon-teal);
+    font-size: 1.7rem;
+}
+
+.recon-integrity-note .eyebrow {
+    margin: 2px 0 10px;
+    color: var(--recon-teal);
+}
+
+.recon-integrity-note h2 {
+    margin: 0 0 12px;
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    font-weight: 720;
+    letter-spacing: -0.025em;
+    line-height: 1.4;
+}
+
+.recon-integrity-note p {
+    max-width: 980px;
+    margin: 0;
+    color: var(--recon-muted);
+    font-size: 0.86rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   FOOTER ADJUSTMENTS
+   ========================================================= */
+
+.reconciliation-page .site-footer {
+    border-top: 1px solid rgba(181, 207, 240, 0.12);
+}
+
+/* =========================================================
+   RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 1150px) {
+    .recon-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .recon-filter-panel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .recon-reset-button {
+        align-self: end;
+    }
+
+    .recon-hero-content {
+        gap: 35px;
+    }
+
+    .recon-hero-visual {
+        transform: scale(0.94);
+    }
+}
+
+@media (max-width: 900px) {
+    .recon-hero {
+        padding: 60px 0 48px;
+    }
+
+    .recon-hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .recon-hero-copy {
+        max-width: 760px;
+    }
+
+    .recon-hero-visual {
+        width: min(100%, 520px);
+        min-height: 340px;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .recon-principles-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .recon-workflow-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recon-workflow-card {
+        padding: 24px;
+    }
+
+    .recon-section-heading {
+        align-items: flex-start;
+    }
+
+    .recon-period-label {
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+    .reconciliation-page .container {
+        width: min(100% - 28px, 1440px);
+    }
+
+    .recon-hero {
+        padding: 44px 0 35px;
+    }
+
+    .recon-hero-copy h1 {
+        font-size: clamp(2.1rem, 10vw, 3.1rem);
+    }
+
+    .recon-hero-copy > p {
+        font-size: 0.91rem;
+        line-height: 1.8;
+    }
+
+    .recon-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .recon-hero-actions .button {
+        width: 100%;
+    }
+
+    .recon-hero-visual {
+        min-height: 300px;
+        transform: scale(0.94);
+        transform-origin: center;
+    }
+
+    .recon-orbit-one {
+        width: 245px;
+        height: 245px;
+    }
+
+    .recon-orbit-two {
+        width: 325px;
+        height: 325px;
+    }
+
+    .recon-visual-center {
+        width: 175px;
+        min-height: 155px;
+    }
+
+    .recon-node-board {
+        top: 3px;
+        right: -5px;
+    }
+
+    .recon-node-institution {
+        bottom: 35px;
+        left: -5px;
+    }
+
+    .recon-visual-node {
+        gap: 8px;
+        max-width: 215px;
+        padding: 10px 11px;
+    }
+
+    .recon-node-icon {
+        width: 31px;
+        height: 31px;
+        border-radius: 10px;
+    }
+
+    .recon-visual-caption {
+        font-size: 0.67rem;
+    }
+
+    .recon-dashboard-section {
+        padding: 28px 0 55px;
+    }
+
+    .recon-prototype-notice {
+        gap: 11px;
+        padding: 15px;
+    }
+
+    .recon-prototype-notice p {
+        font-size: 0.77rem;
+    }
+
+    .recon-section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-top: 42px;
+    }
+
+    .recon-section-heading h2 {
+        font-size: 1.55rem;
+    }
+
+    .recon-period-label {
+        margin-top: 0;
+    }
+
+    .recon-summary-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .recon-summary-card {
+        padding: 18px;
+    }
+
+    .recon-card-value {
+        margin: 15px 0 8px;
+        font-size: 2rem;
+    }
+
+    .recon-summary-difference .recon-card-value {
+        font-size: 1.65rem;
+    }
+
+    .recon-principles-card {
+        padding: 19px;
+        border-radius: 17px;
+    }
+
+    .recon-principles-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .recon-principle-warning {
+        padding: 13px;
+    }
+
+    .recon-records-heading {
+        gap: 15px;
+    }
+
+    .recon-records-heading > .button {
+        width: 100%;
+    }
+
+    .recon-filter-panel {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .recon-reset-button {
+        width: 100%;
+    }
+
+    .recon-table-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .recon-table-legend {
+        gap: 7px;
+    }
+
+    .recon-table-footer {
+        flex-direction: column;
+        padding: 14px 16px;
+        line-height: 1.6;
+    }
+
+    .recon-workflow-section {
+        margin-top: 45px;
+    }
+
+    .recon-workflow-card {
+        padding: 22px;
+    }
+
+    .recon-record-form-panel {
+        padding: 19px;
+        border-radius: 18px;
+    }
+
+    .recon-form-heading h2 {
+        font-size: 1.45rem;
+    }
+
+    .recon-form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .recon-form-field-wide {
+        grid-column: auto;
+    }
+
+    .recon-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .recon-form-actions .button {
+        width: 100%;
+    }
+
+    .recon-integrity-note {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 38px;
+        padding: 22px;
+    }
+
+    .recon-integrity-note h2 {
+        font-size: 1.3rem;
+    }
+
+    .recon-integrity-note p {
+        font-size: 0.81rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reconciliation-page *,
+    .reconciliation-page *::before,
+    .reconciliation-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
